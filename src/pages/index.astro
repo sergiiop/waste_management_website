@@ -10,77 +10,242 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Tesla - El coche de tus sueños (y de Elon Musk)">
+<Layout title="Sistema interno para el manejo de residuos peligrosos">
   <!-- <LandingHeader /> -->
 
   <main
     class="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth"
   >
-	<h1>
-		Hello
-	</h1>
     <div class="snap-center">
-      <section>
-        <div>
-          <h1>Introducción</h1>
-          <div>
-            <p>El correcto manejo de residuos peligrosos es una prioridad actualmente en cualquier lugar donde se generen, es un requisito de cada institución, organización, empresa, industria, entre otros contar con un desempeño solido en el control de los impactos de actividades, productos y servicios sobre el medio ambiente, de acuerdo con su política y objetivo ambiental. El manejo adecuado de los productos químicos residuales es un punto importante en la conservación de la naturaleza específicamente en la protección del aire, el agua y el suelo, de igual manera es crucial para preservar el bienestar físico de cada individuo. <br> Este sistema de manejo está destinado principalmente a guiar a las partes responsables a preservar su integridad física, las de los demás y la naturaleza que les rodea, a mitigar posibles accidentes dentro las instalaciones de los laboratorios, identificar los riesgos de un mal manejo de los residuos, tener claridad de los efectos de cada reactivo y su nivel de peligrosidad, todo esto amparado bajo el marco legal vigente del decreto 1076 2015, decreto 1496 de 2018 y la política ambiental de la universidad de Cartagena del del acuerdo N°6 del 22 de febrero de 2018. 
-            </p>
+      <section class="h-screen w-screen overflow-hidden relative">
+        <div class="z-30 relative w-screen h-full flex flex-col">
+          <header class="flex flex-grow justify-center items-end">
+            <h2 class="text-center text-white text-6xl font-bold">SISTEMA INTERNO PARA EL MANEJO <br> DE <br> RESIDUOS PELIGROSOS</h2>
+          </header>
+          <footer class="flex flex-grow justify-end items-center flex-col mb-24">
+            <div class="scrolldown" style="--color: skyblue">
+              <div class="chevrons">
+                  <div class="chevrondown"></div>
+                  <div class="chevrondown"></div>
+              </div>
+          </div>
+          </footer>
+        </div>
+        <div class="absolute top-0 bottom-0 w-full h-full z-10">
+          <video class="object-center object-cover w-full h-full" autoplay muted loop src="/video.webm"></video>
+        </div>
+      </section>
+    </div>
+    <div class="snap-center">
+      <section class="h-screen w-screen overflow-hidden relative container-intro">
+        <div class="introduccion ">
+          <div class="mt-5 md:mt-8 pb-14 w-11/12 rounded-xl overflow-hidden mx-auto" style="box-shadow: 0px 0px 64px -22px #1C50E6;">
+            <header class="bg-[#1843BF] text-white p-5 text-center text-xl">
+              <h2>
+                INTRODUCCIÓN
+              </h2>
+            </header>
+            <main class="p-5">
+              <p>El correcto manejo de residuos peligrosos es una prioridad actualmente en cualquier lugar donde se generen, es un requisito de cada institución, organización, empresa, industria, entre otros contar con un desempeño solido en el control de los impactos de actividades, productos y servicios sobre el medio ambiente, de acuerdo con su política y objetivo ambiental. El manejo adecuado de los productos químicos residuales es un punto importante en la conservación de la naturaleza específicamente en la protección del aire, el agua y el suelo, de igual manera es crucial para preservar el bienestar físico de cada individuo. <br> Este sistema de manejo está destinado principalmente a guiar a las partes responsables a preservar su integridad física, las de los demás y la naturaleza que les rodea, a mitigar posibles accidentes dentro las instalaciones de los laboratorios, identificar los riesgos de un mal manejo de los residuos, tener claridad de los efectos de cada reactivo y su nivel de peligrosidad, todo esto amparado bajo el marco legal vigente del decreto 1076 2015, decreto 1496 de 2018 y la política ambiental de la universidad de Cartagena del del acuerdo N°6 del 22 de febrero de 2018. 
+              </p>
+            </main>
+            <div class="md:w-48 md:mx-auto md:block hidden">
+              <img src="/assets/img/intro.jpg" alt="">
+            </div>
           </div>
         </div>
-        <div>
-          <div>
-            <h2>OBJETIVO GENERAL</h2>
-            <p>Informar a cada individuo que haga uso de las instalaciones, sobre el protocolo de manejo de residuos peligrosos dentro del laboratorio de Ingeniería Química del Campus Piedra de Bolívar, con el fin de evitar riesgos y accidentes. </p>
+        <div class="general">
+          <div class="mt-5 md:mt-8 h-5/6 w-11/12 rounded-xl overflow-hidden mx-auto" style="box-shadow: 0px 0px 64px -22px #1C50E6;">
+            <header class="bg-[#1843BF] text-white p-5 text-center text-xl">
+              <h2>
+                OBJETIVO GENERAL
+              </h2>
+            </header>
+            <footer class="p-5">
+              <p>Informar a cada individuo que haga uso de las instalaciones, sobre el protocolo de manejo de residuos peligrosos dentro del laboratorio de Ingeniería Química del Campus Piedra de Bolívar, con el fin de evitar riesgos y accidentes. </p>
+            </footer>
           </div>
-          <div>
-            <h2>OBJETIVOS ESPECÍFICOS</h2>
-            <ol>
-              <li>Identificar y caracterizar las sustancias y residuos que se generan dentro del laboratorio, para una correcta manipulación al momento de desecharlos.</li>
-              <li>Comprender cada una de las etapas de la gestión de residuos: segregación, movimiento interno, almacenamiento y disposición final.</li>
-              <li>Distinguir los espacios y elementos estipulados para el almacenamiento de desechos.</li>
-              <li>Reconocer los diferentes pasos a seguir en caso de emergencia, según su origen.</li>
-            </ol>
+        </div>
+        <div class="especificos">
+          <div class="mt-5 md:mt-8 h-5/6 w-11/12 rounded-xl overflow-hidden mx-auto" style="box-shadow: 0px 0px 64px -22px #1C50E6;">
+            <header class="bg-[#1843BF] text-white p-5 text-center text-xl">
+              <h2>
+                OBJETIVOS ESPECÍFICOS
+              </h2>
+            </header>
+            <main class="p-5">
+              <ol class="list-decimal list-inside space-y-2">
+                <li>Identificar y caracterizar las sustancias y residuos que se generan dentro del laboratorio, para una correcta manipulación al momento de desecharlos.</li>
+                <li>Comprender cada una de las etapas de la gestión de residuos: segregación, movimiento interno, almacenamiento y disposición final.</li>
+                <li>Distinguir los espacios y elementos estipulados para el almacenamiento de desechos.</li>
+                <li>Reconocer los diferentes pasos a seguir en caso de emergencia, según su origen.</li>
+              </ol>              
+            </main>
           </div>
         </div>
       </section>
     </div>
     <div class="snap-center">
-      <section>
-        <h1>
-          4.	NORMAS BASICAS DE SEGUIRIDAD A SEGUIR DENTRO DEL LABORATORIO
-        </h1>
-        <p> Todas las normas mencionadas a continuación son importantes y se deben cumplir correctamente, para evitar que ocurran accidentes dentro del laboratorio.</p>
-        <ol>
-          <li>No se podrá ingresar elementos diferentes a los necesarios para la realización de las prácticas establecidas.</li>
-          <li>No se debe consumir bebidas o ningún tipo de alimento dentro del laboratorio.</li>
-          <li>El uso de la bata es obligatorio.</li>
-          <li>La ropa y el calzado deben ser siempre adecuados y deben cubrir la mayor parte del cuerpo.</li>
-          <li>Evitar el uso de accesorios o prendas como pulseras, relojes o anillos.</li>
-          <li>Es obligatorio el uso de los diferentes elementos de seguridad como gafas, guantes y máscaras, que protegen de los riesgos que puedan llegar a ocurrir.</li>
-          <li>No disponer de los equipos para un uso diferente al de las prácticas establecidas.</li>
-          <li>No utilizar los equipos sin la autorización de los docentes o encargados del laboratorio.</li>
-          <li>Antes de hacer uso de cualquier sustancia, verificar las etiquetas y fichas de seguridad.</li>
-          <li>Al momento de almacenar sustancias, los envases siempre deben ser rotulados.</li>
-          <li>Realizar el correcto almacenamiento de cada sustancia al finalizar cada práctica.</li>
-          <li>No ingerir ninguna sustancia y en caso de contacto con la piel o con los ojos, proceder a retirar con abundante agua e informar a la persona encargada inmediatamente.</li>
-          <li>Al momento de almacenar sustancias, asegurarse de separar los no compatibles, los productos inflamables deben estar separados de los ácidos, bases y reactivos oxidantes, y los envases deben estar en un lugar donde no corran riesgo de caer y romperse.</li>
-          <li>Siempre verificar que los objetos de vidrio no estén rotos.</li>
-          <li>Preparar con anticipación el stock de productos que se va a necesitar para cada práctica; es importante extraer solo lo necesario de cada recipiente y no devolver el producto a este en caso de que haya un sobrante.</li>
-          <li>No dejar destapados los frascos ni inhalar su contenido. Algunas sustancias líquidas emiten vapores que, al inhalarlos, podrían ser tóxicos.</li>
-          <li>Al finalizar cada práctica, el área de trabajo debe quedar totalmente despejada y limpia.</li>
-          <li>Reconocer el protocolo de seguridad y todas las salidas de emergencia.</li>
-        </ol>
-        
+      <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
+        <h1 class="text-3xl text-center text-[#1843BF] font-bold mb-4">Normas básicas de seguridad a seguir dentro del laboratorio</h1>
+        <p class="mb-8 text-center">Todas las normas mencionadas a continuación son importantes y se deben cumplir correctamente para evitar que ocurran accidentes dentro del laboratorio.</p>
+    
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
+          <div class="bg-blue-200 p-4 rounded-lg">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-blue-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">No se podrá ingresar elementos diferentes a los necesarios para la realización de las prácticas establecidas.</p>
+          </div>
+    
+          <div class="bg-green-200 p-4 rounded-lg shadow-outline">
+            <div class="items-center justify-center text-2xl text-green-500 mb-4 xl:flex hidden">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">No se debe consumir bebidas o ningún tipo de alimento dentro del laboratorio.</p>
+          </div>
+    
+          <div class="bg-yellow-200 shadow-outline p-4 rounded-lg">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-yellow-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">El uso de la bata es obligatorio.</p>
+          </div>
+    
+          <div class="bg-purple-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-purple-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22s8-4 8-10V6c0-5.5-3.58-10-8-10S4 0 4 6v6c0 6 8 16 8 16zM12 22V11"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">La ropa y el calzado deben ser siempre adecuados y deben cubrir la mayor parte del cuerpo.</p>
+          </div>
+    
+          <div class="bg-red-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-red-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276a1 1 0 0 1 .894 0l3.894 1.947a1 1 0 0 0 .553-1.894L21 4l4-2-1 4-2.553 1.276a1 1 0 0 0-.553 1.894l3.894-1.947a1 1 0 0 1 .894 0L45 10m-30 2l4.553 2.276a1 1 0 0 0 .894 0L25 12l4-2-1 4-2.553 1.276a1 1 0 0 0-.553 1.894l3.894-1.947a1 1 0 0 1 .894 0L35 14m-30 2l4.553 2.276a1 1 0 0 0 .894 0L5 16l4-2-1 4-2.553 1.276a1 1 0 0 0-.553 1.894l3.894-1.947a1 1 0 0 1 .894 0L15 18m-30 2l4.553 2.276a1 1 0 0 0 .894 0L0 20l4-2-1 4-2.553 1.276a1 1 0 0 0-.553 1.894l3.894-1.947a1 1 0 0 1 .894 0L5 22m0-20l4.553 2.276a1 1 0 0 0 .894 0L0 2l4-2-1 4-2.553 1.276a1 1 0 0 0-.553 1.894l3.894-1.947a1 1 0 0 1 .894 0L5 0z"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">Evitar el uso de accesorios o prendas como pulseras, relojes o anillos.</p>
+          </div>
+    
+          <div class="bg-indigo-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-indigo-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22s8-4 8-10V6c0-5.5-3.58-10-8-10S4 0 4 6v6c0 6 8 16 8 16zM12 22V11"></path>
+              </svg>
+            </div>
+            <p class="text-xs font-bold text-center">Es obligatorio el uso de los diferentes elementos de seguridad como gafas, guantes y máscaras, que protegen de los riesgos que puedan llegar a ocurrir.</p>
+          </div>
+    
+          <div class="bg-yellow-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-yellow-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10l5 5L22 4"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">No disponer de los equipos para un uso diferente al de las prácticas establecidas.</p>
+          </div>
+    
+          <div class="bg-blue-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-blue-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5m0 0l-5-5m5 5H3"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">No utilizar los equipos sin la autorización de los docentes o encargados del laboratorio.</p>
+          </div>
+    
+          <div class="bg-green-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-green-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">Antes de hacer uso de cualquier sustancia, verificar las etiquetas y fichas de seguridad.</p>
+          </div>
+    
+          <div class="bg-purple-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-purple-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">Al momento de almacenar sustancias, los envases siempre deben ser rotulados.</p>
+          </div>
+    
+          <div class="bg-red-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-red-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">Realizar el correcto almacenamiento de cada sustancia al finalizar cada práctica.</p>
+          </div>
+    
+          <div class="bg-blue-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-blue-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4 4L19 7"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">No ingerir ninguna sustancia y en caso de contacto con la piel o con los ojos, proceder a retirar con abundante agua e informar a la persona encargada inmediatamente.</p>
+          </div>
+    
+          <div class="bg-green-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-green-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 22s8-4 8-10V6c0-5.5-3.58-10-8-10S4 0 4 6v6c0 6 8 16 8 16zM12 22V11"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">Al momento de almacenar sustancias, asegurarse de separar los no compatibles, los productos inflamables deben estar separados de los ácidos, bases y reactivos oxidantes, y los envases deben estar en un lugar donde no corran riesgo de caer y romperse.</p>
+          </div>
+    
+          <div class="bg-yellow-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-yellow-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">En caso de emergencia, conocer la ubicación de los extintores, duchas de emergencia, lavamanos de seguridad y rutas de evacuación.</p>
+          </div>
+    
+          <div class="bg-purple-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-purple-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">Informar cualquier incidente o accidente que ocurra en el laboratorio a los docentes o encargados.</p>
+          </div>
+    
+          <div class="bg-red-200 p-4 rounded-lg shadow-outline">
+            <div class="xl:flex hidden items-center justify-center text-2xl text-red-500 mb-4">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <p  class="text-xs font-bold text-center">Mantener el área de trabajo ordenada y limpia, recoger y desechar correctamente los residuos generados.</p>
+          </div>
+        </div>
       </section>
+      
     </div>
     <div class="snap-center">
-      <section>
-        <h1>5.	CLASIFICACIÓN Y ETIQUETADO DE RESIDUOS PELIGROSOS</h1>
+      <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
+        <header>
+          <h1 class="text-3xl text-center text-[#1843BF] font-bold mb-4">CLASIFICACIÓN Y ETIQUETADO DE RESIDUOS PELIGROSOS</h1>
+          <p class="mb-8 text-center">Los residuos generados en los laboratorios se clasifican en diversas categorías dependiendo de su peligrosidad y su naturaleza. A continuación, se puede observar la clasificación y respectiva etiqueta de los residuos más comunes generados en laboratorios químicos, a los cuales se les ha asignado una etiqueta con un color específico para cada uno de ellos, con el fin de poder diferenciarlos con mayor facilidad</p>
+        </header>
 
-        <p>Los residuos generados en los laboratorios se clasifican en diversas categorías dependiendo de su peligrosidad y su naturaleza. A continuación, se puede observar la clasificación y respectiva etiqueta de los residuos más comunes generados en laboratorios químicos, a los cuales se les ha asignado una etiqueta con un color específico para cada uno de ellos, con el fin de poder diferenciarlos con mayor facilidad</p>
-
-        <div>
+        <div class="max-w-7xl mx-auto">
           <table>
             <thead>
               <tr>
@@ -89,7 +254,7 @@ import Layout from "../layouts/Layout.astro";
                 <th>Etiqueta</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
               <tr>
                 <td>Disolventes halogenados</td>
                 <td>Líquidos orgánicos que contienen más de 2% de halógenos. Eje: cloruro de metileno</td>
@@ -163,4 +328,120 @@ import Layout from "../layouts/Layout.astro";
   th {
     background-color: #f2f2f2;
   }
+
+  .title{
+    font-size: 3rem;
+    font-weight: 700;
+    color: transparent;
+    background-image: linear-gradient(180deg, #A6F71B, #309409);
+    background-clip: text;
+    -webkit-background-clip: text;
+    letter-spacing: -0.015em;
+  }
+
+  .scrolldown {
+  --color: white;
+  --sizeX: 30px;
+  --sizeY: 50px;
+  position: relative;
+  width: var(--sizeX);
+  height: var(--sizeY);
+  margin-left: var(sizeX / 2);
+  border: calc(var(--sizeX) / 10) solid var(--color);
+  border-radius: 50px;
+  box-sizing: border-box;
+  margin-bottom: 16px;
+  cursor: pointer;
+}
+
+.scrolldown::before {
+  content: "";
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  margin-left: -3px;
+  background-color: var(--color);
+  border-radius: 100%;
+  animation: scrolldown-anim 2s infinite;
+  box-sizing: border-box;
+  box-shadow: 0px -5px 3px 1px #2a547066;
+}
+
+@keyframes scrolldown-anim {
+  0% {
+    opacity: 0;
+    height: 6px;
+  }
+
+  40% {
+    opacity: 1;
+    height: 10px;
+  }
+
+  80% {
+    transform: translate(0, 20px);
+    height: 10px;
+    opacity: 0;
+  }
+
+  100% {
+    height: 3px;
+    opacity: 0;
+  }
+}
+
+.chevrons {
+  padding: 6px 0 0 0;
+  margin-left: -3px;
+  margin-top: 48px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chevrondown {
+  margin-top: -6px;
+  position: relative;
+  border: solid var(--color);
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  transform: rotate(45deg);
+}
+
+.chevrondown:nth-child(odd) {
+  animation: pulse54012 500ms ease infinite alternate;
+}
+
+.chevrondown:nth-child(even) {
+  animation: pulse54012 500ms ease infinite alternate 250ms;
+}
+
+@keyframes pulse54012 {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 0.5;
+  }
+}
+
+.container-intro {
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr 1fr 1fr; 
+  gap: 0px 30px; 
+  grid-template-areas: 
+    "introduccion general"
+    "introduccion especificos"
+    "introduccion especificos"; 
+}
+.general { grid-area: general; }
+.introduccion { grid-area: introduccion; }
+.especificos { grid-area: especificos; }
 </style>

@@ -9,7 +9,7 @@ module.exports = {
 				white: '#fff',
 			},
 			fontFamily: {
-				sans: ['GothamBold, sans-serif']
+				sans: ['Gotham SSm A, sans-serif']
 			},
 		},
 	},
