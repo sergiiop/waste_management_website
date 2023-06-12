@@ -10,6 +10,7 @@
 import { Callout, CalloutProps,  } from "@tremor/react";
 import { ExclamationIcon, CheckCircleIcon, InformationCircleIcon, XCircleIcon, ExclamationCircleIcon } from "@heroicons/react/solid";
 import Layout from "../layouts/Layout.astro";
+import Table from './../components/Table.tsx'
 
 type Norma = {
   description: string;
@@ -85,6 +86,34 @@ const normas: Norma[] = [
   },
   
 ]
+
+const pictogramasPeligrosos = [
+  {
+    title: 'Explosivos',
+    image: '/assets/img/pictograma-laboratorio-explosivo.jpg',
+    items: [
+      {
+        description: 'Explosivos',
+      }
+    ],
+    meaning: [
+      {
+        description: 'Explosivos',
+      }
+    ],
+    findExamples: [
+      {
+        description: 'Explosivos',
+      }
+    ],
+    tipsExample: [
+      {
+        description: 'Explosivos',
+      }
+    ]
+  }
+]
+
 ---
 
 <Layout title="Sistema interno para el manejo de residuos peligrosos">
@@ -97,15 +126,20 @@ const normas: Norma[] = [
       <section class="h-screen w-screen overflow-hidden relative">
         <div class="z-30 relative w-screen h-full flex flex-col">
           <header class="flex flex-grow justify-center items-end">
-            <h2 class="text-center text-white text-6xl font-bold">SISTEMA INTERNO PARA EL MANEJO <br> DE <br> RESIDUOS PELIGROSOS</h2>
+            <div class="p-6 bg-black opacity-80 rounded-lg">
+              <h2 class="text-center text-white text-6xl font-bold">SISTEMA INTERNO PARA EL MANEJO <br> DE <br> RESIDUOS PELIGROSOS</h2>
+            </div>
           </header>
           <footer class="flex flex-grow justify-end items-center flex-col mb-24">
-            <div class="scrolldown" style="--color: skyblue">
-              <div class="chevrons">
-                  <div class="chevrondown"></div>
-                  <div class="chevrondown"></div>
+            <div class="p-2 bg-black opacity-80 rounded-3xl">
+
+              <div class="scrolldown" style="--color: skyblue">
+                <div class="chevrons">
+                    <div class="chevrondown"></div>
+                    <div class="chevrondown"></div>
+                </div>
               </div>
-          </div>
+            </div>
           </footer>
         </div>
         <div class="absolute top-0 bottom-0 w-full h-full z-10">
@@ -167,7 +201,7 @@ const normas: Norma[] = [
         <h1 class="text-3xl text-center text-[#1843BF] font-bold mb-4">Normas básicas de seguridad a seguir dentro del laboratorio</h1>
         <p class="mb-8 text-center">Todas las normas mencionadas a continuación son importantes y se deben cumplir correctamente para evitar que ocurran accidentes dentro del laboratorio.</p>
     
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[repeat(auto-fill,minmax(250px,1fr))] gap-4">
+        <div class="grid max-w-7xl mx-auto overflow-y-scroll grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-4">
           {normas.map((norma) => (
             <Callout title='' icon={norma.icon} color={norma.color}>
               {norma.description}
@@ -179,71 +213,88 @@ const normas: Norma[] = [
     </div>
     <div class="snap-center">
       <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
-        <header>
-          <h1 class="text-3xl text-center text-[#1843BF] font-bold mb-4">CLASIFICACIÓN Y ETIQUETADO DE RESIDUOS PELIGROSOS</h1>
-          <p class="mb-8 text-center">Los residuos generados en los laboratorios se clasifican en diversas categorías dependiendo de su peligrosidad y su naturaleza. A continuación, se puede observar la clasificación y respectiva etiqueta de los residuos más comunes generados en laboratorios químicos, a los cuales se les ha asignado una etiqueta con un color específico para cada uno de ellos, con el fin de poder diferenciarlos con mayor facilidad</p>
-        </header>
-
-        <div class="max-w-7xl mx-auto">
-          <table>
-            <thead>
-              <tr>
-                <th>Compuesto químico</th>
-                <th>Observaciones</th>
-                <th>Etiqueta</th>
-              </tr>
-            </thead>
-            <tbody class="text-center">
-              <tr>
-                <td>Disolventes halogenados</td>
-                <td>Líquidos orgánicos que contienen más de 2% de halógenos. Eje: cloruro de metileno</td>
-                <td style="background-color: orange;"></td>
-              </tr>
-              <tr>
-                <td>Disolventes no halogenados</td>
-                <td>Líquidos orgánicos inflamables que contengan menos de 2% de halógenos. Evitar mezclar disolventes que sean inmiscibles. Eje: alcoholes, aldehídos, amidas, cetonas, esteres, nitrilos, glicoles, hidrocarburos alifáticos y aromáticos</td>
-                <td style="background-color: green;"></td>
-              </tr>
-              <tr>
-                <td>Disoluciones acuosas</td>
-                <td>Soluciones acuosas básicas: NaOH, KOH soluciones acuosas de metales pesados Ni, Ag, Cd, Se soluciones acuosas inorgánicas son: sulfatos, fosfatos, cloruro soluciones orgánicas: formol, fenol</td>
-                <td style="background-color: blue;"></td>
-              </tr>
-              <tr>
-                <td>Ácidos</td>
-                <td>Líquidos con ácido inorgánicos como HCL, HF, HNO3, etc. Precaución con mezclar los ácidos entre sí ya que son muy reactivos</td>
-                <td style="background-color: red;"></td>
-              </tr>
-              <tr>
-                <td>Bases</td>
-                <td>Soluciones básicas. Ej: Hidróxido sódico (sosa), Hidróxido potásico, etc.</td>
-                <td style="background-color: brown;"></td>
-              </tr>
-              <tr>
-                <td>Aceites</td>
-                <td>Aceites minerales</td>
-                <td style="background-color: yellow;"></td>
-              </tr>
-              <tr>
-                <td>Sólidos</td>
-                <td>Productos orgánicos e inorgánicos y material desechable contaminado con productos químicos</td>
-                <td></td>
-              </tr>
-              <tr>
-                <td>Especiales</td>
-                <td>Reactivos puros obsoletos o vencidos. Ej: comburentes, magnesio, metálicos en polvo, cloruro de ácidos, metales alcalinos, hidruros, entre otros</td>
-                <td style="background-color: purple;"></td>
-              </tr>
-            </tbody>
-          </table>          
-        </div>
-
+        <Table />
       </section>
     </div>
     <div class="snap-center">
-      <section>
-        <h1>6.	PICTOGRAMAS DE PELIGROS</h1>
+      <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
+        
+        <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">PICTOGRAMAS DE PELIGROS</span></h1>
         <p>Los pictogramas de peligro químico son símbolos gráficos utilizados para indicar los riesgos asociados al uso de sustancias químicas. Estos pictogramas se utilizan en los envases de sustancias o mezclas químicas con el fin de advertir a los usuarios sobre los peligros físicos y los riesgos para la salud que pueden presentar</p>
+        <swiper-container slides-per-view="3" speed="500" loop="true" css-mode="true" navigation="true" class="px-12 max-w-screen-2xl gap-4">
+        <swiper-slide>
+        </swiper-slide>
+          <swiper-slide>
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <div class="w-3/6 mx-auto">
+                      <img src={pictogramasPeligrosos[0].image} alt="Pictograma peligroso">
+                    </div>
+                      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{pictogramasPeligrosos[0].title}</h3>
+                      <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                      {
+                        pictogramasPeligrosos[0].items.map((item) => (
+                          <li>
+                              {item.description}
+                          </li>
+                          ))
+                      }
+                        </ul>
+                  </div>
+                  <div class="flip-card-back">
+                    <div>
+                      <h3 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">¿Qué Significa?</h3>
+                      <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                      {
+                        pictogramasPeligrosos[0].meaning.map((item) => (
+                          <li>{item.description}</>
+                        ))
+                      }
+                      </ul>
+                    </div>
+                    <div class="border-t"></div>
+                    <div>
+                      <h3 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Ejemplos de dónde pueden encontrarse</h3>
+                      <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                      {
+                        pictogramasPeligrosos[0].findExamples.map((item) => (
+                          <li>{item.description}</li>
+                        ))
+                      }
+                      </ul>
+                    </div>
+                    <div class="border-t"></div>
+                    <div>
+                      <h3>Ejemplos de consejos de prudencia</h3>
+                      {
+                        pictogramasPeligrosos[0].tipsExample.map((item) => (
+                          <p>{item.description}</p>
+                        ))
+                      }
+                    </div>
+                  </div>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide>
+            <div class="bg-transparent w-48 h-64 perspective-1000 font-sans">
+              <div class="text-center transition-transform transform-style-preserve-3d hover:rotate-y-180">
+                <div class="shadow-lg absolute flex flex-col justify-center w-full h-full backface-hidden border border-coral rounded-lg bg-gradient-to-br from-bisque to-rgb(255, 211, 195)">
+                  <p class="text-2xl font-extrabold mb-2">FLIP CARD</p>
+                  <p>Hover Me</p>
+                </div>
+                <div class="shadow-lg absolute flex flex-col justify-center w-full h-full backface-hidden border border-coral rounded-lg bg-gradient-to-br from-rgb(255, 174, 145) to-coral transform rotate-y-180">
+                  <p class="text-2xl font-extrabold mb-2">BACK</p>
+                  <p>Leave Me</p>
+                </div>
+              </div>
+            </div>
+          </swiper-slide>
+          <swiper-slide>Slide 2</swiper-slide>
+          <swiper-slide>Slide 2</swiper-slide>
+          <swiper-slide>Slide 3</swiper-slide>
+        </swiper-container>
       </section>
     </div>
     <div class="snap-center">
@@ -256,7 +307,7 @@ const normas: Norma[] = [
 </Layout>
 
 <style>
-  table {
+  /* table {
     border-collapse: collapse;
     width: 100%;
   }
@@ -266,7 +317,7 @@ const normas: Norma[] = [
   }
   th {
     background-color: #f2f2f2;
-  }
+  } */
 
   .title{
     font-size: 3rem;
@@ -306,6 +357,10 @@ const normas: Norma[] = [
   animation: scrolldown-anim 2s infinite;
   box-sizing: border-box;
   box-shadow: 0px -5px 3px 1px #2a547066;
+}
+
+img {
+  mix-blend-mode: multiply;
 }
 
 @keyframes scrolldown-anim {
@@ -383,4 +438,58 @@ const normas: Norma[] = [
 .general { grid-area: general; }
 .introduccion { grid-area: introduccion; }
 .especificos { grid-area: especificos; }
+
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+  font-family: sans-serif;
+  margin-block: 20px;
+  padding-inline: 10px;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid gray;
+  border-radius: 1rem;
+}
+
+.flip-card-front {
+  background: linear-gradient(to right, #FFFFFF, #E6E6E6);
+  color: black;
+}
+
+.flip-card-back {
+  background: linear-gradient(to right, #FFFFFF, #E6E6E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: black;
+  transform: rotateY(180deg);
+}
 </style>
