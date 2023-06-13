@@ -7,113 +7,517 @@
 // import ModelX from "../components/ModelX.astro";
 // import ModelY from "../components/ModelY.astro";
 // import PowerWall from "../components/PowerWall.astro";
-import { Callout, CalloutProps,  } from "@tremor/react";
-import { ExclamationIcon, CheckCircleIcon, InformationCircleIcon, XCircleIcon, ExclamationCircleIcon } from "@heroicons/react/solid";
+import { Callout, CalloutProps } from "@tremor/react";
+import {
+  ExclamationIcon,
+  CheckCircleIcon,
+  InformationCircleIcon,
+  XCircleIcon,
+  ExclamationCircleIcon,
+} from "@heroicons/react/solid";
 import Layout from "../layouts/Layout.astro";
-import Table from './../components/Table.tsx'
+import Table from "./../components/Table.tsx";
+import ElementsSecurity from "./../components/ElementsSecurity.tsx";
+import AccordionComponent from "./../components/AccordionComponent.tsx";
+import DataTablePaginada from "./../components/DataTablePaginada.tsx";
 
 type Norma = {
   description: string;
   color: CalloutProps["color"];
   icon: any;
-}
+};
 
 const normas: Norma[] = [
   {
-    description: 'No se podrá ingresar elementos diferentes a los necesarios para la realización de las prácticas establecidas.',
-    color: 'red',
+    description:
+      "No se podrá ingresar elementos diferentes a los necesarios para la realización de las prácticas establecidas.",
+    color: "red",
     icon: XCircleIcon,
   },
   {
-    description: 'No se debe consumir bebidas o ningún tipo de alimento dentro del laboratorio.',
-    color: 'red',
+    description:
+      "No se debe consumir bebidas o ningún tipo de alimento dentro del laboratorio.",
+    color: "red",
     icon: XCircleIcon,
   },
   {
-    description: 'El uso de la bata es obligatorio.',
-    color: 'sky',
+    description: "El uso de la bata es obligatorio.",
+    color: "sky",
     icon: InformationCircleIcon,
   },
   {
-    description: 'La ropa y el calzado deben ser siempre adecuados y deben cubrir la mayor parte del cuerpo.',
-    color: 'sky',
+    description:
+      "La ropa y el calzado deben ser siempre adecuados y deben cubrir la mayor parte del cuerpo.",
+    color: "sky",
     icon: InformationCircleIcon,
   },
   {
-    description: 'Evitar el uso de accesorios o prendas como pulseras, relojes o anillos.',
-    color: 'yellow',
+    description:
+      "Evitar el uso de accesorios o prendas como pulseras, relojes o anillos.",
+    color: "yellow",
     icon: ExclamationIcon,
   },
   {
-    description: 'Es obligatorio el uso de los diferentes elementos de seguridad como gafas, guantes y máscaras, que protegen de los riesgos que puedan llegar a ocurrir.',
-    color: 'fuchsia',
+    description:
+      "Es obligatorio el uso de los diferentes elementos de seguridad como gafas, guantes y máscaras, que protegen de los riesgos que puedan llegar a ocurrir.",
+    color: "fuchsia",
     icon: ExclamationCircleIcon,
   },
   {
-    description: 'Antes de hacer uso de cualquier sustancia, verificar las etiquetas y fichas de seguridad.',
-    color: 'fuchsia',
+    description:
+      "Antes de hacer uso de cualquier sustancia, verificar las etiquetas y fichas de seguridad.",
+    color: "fuchsia",
     icon: ExclamationCircleIcon,
   },
   {
-    description: 'Al momento de almacenar sustancias, los envases siempre deben ser rotulados.',
-    color: 'sky',
+    description:
+      "Al momento de almacenar sustancias, los envases siempre deben ser rotulados.",
+    color: "sky",
     icon: InformationCircleIcon,
   },
   {
-    description: 'No ingerir ninguna sustancia y en caso de contacto con la piel o con los ojos, proceder a retirar con abundante agua e informar a la persona encargada inmediatamente.',
-    color: 'red',
+    description:
+      "No ingerir ninguna sustancia y en caso de contacto con la piel o con los ojos, proceder a retirar con abundante agua e informar a la persona encargada inmediatamente.",
+    color: "red",
     icon: ExclamationIcon,
   },
   {
-    description: 'Al momento de almacenar sustancias, asegurarse de separar los no compatibles, los productos inflamables deben estar separados de los ácidos, bases y reactivos oxidantes, y los envases deben estar en un lugar donde no corran riesgo de caer y romperse.',
-    color: 'fuchsia',
+    description:
+      "Al momento de almacenar sustancias, asegurarse de separar los no compatibles, los productos inflamables deben estar separados de los ácidos, bases y reactivos oxidantes, y los envases deben estar en un lugar donde no corran riesgo de caer y romperse.",
+    color: "fuchsia",
     icon: ExclamationCircleIcon,
   },
   {
-    description: 'En caso de emergencia, conocer la ubicación de los extintores, duchas de emergencia, lavamanos de seguridad y rutas de evacuación.',
-    color: 'sky',
+    description:
+      "En caso de emergencia, conocer la ubicación de los extintores, duchas de emergencia, lavamanos de seguridad y rutas de evacuación.",
+    color: "sky",
     icon: ExclamationCircleIcon,
   },
   {
-    description: 'Informar cualquier incidente o accidente que ocurra en el laboratorio a los docentes o encargados.',
-    color: 'sky',
+    description:
+      "Informar cualquier incidente o accidente que ocurra en el laboratorio a los docentes o encargados.",
+    color: "sky",
     icon: InformationCircleIcon,
   },
   {
-    description: 'Mantener el área de trabajo ordenada y limpia, recoger y desechar correctamente los residuos generados.',
-    color: 'fuchsia',
+    description:
+      "Mantener el área de trabajo ordenada y limpia, recoger y desechar correctamente los residuos generados.",
+    color: "fuchsia",
     icon: ExclamationCircleIcon,
   },
-  
-]
+];
 
 const pictogramasPeligrosos = [
   {
-    title: 'Explosivos',
-    image: '/assets/img/pictograma-laboratorio-explosivo.jpg',
+    title: "Peligro para la salud",
+    image: "/assets/img/pictograma-laboratorio-peligro-salud.jpg",
     items: [
       {
-        description: 'Explosivos',
-      }
+        description: "Carcinógeno",
+      },
+      {
+        description: "Mutagenicidad",
+      },
+      {
+        description: "Toxicidad Reproductiva",
+      },
+      {
+        description: "Sensibilizador respiratorio",
+      },
+      {
+        description: "Toxicidad específica en órganos",
+      },
+      {
+        description: "Toxicidad por aspiración",
+      },
     ],
     meaning: [
       {
-        description: 'Explosivos',
-      }
+        description:
+          "Puede ser mortal en caso de ingestión y penetración en las vías respiratorias",
+      },
+      {
+        description: "Perjudica a determinados órganos",
+      },
+      {
+        description: "Puede perjudicar a determinados órganos",
+      },
+      {
+        description: "Puede perjudicar la fertilidad o al feto",
+      },
+      {
+        description: "Se sospecha que daña la fertilidad o al feto",
+      },
+      {
+        description: "Puede provocar cáncer",
+      },
+      {
+        description: "Se sospecha que provoca cáncer",
+      },
+      {
+        description: "Puede provocar defectos genéticos",
+      },
+      {
+        description:
+          "Puede provocar síntomas de alergia o asma o dificultades respiratorias en caso de inhalación",
+      },
+      
     ],
     findExamples: [
       {
-        description: 'Explosivos',
-      }
+        description: "Trementina, gasolina, aceite para lámparas",
+      },
     ],
     tipsExample: [
       {
-        description: 'Explosivos',
-      }
-    ]
-  }
+        description:
+          "En caso de ingestión: llamar inmediatamente a un CENTRO de información toxicológica o a un médico",
+      },
+      {
+        description: "NO provocar el vómito",
+      },
+      {
+        description: "Guardar bajo llave",
+      },
+      {
+        description:
+          "No respirar el polvo/el humo/el gas/la niebla/los vapores/el aerosol",
+      },
+      {
+        description: "Lavarse concienzudamente tras la manipulación",
+      },
+      {
+        description: "No comer, beber ni fumar durante su utilización",
+      },
+      {
+        description: "Consultar a un médico en caso de malestar",
+      },
+      {
+        description:
+          "En caso de exposición: llamar a un CENTRO de información toxicológica o a un médico",
+      },
+      {
+        description: "Solicitar instrucciones especiales antes del uso",
+      },
+      {
+        description:
+          "No manipular la sustancia antes de haber leído y comprendido todas las instrucciones de seguridad",
+      },
+      {
+        description: "Utilizar el equipo de protección individual obligatorio",
+      },
+      {
+        description:
+          "En caso de exposición manifiesta o presunta: consultar a un médico",
+      },
+      {
+        description:
+          "Evitar respirar el polvo/el humo/el gas/la niebla/los vapores/el aerosol",
+      },
+      {
+        description:
+          "En caso de ventilación insuficiente, llevar equipo de protección respiratoria",
+      },
+      {
+        description:
+          "En caso de inhalación: si respira con dificultad, transportar a la víctima al exterior y mantenerla en reposo, en una posición en la que pueda respirar confortablemente",
+      },
+    ],
+  },
+  {
+    title: "Llama",
+    image: "/assets/img/pictograma-laboratorio-inflamable.jpg",
+    items: [
+      {
+        description: "Inflamables",
+      },
+      {
+        description: "Pirofóricos",
+      },
+      {
+        description: "Autocalentamiento",
+      },
+      {
+        description: "Emite gas inflamable",
+      },
+      {
+        description: "Auto-Reacciones",
+      },
+      {
+        description: "Peróxidos orgánicos",
+      },
+    ],
+    meaning: [
+      {
+        description: "Gas extremadamente inflamable",
+      },
+      {
+        description: "Gas inflamable",
+      },
+      {
+        description: "Aerosol extremadamente inflamable",
+      },
+      {
+        description: "Aerosol inflamable",
+      },
+      {
+        description: "Líquido y vapores muy inflamables",
+      },
+      {
+        description: "Líquido y vapores inflamables",
+      },
+      {
+        description: "Sólidos inflamables",
+      },
+    ],
+    findExamples: [
+      {
+        description: "Aceite para lámparas, gasolina, quitaesmaltes",
+      },
+    ],
+    tipsExample: [
+      {
+        description:
+          "No pulverizar sobre una llama abierta u otra fuente de ignición",
+      },
+      {
+        description:
+          "Mantener alejado de fuentes de calor, chispas, llama abierta o superficies calientes – No fumar",
+      },
+      {
+        description: "Mantener el recipiente cerrado herméticamente",
+      },
+      {
+        description: "Mantener en lugar fresco",
+      },
+      {
+        description: "Proteger de la luz del sol",
+      },
+    ],
+  },
+  {
+    title: "Signo de exclamación",
+    image: "/assets/img/pictograma-peligro-grave.jpg",
+    items: [
+      { description: "Irritante (piel y ojos)" },
+      { description: "Sensibilizador de la piel" },
+      { description: "Toxicidad aguda (nociva)" },
+      { description: "Efectos narcóticos" },
+      { description: "Irritante del tracto respiratorio" },
+      { description: "Peligroso para la capa de ozono (No obligatorio)" }
+    ],
+    meaning: [
+    { description: "Puede irritar las vías respiratorias" },
+    { description: "Puede provocar somnolencia o vértigo" },
+    { description: "Puede provocar una reacción alérgica en la piel" },
+    { description: "Provoca irritación ocular grave" },
+    { description: "Provoca irritación cutánea" },
+    { description: "Nocivo en caso de ingestión" },
+    { description: "Nocivo en contacto con la piel" },
+    { description: "Nocivo en caso de inhalación" },
+    { description: "Nociva para la salud pública y el medio ambiente por destruir el ozono estratosférico" }
+    ],
+    findExamples: [
+    { description: "Detergentes para lavadoras" },
+    { description: "Limpiadores de inodoros" },
+    { description: "Líquidos refrigerantes" }
+    ],
+    tipsExample: [
+    { description: "Evitar respirar el polvo/el humo/el gas/la niebla/los vapores/el aerosol" },
+  { description: "Utilizar únicamente en exteriores o en un lugar bien ventilado" },
+  { description: "En caso de inhalación: transportar a la víctima al exterior y mantenerla en reposo en una posición confortable para respirar" },
+  { description: "En caso de ingestión: llamar a un CENTRO de información toxicológica o a un médico en caso de malestar" },
+  { description: "Llevar guantes/prendas/gafas/máscara de protección" },
+  { description: "En caso de contacto con la piel: lavar con agua y jabón abundantes" },
+  { description: "En caso de contacto con los ojos: aclarar cuidadosamente con agua durante varios minutos. Quitar las lentes de contacto, si lleva y resulta fácil. Seguir aclarando" },
+  { description: "No comer, beber ni fumar durante su utilización" }
+    ],
+  },
+  {
+    title: "Cilindro de Gas",
+    image: "/assets/img/pictograma-laboratorio-gas-presion.jpg",
+    items: [
+      { description: "•	Gases bajo presión" }
+    ],
+    meaning: [
+    { description: "Contiene gas a presión; peligro de explosión en caso de calentamiento" },
+  { description: "Contiene gas refrigerado; puede provocar quemaduras o lesiones criogénicas" }
+    ],
+    findExamples: [
+    { description: "Botellas de gas" }
+    ],
+    tipsExample: [
+    { description: "Proteger de la luz del sol" },
+  { description: "Llevar guantes/gafas/máscara que aíslen del frío" },
+  { description: "Consultar a un médico inmediatamente" }
+    ],
+  },
+  {
+    title: "Corrosión",
+    image: "/assets/img/pictograma-laboratorio-corrosivo.jpg",
+    items: [
+      { description: "Corrosión / quemaduras en la piel" },
+      { description: "Daño ocular" },
+      { description: "Corrosivo a los metales" }
+    ],
+    meaning: [
+    { description: "Puede ser corrosivo para los metales" },
+  { description: "Provoca quemaduras graves en la piel y lesiones oculares graves" }
+    ],
+    findExamples: [
+    { description: "Desatascadores de tuberías" },
+  { description: "Ácido acético" },
+  { description: "Ácido hidroclorídrico" },
+  { description: "Amoníaco" }
+    ],
+    tipsExample: [
+    { description: "No respirar el polvo/el humo/el gas/la niebla/los vapores/el aerosol" },
+  { description: "Lavarse concienzudamente tras la manipulación" },
+  { description: "Llevar guantes/prendas/gafas/máscara de protección" },
+  { description: "Guardar bajo llave" },
+  { description: "Conservar únicamente en el recipiente original" }
 ]
+},
+{
+  title: "Bomba explosiva",
+  image: "/assets/img/pictograma-laboratorio-explosivo.jpg",
+  items: [
+    { description: "Explosivos" },
+    { description: "Reactivos propios" },
+    { description: "Peróxidos orgánicos" }
+  ],
+  meaning: [
+    {
+      description: "Explosivo inestable"
+    },
+    {
+      description: "Explosivo, peligro de explosión en masa"
+    },
+    {
+      description: "Explosivo, grave peligro de proyección"
+    },
+    {
+      description: "Explosivo, peligro de incendio, de onda expansiva o de proyección"
+    },
+    {
+      description: "Peligro de explosión en masa en caso de incendio"
+    }
+  ],
+  findExamples: [
+    { description: "Fuegos artificiales" },
+    { description: "Municion" }
+  ],
+  tipsExample: [
+    { description: "Solicitar instrucciones especiales antes del uso" },
+    { description: "No manipular la sustancia antes de haber leído y comprendido todas las instrucciones de seguridad" },
+    { description: "Mantener alejado de fuentes de calor, chispas, llama abierta o superficies calientes - No fumar" },
+    { description: "Llevar guantes/prendas/gafas/máscara de protección" },
+    { description: "Utilizar el equipo de protección individual obligatorio" },
+    { description: "Riesgo de explosión en caso de incendio" }
+  ],
+},
+  {
+    title: "Llama sobre un círculo",
+    image: "/assets/img/pictograma-laboratorio-comburente.jpg",
+    items: [
+      { description: "Oxidantes" }
+    ],
+    meaning: [
+    { description: "Puede provocar o agravar un incendio; comburente" },
+  { description: "Puede provocar un incendio o una explosión; muy comburente" },
+    ],
+    findExamples: [
+    { description: "Lejía" },
+  { description: "Oxígeno para usos médicos" },
+    ],
+    tipsExample: [
+    { description: "Mantener alejado de fuentes de calor, chispas, llama abierta o superficies calientes - No fumar" },
+  { description: "Llevar guantes/prendas/gafas/máscara de protección" },
+  { description: "Aclarar inmediatamente con agua abundante las prendas y la piel contaminadas antes de quitarse la ropa" }
+    ],
+  },
+  {
+  title: "Medio ambiente",
+  image: "/assets/img/pictograma-peligro-medio-ambiental.jpg",
+  items: [
+    { description: "Toxicidad acuática" },
+  ],
+  meaning: [
+  { description: "Muy tóxico para los organismos acuáticos, con efectos nocivos duraderos" },
+  { description: "Tóxico para los organismos acuáticos, con efectos nocivos duraderos" },
+  ],
+  findExamples: [
+  { description: "Plaguicidas" },
+  { description: "Biocidas" },
+  { description: "Gasolina" },
+  { description: "Trementina" },
+  ],
+  tipsExample: [
+  { description: "Evitar su liberación al medio ambiente" },
+  { description: "Recoger el vertido" }
+  ],
+},
+{
+  title: "Calavera/ dos tibias cruzadas",
+  image: "/assets/img/pictograma-laboratorio-toxico.jpg",
+  items: [
+    { description: "Toxicidad aguda (fatal o tóxica)" },
+  ],
+  meaning: [
+  { description: "Mortal en caso de ingestión" },
+  { description: "Mortal en contacto con la piel" },
+  { description: "Mortal en caso de inhalación" },
+  { description: "Tóxico en caso de ingestión" },
+  { description: "Tóxico en contacto con la piel" },
+  { description: "Tóxico por inhalación" },
+  ],
+  findExamples: [
+  { description: "Plaguicidas" },
+  { description: "Biocidas" },
+  { description: "Metanol" },
+  ],
+  tipsExample: [
+  { description: "Lavarse concienzudamente tras la manipulación" },
+  { description: "No comer, beber ni fumar durante su utilización" },
+  { description: "En caso de ingestión: llamar inmediatamente a un CENTRO de información toxicológica o a un médico" },
+  { description: "Enjuagarse la boca" },
+  { description: "Almacenar en un recipiente cerrado" },
+  { description: "Evitar el contacto con los ojos, la piel o la ropa" },
+  { description: "Llevar guantes/prendas/gafas/máscara de protección" },
+  { description: "En caso de contacto con la piel: lavar suavemente con agua y jabón abundantes" },
+  { description: "Quitarse inmediatamente las prendas contaminadas" },
+  { description: "Lavar las prendas contaminadas antes de volverlas a utilizar" },
+  { description: "No respirar el polvo/el humo/el gas/la niebla/los vapores/el aerosol" },
+  { description: "Utilizar únicamente en exteriores o en un lugar bien ventilado" },
+  { description: "Llevar equipo de protección respiratoria" },
+  { description: "En caso de inhalación: transportar a la víctima al exterior y mantenerla en reposo en una posición confortable para respirar" },
+  { description: "Guardar bajo llave" }
+  ],
+},
+];
 
+const categoriasReactivos = [
+  {
+    category: 'Categoría 1',
+    description: 'Extremadamente peligroso',
+    color: 'red'
+  },
+  {
+    category: 'Categoría 2',
+    description: 'Categoría 2: Altamente peligroso',
+    color: 'red'
+  },
+  {
+    category: 'Categoría 3',
+    description: 'Moderadamente peligroso',
+    color: 'yellow'
+  },
+  {
+    category: 'Categoría 4',
+    description: 'Ligeramente peligroso',
+    color: 'blue'
+  },
+]
 ---
 
 <Layout title="Sistema interno para el manejo de residuos peligrosos">
@@ -127,70 +531,121 @@ const pictogramasPeligrosos = [
         <div class="z-30 relative w-screen h-full flex flex-col">
           <header class="flex flex-grow justify-center items-end">
             <div class="p-6 bg-black opacity-80 rounded-lg">
-              <h2 class="text-center text-white text-6xl font-bold">SISTEMA INTERNO PARA EL MANEJO <br> DE <br> RESIDUOS PELIGROSOS</h2>
+              <h2 class="text-center text-white text-6xl font-bold">
+                SISTEMA INTERNO PARA EL MANEJO <br /> DE <br /> RESIDUOS PELIGROSOS
+              </h2>
             </div>
           </header>
-          <footer class="flex flex-grow justify-end items-center flex-col mb-24">
+          <footer
+            class="flex flex-grow justify-end items-center flex-col mb-24"
+          >
             <div class="p-2 bg-black opacity-80 rounded-3xl">
-
               <div class="scrolldown" style="--color: skyblue">
                 <div class="chevrons">
-                    <div class="chevrondown"></div>
-                    <div class="chevrondown"></div>
+                  <div class="chevrondown"></div>
+                  <div class="chevrondown"></div>
                 </div>
               </div>
             </div>
           </footer>
         </div>
         <div class="absolute top-0 bottom-0 w-full h-full z-10">
-          <video class="object-center object-cover w-full h-full" autoplay muted loop src="/video.webm"></video>
+          <video
+            class="object-center object-cover w-full h-full"
+            autoplay
+            muted
+            loop
+            src="/video.webm"></video>
         </div>
       </section>
     </div>
     <div class="snap-center">
-      <section class="h-screen w-screen overflow-hidden relative container-intro">
-        <div class="introduccion ">
-          <div class="mt-5 md:mt-8 pb-14 w-11/12 rounded-xl overflow-hidden mx-auto" style="box-shadow: 0px 0px 64px -22px #1C50E6;">
+      <section
+        class="h-screen w-screen overflow-hidden relative container-intro"
+      >
+        <div class="introduccion">
+          <div
+            class="mt-5 md:mt-8 pb-14 w-11/12 rounded-xl overflow-hidden mx-auto"
+            style="box-shadow: 0px 0px 64px -22px #1C50E6;"
+          >
             <header class="bg-[#1843BF] text-white p-5 text-center text-xl">
-              <h2>
-                INTRODUCCIÓN
-              </h2>
+              <h2>INTRODUCCIÓN</h2>
             </header>
             <main class="p-5">
-              <p>El correcto manejo de residuos peligrosos es una prioridad actualmente en cualquier lugar donde se generen, es un requisito de cada institución, organización, empresa, industria, entre otros contar con un desempeño solido en el control de los impactos de actividades, productos y servicios sobre el medio ambiente, de acuerdo con su política y objetivo ambiental. El manejo adecuado de los productos químicos residuales es un punto importante en la conservación de la naturaleza específicamente en la protección del aire, el agua y el suelo, de igual manera es crucial para preservar el bienestar físico de cada individuo. <br> Este sistema de manejo está destinado principalmente a guiar a las partes responsables a preservar su integridad física, las de los demás y la naturaleza que les rodea, a mitigar posibles accidentes dentro las instalaciones de los laboratorios, identificar los riesgos de un mal manejo de los residuos, tener claridad de los efectos de cada reactivo y su nivel de peligrosidad, todo esto amparado bajo el marco legal vigente del decreto 1076 2015, decreto 1496 de 2018 y la política ambiental de la universidad de Cartagena del del acuerdo N°6 del 22 de febrero de 2018. 
+              <p>
+                El correcto manejo de residuos peligrosos es una prioridad
+                actualmente en cualquier lugar donde se generen, es un requisito
+                de cada institución, organización, empresa, industria, entre
+                otros contar con un desempeño solido en el control de los
+                impactos de actividades, productos y servicios sobre el medio
+                ambiente, de acuerdo con su política y objetivo ambiental. El
+                manejo adecuado de los productos químicos residuales es un punto
+                importante en la conservación de la naturaleza específicamente
+                en la protección del aire, el agua y el suelo, de igual manera
+                es crucial para preservar el bienestar físico de cada individuo. <br
+                /> Este sistema de manejo está destinado principalmente a guiar a
+                las partes responsables a preservar su integridad física, las de
+                los demás y la naturaleza que les rodea, a mitigar posibles accidentes
+                dentro las instalaciones de los laboratorios, identificar los riesgos
+                de un mal manejo de los residuos, tener claridad de los efectos de
+                cada reactivo y su nivel de peligrosidad, todo esto amparado bajo
+                el marco legal vigente del decreto 1076 2015, decreto 1496 de 2018
+                y la política ambiental de la universidad de Cartagena del del acuerdo
+                N°6 del 22 de febrero de 2018.
               </p>
             </main>
             <div class="md:w-48 md:mx-auto md:block hidden">
-              <img src="/assets/img/intro.jpg" alt="">
+              <img src="/assets/img/intro.jpg" alt="" />
             </div>
           </div>
         </div>
         <div class="general">
-          <div class="mt-5 md:mt-8 h-5/6 w-11/12 rounded-xl overflow-hidden mx-auto" style="box-shadow: 0px 0px 64px -22px #1C50E6;">
+          <div
+            class="mt-5 md:mt-8 h-5/6 w-11/12 rounded-xl overflow-hidden mx-auto"
+            style="box-shadow: 0px 0px 64px -22px #1C50E6;"
+          >
             <header class="bg-[#1843BF] text-white p-5 text-center text-xl">
-              <h2>
-                OBJETIVO GENERAL
-              </h2>
+              <h2>OBJETIVO GENERAL</h2>
             </header>
             <footer class="p-5">
-              <p>Informar a cada individuo que haga uso de las instalaciones, sobre el protocolo de manejo de residuos peligrosos dentro del laboratorio de Ingeniería Química del Campus Piedra de Bolívar, con el fin de evitar riesgos y accidentes. </p>
+              <p>
+                Informar a cada individuo que haga uso de las instalaciones,
+                sobre el protocolo de manejo de residuos peligrosos dentro del
+                laboratorio de Ingeniería Química del Campus Piedra de Bolívar,
+                con el fin de evitar riesgos y accidentes.
+              </p>
             </footer>
           </div>
         </div>
         <div class="especificos">
-          <div class="mt-5 md:mt-8 h-5/6 w-11/12 rounded-xl overflow-hidden mx-auto" style="box-shadow: 0px 0px 64px -22px #1C50E6;">
+          <div
+            class="mt-5 md:mt-8 h-5/6 w-11/12 rounded-xl overflow-hidden mx-auto"
+            style="box-shadow: 0px 0px 64px -22px #1C50E6;"
+          >
             <header class="bg-[#1843BF] text-white p-5 text-center text-xl">
-              <h2>
-                OBJETIVOS ESPECÍFICOS
-              </h2>
+              <h2>OBJETIVOS ESPECÍFICOS</h2>
             </header>
             <main class="p-5">
               <ol class="list-decimal list-inside space-y-2">
-                <li>Identificar y caracterizar las sustancias y residuos que se generan dentro del laboratorio, para una correcta manipulación al momento de desecharlos.</li>
-                <li>Comprender cada una de las etapas de la gestión de residuos: segregación, movimiento interno, almacenamiento y disposición final.</li>
-                <li>Distinguir los espacios y elementos estipulados para el almacenamiento de desechos.</li>
-                <li>Reconocer los diferentes pasos a seguir en caso de emergencia, según su origen.</li>
-              </ol>              
+                <li>
+                  Identificar y caracterizar las sustancias y residuos que se
+                  generan dentro del laboratorio, para una correcta manipulación
+                  al momento de desecharlos.
+                </li>
+                <li>
+                  Comprender cada una de las etapas de la gestión de residuos:
+                  segregación, movimiento interno, almacenamiento y disposición
+                  final.
+                </li>
+                <li>
+                  Distinguir los espacios y elementos estipulados para el
+                  almacenamiento de desechos.
+                </li>
+                <li>
+                  Reconocer los diferentes pasos a seguir en caso de emergencia,
+                  según su origen.
+                </li>
+              </ol>
             </main>
           </div>
         </div>
@@ -198,18 +653,27 @@ const pictogramasPeligrosos = [
     </div>
     <div class="snap-center">
       <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
-        <h1 class="text-3xl text-center text-[#1843BF] font-bold mb-4">Normas básicas de seguridad a seguir dentro del laboratorio</h1>
-        <p class="mb-8 text-center">Todas las normas mencionadas a continuación son importantes y se deben cumplir correctamente para evitar que ocurran accidentes dentro del laboratorio.</p>
-    
-        <div class="grid max-w-7xl mx-auto overflow-y-scroll grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-4">
-          {normas.map((norma) => (
-            <Callout title='' icon={norma.icon} color={norma.color}>
-              {norma.description}
-            </Callout>
-          ))}
+        <h1 class="text-3xl text-center text-[#1843BF] font-bold mb-4">
+          Normas básicas de seguridad a seguir dentro del laboratorio
+        </h1>
+        <p class="mb-8 text-center">
+          Todas las normas mencionadas a continuación son importantes y se deben
+          cumplir correctamente para evitar que ocurran accidentes dentro del
+          laboratorio.
+        </p>
+
+        <div
+          class="grid max-w-7xl mx-auto overflow-y-scroll grid-cols-[repeat(auto-fill,minmax(220px,1fr))] gap-4"
+        >
+          {
+            normas.map((norma) => (
+              <Callout title="" icon={norma.icon} color={norma.color}>
+                {norma.description}
+              </Callout>
+            ))
+          }
         </div>
       </section>
-      
     </div>
     <div class="snap-center">
       <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
@@ -218,96 +682,289 @@ const pictogramasPeligrosos = [
     </div>
     <div class="snap-center">
       <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
-        
-        <h1 class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"><span class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400">PICTOGRAMAS DE PELIGROS</span></h1>
-        <p>Los pictogramas de peligro químico son símbolos gráficos utilizados para indicar los riesgos asociados al uso de sustancias químicas. Estos pictogramas se utilizan en los envases de sustancias o mezclas químicas con el fin de advertir a los usuarios sobre los peligros físicos y los riesgos para la salud que pueden presentar</p>
-        <swiper-container slides-per-view="3" speed="500" loop="true" css-mode="true" navigation="true" class="px-12 max-w-screen-2xl gap-4">
-        <swiper-slide>
-        </swiper-slide>
-          <swiper-slide>
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                  <div class="flip-card-front">
-                    <div class="w-3/6 mx-auto">
-                      <img src={pictogramasPeligrosos[0].image} alt="Pictograma peligroso">
+        <h1
+          class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+        >
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"
+            >PICTOGRAMAS DE PELIGROS</span>
+        </h1>
+        <p>
+          Los pictogramas de peligro químico son símbolos gráficos utilizados
+          para indicar los riesgos asociados al uso de sustancias químicas.
+          Estos pictogramas se utilizan en los envases de sustancias o mezclas
+          químicas con el fin de advertir a los usuarios sobre los peligros
+          físicos y los riesgos para la salud que pueden presentar
+        </p>
+        <swiper-container class='px-6' slides-per-view="1" speed="500" loop="true" css-mode="true" navigation='true' pagination='true'>
+          {
+            pictogramasPeligrosos.map((pictograma) => (
+              <swiper-slide>
+                <div
+              class="relative max-w-screen-3xl px-4 mx-auto sm:px-6 lg:px-8"
+            >
+              <div
+                class="max-w-lg mx-auto overflow-hidden rounded-lg shadow-lg pricing-box lg:max-w-none lg:flex"
+              >
+                <div
+                  class="px-6 py-8 text-center bg-gray-50 dark:bg-gray-700 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12"
+                >
+                  <h1
+                    class="mb-4 text-xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+                  >
+                    <span
+                      class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"
+                      >{pictograma.title}</span>
+                  </h1>
+                  <div class="max-w-sm mt-4 mx-auto">
+                    <img src={pictograma.image} alt="" />
+                  </div>
+                </div>
+                <div
+                  class="px-6 py-8 bg-white dark:bg-gray-800 lg:flex-shrink-1 lg:p-12"
+                >
+                  <div class="flex items-center">
+                    <h4
+                      class="flex-shrink-0 pr-4 text-sm font-semibold leading-5 tracking-wider text-indigo-600 uppercase bg-white dark:bg-gray-800"
+                    >
+                      ¿Qué Significa?
+                    </h4>
+                    <div class="flex-1 border-t-2 border-gray-200"></div>
+                  </div>
+                  <ul
+                    class="mt-6 lg:grid lg:grid-cols-2 lg:col-gap-8 lg:row-gap-5"
+                  >
+                    {
+                      pictograma.meaning.map((mening) => (
+                        <li class="flex items-start lg:col-span-1">
+                          <span class="flex items-center justify-center flex-shrink-0 w-6 h-6 text-green-800 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent p-1">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="1.5"
+                              stroke="currentColor"
+                              class="w-6 h-6"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z"
+                              />
+                            </svg>
+                          </span>
+                          <p class="ml-3 text-sm leading-5 text-gray-700 dark:text-gray-200">
+                            {mening.description}
+                          </p>
+                        </li>
+                      ))
+                    }
+                  </ul>
+                  <div class="mt-6">
+                    <div class="flex items-center">
+                      <h4
+                        class="flex-shrink-0 pr-4 text-sm font-semibold leading-5 tracking-wider text-indigo-600 uppercase bg-white dark:bg-gray-800"
+                      >
+                        Ejemplos de dónde pueden encontrarse
+                      </h4>
+                      <div class="flex-1 border-t-2 border-gray-200"></div>
                     </div>
-                      <h3 class="mb-2 text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{pictogramasPeligrosos[0].title}</h3>
-                      <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                    <ul
+                      class="mt-6 lg:grid lg:grid-cols-2 lg:col-gap-8 lg:row-gap-5"
+                    >
                       {
-                        pictogramasPeligrosos[0].items.map((item) => (
-                          <li>
-                              {item.description}
+                        pictograma.findExamples.map((find) => (
+                          <li class="flex items-start lg:col-span-1">
+                            <div class="flex items-center p-1 justify-center flex-shrink-0 w-6 h-6 text-blue-500 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-6 h-6"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                                />
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                                />
+                              </svg>
+                            </div>
+                            <p class="ml-3 text-sm leading-5 text-gray-700 dark:text-gray-200">
+                              {find.description}
+                            </p>
                           </li>
-                          ))
+                        ))
                       }
-                        </ul>
+                    </ul>
                   </div>
-                  <div class="flip-card-back">
-                    <div>
-                      <h3 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">¿Qué Significa?</h3>
-                      <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
+                  <div class="mt-6">
+                    <div class="flex items-center">
+                      <h4
+                        class="flex-shrink-0 pr-4 text-sm font-semibold leading-5 tracking-wider text-indigo-600 uppercase bg-white dark:bg-gray-800"
+                      >
+                        Ejemplos de consejos de prudencia
+                      </h4>
+                    </div>
+                    <div class="flex-1 border-t-2 border-gray-200"></div>
+                    <ul
+                      class="mt-6 lg:grid lg:grid-cols-3 lg:col-gap-8 lg:row-gap-5"
+                    >
                       {
-                        pictogramasPeligrosos[0].meaning.map((item) => (
-                          <li>{item.description}</>
+                        pictograma.tipsExample.map((tips) => (
+                          <li class="flex items-start lg:col-span-1">
+                            <div class="flex items-center justify-center flex-shrink-0 w-6 h-6 p-1 text-yellow-500 bg-green-100 rounded-full dark:text-green-500 drark:bg-transparent">
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                stroke-width="1.5"
+                                stroke="currentColor"
+                                class="w-6 h-6"
+                              >
+                                <path
+                                  stroke-linecap="round"
+                                  stroke-linejoin="round"
+                                  d="M10.34 15.84c-.688-.06-1.386-.09-2.09-.09H7.5a4.5 4.5 0 110-9h.75c.704 0 1.402-.03 2.09-.09m0 9.18c.253.962.584 1.892.985 2.783.247.55.06 1.21-.463 1.511l-.657.38c-.551.318-1.26.117-1.527-.461a20.845 20.845 0 01-1.44-4.282m3.102.069a18.03 18.03 0 01-.59-4.59c0-1.586.205-3.124.59-4.59m0 9.18a23.848 23.848 0 018.835 2.535M10.34 6.66a23.847 23.847 0 008.835-2.535m0 0A23.74 23.74 0 0018.795 3m.38 1.125a23.91 23.91 0 011.014 5.395m-1.014 8.855c-.118.38-.245.754-.38 1.125m.38-1.125a23.91 23.91 0 001.014-5.395m0-3.46c.495.413.811 1.035.811 1.73 0 .695-.316 1.317-.811 1.73m0-3.46a24.347 24.347 0 010 3.46"
+                                />
+                              </svg>
+                            </div>
+                            <p class="ml-3 text-sm leading-5 text-gray-700 dark:text-gray-200">
+                              {tips.description}
+                            </p>
+                          </li>
                         ))
                       }
-                      </ul>
-                    </div>
-                    <div class="border-t"></div>
-                    <div>
-                      <h3 class="mb-2 text-lg font-semibold text-gray-900 dark:text-white">Ejemplos de dónde pueden encontrarse</h3>
-                      <ul class="max-w-md space-y-1 text-gray-500 list-disc list-inside dark:text-gray-400">
-                      {
-                        pictogramasPeligrosos[0].findExamples.map((item) => (
-                          <li>{item.description}</li>
-                        ))
-                      }
-                      </ul>
-                    </div>
-                    <div class="border-t"></div>
-                    <div>
-                      <h3>Ejemplos de consejos de prudencia</h3>
-                      {
-                        pictogramasPeligrosos[0].tipsExample.map((item) => (
-                          <p>{item.description}</p>
-                        ))
-                      }
-                    </div>
+                    </ul>
                   </div>
-              </div>
-            </div>
-          </swiper-slide>
-          <swiper-slide>
-            <div class="bg-transparent w-48 h-64 perspective-1000 font-sans">
-              <div class="text-center transition-transform transform-style-preserve-3d hover:rotate-y-180">
-                <div class="shadow-lg absolute flex flex-col justify-center w-full h-full backface-hidden border border-coral rounded-lg bg-gradient-to-br from-bisque to-rgb(255, 211, 195)">
-                  <p class="text-2xl font-extrabold mb-2">FLIP CARD</p>
-                  <p>Hover Me</p>
-                </div>
-                <div class="shadow-lg absolute flex flex-col justify-center w-full h-full backface-hidden border border-coral rounded-lg bg-gradient-to-br from-rgb(255, 174, 145) to-coral transform rotate-y-180">
-                  <p class="text-2xl font-extrabold mb-2">BACK</p>
-                  <p>Leave Me</p>
                 </div>
               </div>
             </div>
-          </swiper-slide>
-          <swiper-slide>Slide 2</swiper-slide>
-          <swiper-slide>Slide 2</swiper-slide>
-          <swiper-slide>Slide 3</swiper-slide>
+              </swiper-slide>
+            ))
+          }
         </swiper-container>
       </section>
     </div>
     <div class="snap-center">
+      <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
+        <h1
+          class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+        >
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"
+            >ELEMENTOS DE SEGURIDAD COLECTIVA</span>
+        </h1>
+        <p>
+          La principal función de estos equipos es realizar una extracción localizada que permita captar los contaminantes y ofrecen una protección, cuyas protecciones son:
+        </p>
+        <ElementsSecurity />
+      </section>
     </div>
     <div class="snap-center">
+      <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
+        <header>
+          <h1
+            class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+          >
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"
+              >CARACTERIZACIÓN DE REACTIVOS PELIGROSOS EMPLEADOS EN EL LABORATORIO</span>
+          </h1>
+          <p>
+            En Colombia, la clasificación del nivel de peligrosidad según el SGA (sistema global armonizado) se encuentra regulada por el Decreto 1076 de 2015, el cual establece que todos los productos químicos deben ser clasificados según el SGA. Los productos químicos se clasifican en diferentes categorías de peligrosidad, que se basan en sus propiedades físicas, químicas y toxicológicas. En las categorías se incluyen peligros para la salud, peligros físicos y peligros para el medio ambiente. Cada categoría esta subdividida en diferentes clases y subclases, que indican el nivel de peligrosidad específico del producto químico
+          </p>
+        </header>
+        <main>
+          <div class="text-center mt-10 flex w-full relative mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
+              <div class="container flex flex-col items-center justify-center w-1/2 mx-auto absolute top-0 left-0">
+                <div class="max-w-xs px-4 py-5 mb-2 bg-white border rounded-md shadow sm:px-6 dark:bg-gray-800">
+                    <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">
+                      Nivel de peligro SGA
+                    </h3>
+                </div>
+                <ul class="flex flex-col">
+                    <li class="flex flex-row mb-2 border-gray-400">
+                        <div class="transition duration-500 shadow ease-in-out transform hover:-translate-y-1 hover:shadow-lg select-none cursor-pointer bg-white dark:bg-gray-800 rounded-md flex flex-1 items-center p-4">
+                          <div class="inline-flex items-center bg-white leading-none ${props.textColor} rounded-full p-2 shadow text-teal text-sm">
+                            <span class="inline-flex bg-red-700 text-white rounded-full h-6 px-3 justify-center items-center">
+                              {categoriasReactivos[0].category}
+                            </span>
+                            <span class="inline-flex px-2 text-red-600">
+                              {categoriasReactivos[0].description}
+                            </span>
+                          </div>
+                        </div>
+                    </li>
+                    <li class="flex flex-row mb-2 border-gray-400">
+                      <div class="transition duration-500 shadow ease-in-out transform hover:-translate-y-1 hover:shadow-lg select-none cursor-pointer bg-white dark:bg-gray-800 rounded-md flex flex-1 items-center p-4">
+                        <div class="inline-flex items-center bg-white leading-none ${props.textColor} rounded-full p-2 shadow text-teal text-sm">
+                          <span class="inline-flex bg-red-700 text-white rounded-full h-6 px-3 justify-center items-center">
+                            {categoriasReactivos[1].category}
+                          </span>
+                          <span class="inline-flex px-2 text-red-600">
+                            {categoriasReactivos[1].description}
+                          </span>
+                        </div>
+                      </div>
+                  </li>
+                  <li class="flex flex-row mb-2 border-gray-400">
+                    <div class="transition duration-500 shadow ease-in-out transform hover:-translate-y-1 hover:shadow-lg select-none cursor-pointer bg-white dark:bg-gray-800 rounded-md flex flex-1 items-center p-4">
+                      <div class="inline-flex items-center bg-white leading-none ${props.textColor} rounded-full p-2 shadow text-teal text-sm">
+                        <span class="inline-flex bg-yellow-700 text-white rounded-full h-6 px-3 justify-center items-center">
+                          {categoriasReactivos[2].category}
+                        </span>
+                        <span class="inline-flex px-2 text-yellow-600">
+                          {categoriasReactivos[2].description}
+                        </span>
+                      </div>
+                    </div>
+                </li>
+                <li class="flex flex-row mb-2 border-gray-400">
+                  <div class="transition duration-500 shadow ease-in-out transform hover:-translate-y-1 hover:shadow-lg select-none cursor-pointer bg-white dark:bg-gray-800 rounded-md flex flex-1 items-center p-4">
+                    <div class="inline-flex items-center bg-white leading-none ${props.textColor} rounded-full p-2 shadow text-teal text-sm">
+                      <span class="inline-flex bg-blue-950 text-white rounded-full h-6 px-3 justify-center items-center">
+                        {categoriasReactivos[3].category}
+                      </span>
+                      <span class="inline-flex px-2 text-blue-950">
+                        {categoriasReactivos[3].description}
+                      </span>
+                    </div>
+                  </div>
+              </li>
+                </ul>
+            </div>
+            <div class='w-1/2 absolute right-0 top-0'>
+              <AccordionComponent client:visible />
+            </div>
+          </div>
+        </div>
+        </main>
+      </section>
     </div>
     <div class="snap-center">
+      <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
+        <header>
+          <h1
+            class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+          >
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"
+              >Clasificación reactivos líquidos peligrosos</span>
+          </h1>
+        </header>
+      </section>
     </div>
   </main>
-</Layout>
 
-<style>
-  /* table {
+  <style>
+    /* table {
     border-collapse: collapse;
     width: 100%;
   }
@@ -319,177 +976,189 @@ const pictogramasPeligrosos = [
     background-color: #f2f2f2;
   } */
 
-  .title{
-    font-size: 3rem;
-    font-weight: 700;
-    color: transparent;
-    background-image: linear-gradient(180deg, #A6F71B, #309409);
-    background-clip: text;
-    -webkit-background-clip: text;
-    letter-spacing: -0.015em;
-  }
+    .title {
+      font-size: 3rem;
+      font-weight: 700;
+      color: transparent;
+      background-image: linear-gradient(180deg, #a6f71b, #309409);
+      background-clip: text;
+      -webkit-background-clip: text;
+      letter-spacing: -0.015em;
+    }
 
-  .scrolldown {
-  --color: white;
-  --sizeX: 30px;
-  --sizeY: 50px;
-  position: relative;
-  width: var(--sizeX);
-  height: var(--sizeY);
-  margin-left: var(sizeX / 2);
-  border: calc(var(--sizeX) / 10) solid var(--color);
-  border-radius: 50px;
-  box-sizing: border-box;
-  margin-bottom: 16px;
-  cursor: pointer;
-}
+    .scrolldown {
+      --color: white;
+      --sizeX: 30px;
+      --sizeY: 50px;
+      position: relative;
+      width: var(--sizeX);
+      height: var(--sizeY);
+      margin-left: var(sizeX / 2);
+      border: calc(var(--sizeX) / 10) solid var(--color);
+      border-radius: 50px;
+      box-sizing: border-box;
+      margin-bottom: 16px;
+      cursor: pointer;
+    }
 
-.scrolldown::before {
-  content: "";
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  width: 6px;
-  height: 6px;
-  margin-left: -3px;
-  background-color: var(--color);
-  border-radius: 100%;
-  animation: scrolldown-anim 2s infinite;
-  box-sizing: border-box;
-  box-shadow: 0px -5px 3px 1px #2a547066;
-}
+    .scrolldown::before {
+      content: "";
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      width: 6px;
+      height: 6px;
+      margin-left: -3px;
+      background-color: var(--color);
+      border-radius: 100%;
+      animation: scrolldown-anim 2s infinite;
+      box-sizing: border-box;
+      box-shadow: 0px -5px 3px 1px #2a547066;
+    }
 
-img {
-  mix-blend-mode: multiply;
-}
+    img {
+      mix-blend-mode: multiply;
+    }
 
-@keyframes scrolldown-anim {
-  0% {
-    opacity: 0;
-    height: 6px;
-  }
+    @keyframes scrolldown-anim {
+      0% {
+        opacity: 0;
+        height: 6px;
+      }
 
-  40% {
-    opacity: 1;
-    height: 10px;
-  }
+      40% {
+        opacity: 1;
+        height: 10px;
+      }
 
-  80% {
-    transform: translate(0, 20px);
-    height: 10px;
-    opacity: 0;
-  }
+      80% {
+        transform: translate(0, 20px);
+        height: 10px;
+        opacity: 0;
+      }
 
-  100% {
-    height: 3px;
-    opacity: 0;
-  }
-}
+      100% {
+        height: 3px;
+        opacity: 0;
+      }
+    }
 
-.chevrons {
-  padding: 6px 0 0 0;
-  margin-left: -3px;
-  margin-top: 48px;
-  width: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .chevrons {
+      padding: 6px 0 0 0;
+      margin-left: -3px;
+      margin-top: 48px;
+      width: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.chevrondown {
-  margin-top: -6px;
-  position: relative;
-  border: solid var(--color);
-  border-width: 0 3px 3px 0;
-  display: inline-block;
-  width: 10px;
-  height: 10px;
-  transform: rotate(45deg);
-}
+    .chevrondown {
+      margin-top: -6px;
+      position: relative;
+      border: solid var(--color);
+      border-width: 0 3px 3px 0;
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      transform: rotate(45deg);
+    }
 
-.chevrondown:nth-child(odd) {
-  animation: pulse54012 500ms ease infinite alternate;
-}
+    .chevrondown:nth-child(odd) {
+      animation: pulse54012 500ms ease infinite alternate;
+    }
 
-.chevrondown:nth-child(even) {
-  animation: pulse54012 500ms ease infinite alternate 250ms;
-}
+    .chevrondown:nth-child(even) {
+      animation: pulse54012 500ms ease infinite alternate 250ms;
+    }
 
-@keyframes pulse54012 {
-  from {
-    opacity: 0;
-  }
+    @keyframes pulse54012 {
+      from {
+        opacity: 0;
+      }
 
-  to {
-    opacity: 0.5;
-  }
-}
+      to {
+        opacity: 0.5;
+      }
+    }
 
-.container-intro {
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  grid-template-rows: 1fr 1fr 1fr; 
-  gap: 0px 30px; 
-  grid-template-areas: 
-    "introduccion general"
-    "introduccion especificos"
-    "introduccion especificos"; 
-}
-.general { grid-area: general; }
-.introduccion { grid-area: introduccion; }
-.especificos { grid-area: especificos; }
+    .container-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      gap: 0px 30px;
+      grid-template-areas:
+        "introduccion general"
+        "introduccion especificos"
+        "introduccion especificos";
+    }
+    .general {
+      grid-area: general;
+    }
+    .introduccion {
+      grid-area: introduccion;
+    }
+    .especificos {
+      grid-area: especificos;
+    }
 
-.flip-card {
-  background-color: transparent;
-  width: 300px;
-  height: 400px;
-  perspective: 1000px;
-  font-family: sans-serif;
-  margin-block: 20px;
-  padding-inline: 10px;
-}
+    .flip-card {
+      background-color: transparent;
+      width: 500px;
+      height: 600px;
+      perspective: 1000px;
+      font-family: sans-serif;
+      margin-block: 20px;
+      padding-inline: 10px;
+    }
 
-.title {
-  font-size: 1.5em;
-  font-weight: 900;
-  text-align: center;
-  margin: 0;
-}
+    .title {
+      font-size: 1.5em;
+      font-weight: 900;
+      text-align: center;
+      margin: 0;
+    }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.8s;
+      transform-style: preserve-3d;
+    }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
 
-.flip-card-front, .flip-card-back {
-  box-shadow: 0 8px 14px 0 rgba(0,0,0,0.2);
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  border: 1px solid gray;
-  border-radius: 1rem;
-}
+    .flip-card-front,
+    .flip-card-back {
+      box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      border: 1px solid gray;
+      border-radius: 1rem;
+      padding-inline: 40px;
+    }
 
-.flip-card-front {
-  background: linear-gradient(to right, #FFFFFF, #E6E6E6);
-  color: black;
-}
+    .flip-card-front {
+      background: linear-gradient(to right, #ffffff, #e6e6e6);
+      color: black;
+    }
 
-.flip-card-back {
-  background: linear-gradient(to right, #FFFFFF, #E6E6E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  color: black;
-  transform: rotateY(180deg);
-}
-</style>
+    .flip-card-back {
+      background: linear-gradient(
+        to right,
+        #ffffff,
+        #e6e6e6
+      ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+      color: black;
+      transform: rotateY(180deg);
+    }
+  </style>
+</Layout>
