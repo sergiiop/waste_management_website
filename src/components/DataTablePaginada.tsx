@@ -4,7 +4,7 @@ const rows = [
   {
     id: 1,
     nombre: "1,2 Dicloretano 99,9%",
-    efectos: [
+    propiedades: [
       "Toxicidad aguda oral",
       "Toxicidad aguda por inhalación - Vapores",
       "Corrosión o irritación cutáneas",
@@ -25,7 +25,7 @@ const rows = [
   {
     id: 2,
     nombre: "1,4 dioxano 99,5%",
-    efectos: [
+    propiedades: [
       "Líquido inflamable",
       "Lesiones o irritación ocular graves",
       "Carcinogenicidad",
@@ -42,7 +42,7 @@ const rows = [
   {
     id: 3,
     nombre: "1- Hexanol 98%",
-    efectos: [
+    propiedades: [
       "Toxicidad aguda oral",
       "Toxicidad aguda cutánea",
       "Lesiones o irritación ocular graves",
@@ -59,7 +59,7 @@ const rows = [
   {
     id: 4,
     nombre: "Acetato de etilo 99%",
-    efectos: [
+    propiedades: [
       "Líquidos inflamables",
       "Lesiones o irritación ocular graves",
       "Toxicidad específica del órgano blanco - (única exposición)",
@@ -74,7 +74,7 @@ const rows = [
   {
     id: 5,
     nombre: "Acetona 99,8%",
-    efectos: [
+    propiedades: [
       "Líquidos inflamables",
       "Lesiones o irritación ocular graves",
       "Toxicidad específica del órgano blanco - (única exposición)",
@@ -89,7 +89,7 @@ const rows = [
   {
     id: 6,
     nombre: "Ácido acético 99,5%",
-    efectos: [
+    propiedades: [
       "Líquidos inflamables",
       "Corrosión o irritación cutáneas",
       "Lesiones o irritación ocular graves",
@@ -104,7 +104,7 @@ const rows = [
   {
     id: 7,
     nombre: "Ácido clorhídrico 36,5- 38%",
-    efectos: [
+    propiedades: [
       "Corrosivos para los metales",
       "Corrosión o irritación cutáneas",
       "Lesiones oculares graves o irritación ocular",
@@ -121,7 +121,7 @@ const rows = [
   {
     id: 8,
     nombre: "Ácido nítrico 65%",
-    efectos: [
+    propiedades: [
       "Líquidos comburentes",
       "Sustancias/mezclas corrosivas para los metales",
       "Toxicidad aguda por inhalación - Vapores",
@@ -140,7 +140,7 @@ const rows = [
   {
     id: 9,
     nombre: "Acido orto fosfórico 85%",
-    efectos: [
+    propiedades: [
       "Corrosión o irritación cutáneas",
       "Lesiones o irritación ocular graves",
     ],
@@ -153,7 +153,7 @@ const rows = [
   {
     id: 10,
     nombre: "Ácido sulfúrico 95-98%",
-    efectos: [
+    propiedades: [
       "Corrosión o irritación cutáneas",
       "Lesiones o irritación ocular graves",
     ],
@@ -166,7 +166,7 @@ const rows = [
   {
     id: 11,
     nombre: "Alcohol isopropílico 99,5%",
-    efectos: [
+    propiedades: [
       "Líquidos inflamables",
       "Lesiones o irritación ocular graves",
       "Toxicidad específica del órgano blanco",
@@ -181,7 +181,7 @@ const rows = [
   {
     id: 12,
     nombre: "Amoniaco 25 - 30%",
-    efectos: [
+    propiedades: [
       "Corrosión cutánea",
       "Toxicidad especifica en determinados órganos exposición única",
       "Toxicidad acuática aguda",
@@ -196,7 +196,7 @@ const rows = [
   {
     id: 13,
     nombre: "Anhidrido acético 99%",
-    efectos: [
+    propiedades: [
       "Líquidos inflamables",
       "Toxicidad aguda oral",
       "Toxicidad aguda por inhalación - Vapores",
@@ -520,17 +520,694 @@ const rows = [
   }
 ]
 
+const reactivosSolidosPeligrosos =
+  [
+    {
+      id: 1,
+      nombre: "Acido 3,5-dinitrosalicílico 98%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Ácido"
+    },
+    {
+      id: 2,
+      nombre: "Acido Benzoico 99,5%",
+      propiedades: [
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad específica del órgano blanco - (exposición repetida)"
+      ],
+      categorias: [
+        "Categoría 2 (H315)",
+        "Categoría 1 (H318)",
+        "Categoría 1 (H372)"
+      ],
+      tipo: "Ácido"
+    },
+    {
+      id: 3,
+      nombre: "Ácido cítrico 99,5-102%",
+      propiedades: [
+        "Lesiones o irritación ocular graves",
+        "Toxicidad específica del órgano blanco - (única exposición)"
+      ],
+      categorias: [
+        "Categoría 2 (H319)",
+        "Categoría 3 (H335)"
+      ],
+      tipo: "Ácido"
+    },
+    {
+      id: 4,
+      nombre: "Acido Oxálico",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad específica del órgano blanco - (exposición repetida)"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H312)",
+        "Categoría 1 (H318)",
+        "Categoría 2 (H373)"
+      ],
+      tipo: "Ácido"
+    },
+    {
+      id: 5,
+      nombre: "Ammonium Thiocyanate 98%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad aguda por inhalación - Polvos y nieblas"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H312)",
+        "Categoría 1 (H318)",
+        "Categoría 4 (H332)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 6,
+      nombre: "Amonio cloruro 99,5%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 2 (H319)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 7,
+      nombre: "Amonio Oxalato Hidrato 99%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H312)",
+        "Categoría 2 (H319)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 8,
+      nombre: "Amonio Oxalato",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H312)",
+        "Categoría 2 (H319)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 9,
+      nombre: "Amonio tiocianato 99%",
+      propiedades: [
+        "Toxicidad aguda, Oral",
+        "Toxicidad aguda, Inhalación",
+        "Toxicidad aguda, Cutáneo",
+        "Lesiones oculares graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H332)",
+        "Categoría 4 (H312)",
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 10,
+      nombre: "Antrona 97%",
+      propiedades: [
+        "Irritaciones cutáneas",
+        "Irritación ocular",
+        "Irritación vías respiratorias"
+      ],
+      categorias: [
+        "Categoría 2 (H315)",
+        "Categoría 2 (H319)",
+        "Categoría 3 (H335)"
+      ],
+      tipo: "Compuesto orgánico"
+    },
+    {
+      id: 11,
+      nombre: "Calcio cloruro 2-hidrato 99-105%",
+      propiedades: [
+        "Irritación ocular"
+      ],
+      categorias: [
+        "Categoría 2 (H319)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 12,
+      nombre: "Cerio nitrato 99,5%",
+      propiedades: [
+        "Sólidos comburentes",
+        "Corrosivos para los metales",
+        "Toxicidad aguda oral",
+        "Corrosión cutáneas",
+        "Toxicidad acuático, crónica"
+      ],
+      categorias: [
+        "Categoría 2 (H272)",
+        "Categoría 1 (H290)",
+        "Categoría 4 (H302)",
+        "Categoría 1B (H314)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 13,
+      nombre: "Cloruro de Mercurio 99,5%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Mutagenicidad en células germinales",
+        "Toxicidad para la reproducción",
+        "Toxicidad específica del órgano blanco - (exposición repetida)",
+        "Toxicidad acuática aguda",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 2 (H300)",
+        "Categoría 1B (H314)",
+        "Categoría 1 (H318)",
+        "Categoría 2 (H341)",
+        "Categoría 2 (H361f)",
+        "Categoría 1 (H372)",
+        "Categoría 1 (H400)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 14,
+      nombre: "Cobalto II cloruro 6 hidrato 98%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda por inhalación",
+        "Sensibilización respiratoria",
+        "Sensibilización cutánea",
+        "Carcinogenicidad",
+        "Toxicidad para la reproducción",
+        "Toxicidad acuática crónica",
+        "Mutagenicidad en células germinales"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H332)",
+        "Categoría 1 (H334)",
+        "Categoría 1 (H317)",
+        "Categoría 2 (H341)",
+        "Categoría 1B (H360F)",
+        "Categoría 1 (H410)",
+        "Categoría 1B (H350i)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 15,
+      nombre: "Cromato de plomo",
+      propiedades: [
+        "Carcinogenicidad",
+        "Toxicidad para la reproducción",
+        "Toxicidad acuática crónica",
+        "Toxicidad específica del órgano blanco - (exposición repetida)"
+      ],
+      categorias: [
+        "Categoría 1B (H350)",
+        "Categoría 1A (H360Df)",
+        "Categoría 1 (H410)",
+        "Categoría 2 (H373)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 16,
+      nombre: "EDTA (ácido etilendiamina tetracetico disódico deshidrato) 99%",
+      propiedades: [
+        "Lesiones oculares graves"
+      ],
+      categorias: [
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Compuesto orgánico"
+    },
+    {
+      id: 17,
+      nombre: "Fenol 99%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Toxicidad aguda por inhalación",
+        "Corrosión o irritación cutáneas",
+        "Mutagenicidad en células germinales",
+        "Toxicidad específica del órgano blanco - (exposición repetida)"
+      ],
+      categorias: [
+        "Categoría 3 (H301)",
+        "Categoría 3 (H311)",
+        "Categoría 3 (H331)",
+        "Categoría 1B (H314)",
+        "Categoría 2 (H341)",
+        "Categoría 2 (H373)"
+      ],
+      tipo: "Compuesto orgánico"
+    },
+    {
+      id: 18,
+      nombre: "Fenolftaleína 99%",
+      propiedades: [
+        "Líquidos inflamables",
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Toxicidad aguda por vapores",
+        "Lesiones o irritación ocular graves",
+        "Carcinogenicidad",
+        "Mutagenicidad en células germinales",
+        "Toxicidad específica del órgano blanco - (única exposición)"
+      ],
+      categorias: [
+        "Categoría 2 (H225)",
+        "Categoría 4 (H302)",
+        "Categoría 4 (H312)",
+        "Categoría 4 (H332)",
+        "Categoría 2 (H319)",
+        "Categoría 2 (H341)",
+        "Categoría 1B (H350)",
+        "Categoría 2 (H371)"
+      ],
+      tipo: "Indicador pH"
+    },
+    {
+      id: 19,
+      nombre: "Hexametileno tetramina 99-100,5%",
+      propiedades: [
+        "Sólidos inflamables",
+        "Sensibilización cutánea"
+      ],
+      categorias: [
+        "Categoría 2 (H228)",
+        "Categoría 1 (H317)"
+      ],
+      tipo: "Compuesto orgánico"
+    },
+    {
+      id: 20,
+      nombre: "Hexametilenodiamina (1,6 diaminohexano)",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad específica del órgano blanco - (única exposición)"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H312)",
+        "Categoría 1B (H314)",
+        "Categoría 1 (H318)",
+        "Categoría 3 (H335)"
+      ],
+      tipo: "Compuesto orgánico"
+    },
+    {
+      id: 21,
+      nombre: "Hidroquinona 99%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Lesiones o irritación ocular graves",
+        "Sensibilización cutánea",
+        "Carcinogenicidad",
+        "Mutagenicidad en células germinales"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 1 (H318)",
+        "Categoría 1 (H317)",
+        "Categoría 2 (H351)",
+        "Categoría 2 (H341)"
+      ],
+      tipo: "Compuesto orgánico"
+    },
+    {
+      id: 22,
+      nombre: "Hidróxido de potasio 85%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 1A (H314)",
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Base inorgánica"
+    },
+    {
+      id: 23,
+      nombre: "Hidróxido de sodio 98%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 1A (H314)",
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Base inorgánica"
+    },
+    {
+      id: 24,
+      nombre: "Hierro (ll) cloruro tetrahidrato",
+      propiedades: [
+        "Toxicidad aguda (oral)",
+        "Irritación o corrosión cutáneas",
+        "Lesiones oculares graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 2 (H315)",
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 25,
+      nombre: "Hierro lll cloruro hexahidrato 97%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 2 (H315)",
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 26,
+      nombre: "Magnesio 99%",
+      propiedades: [
+        "Sólidos inflamables",
+        "Calentamiento espontáneo",
+        "En contacto con el agua, desprenden gases inflamables"
+      ],
+      categorias: [
+        "Categoría 1 (H228)",
+        "Categoría 2 (H252)",
+        "Categoría 2 (H261)"
+      ],
+      tipo: "Metal"
+    },
+    {
+      id: 27,
+      nombre: "Naftaleno 98%",
+      propiedades: [
+        "Sólidos inflamables",
+        "Toxicidad aguda oral",
+        "Carcinogenicidad",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 2 (H228)",
+        "Categoría 4 (H302)",
+        "Categoría 2 (H351)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Hidrocarburo aromático"
+    },
+    {
+      id: 28,
+      nombre: "Negro de Eriocromo",
+      propiedades: [
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 2 (H319)"
+      ],
+      tipo: "Indicador pH"
+    },
+    {
+      id: 29,
+      nombre: "Óxido de zinc 99-100,5%",
+      propiedades: [
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Óxido inorgánico"
+    },
+    {
+      id: 30,
+      nombre: "Plata nitrato",
+      propiedades: [
+        "Sólidos comburentes",
+        "Corrosivas para los metales",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 2 (H272)",
+        "Categoría 1 (H290)",
+        "Categoría 1B (H314)",
+        "Categoría 1 (H318)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 31,
+      nombre: "Plomo ll acetato 3 hidrato 99%",
+      propiedades: [
+        "Lesiones o irritación ocular graves",
+        "Carcinogenicidad",
+        "Toxicidad para la reproducción",
+        "Toxicidad específica del órgano blanco - (exposición repetida)",
+        "Toxicidad acuática aguda",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 1 (H318)",
+        "Categoría 1B (H350)",
+        "Categoría 1A (H360)",
+        "Categoría 2 (H373)",
+        "Categoría 1 (H400)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 32,
+      nombre: "Plomo ll carbono",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda por inhalación",
+        "Carcinogenicidad",
+        "Toxicidad para la reproducción",
+        "Toxicidad acuática crónica",
+        "Toxicidad específica del órgano blanco - (exposición repetida)"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H332)",
+        "Categoría 2 (H351)",
+        "Categoría 1A (H360)",
+        "Categoría 1 (H410)",
+        "Categoría 1 (H372)"
+      ],
+      tipo: "Compuesto inorgánico"
+    },
+    {
+      id: 33,
+      nombre: "Potasio cloruro 99,5 %",
+      propiedades: [
+        "Toxicidad acuática aguda",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 1 (H400)",
+        "Categoría 2 (H411)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 34,
+      nombre: "Potasio cromato 99-102%",
+      propiedades: [
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Sensibilización cutánea",
+        "Mutagenicidad en células germinales",
+        "Carcinogenicidad",
+        "Toxicidad específica del órgano blanco - (única exposición)",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 2 (H315)",
+        "Categoría 2 (H319)",
+        "Categoría 1 (H317)",
+        "Categoría 1B (H340)",
+        "Categoría 1B (H350i)",
+        "Categoría 3 (H335)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 35,
+      nombre: "Potasio permanganato 99%",
+      propiedades: [
+        "Sólidos comburentes",
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad para la reproducción",
+        "Toxicidad acuática crónica",
+        "Toxicidad específica del órgano blanco - (exposición repetida)"
+      ],
+      categorias: [
+        "Categoría 2 (H272)",
+        "Categoría 4 (H302)",
+        "Categoría 1C (H314)",
+        "Categoría 1 (H318)",
+        "Categoría 2 (H361d)",
+        "Categoría 1 (H410)",
+        "Categoría 2 (H373)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 36,
+      nombre: "Sodio carbonato anhidro 99,9%",
+      propiedades: [
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 2 (H319)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 37,
+      nombre: "Sodio di sulfito (bisulfito de sodio) 97%",
+      propiedades: [
+        "Toxicidad aguda oral"
+      ],
+      categorias: [
+        "Categoría 4 (H302)"
+      ],
+      tipo: "Compuesto inorgánico"
+    },
+    {
+      id: 38,
+      nombre: "Sodium bismuth oxide 80%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad específica del órgano blanco - (única exposición)"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 2 (H315)",
+        "Categoría 2 (H319)",
+        "Categoría 3 (H335)"
+      ],
+      tipo: "Óxido inorgánico"
+    },
+    {
+      id: 39,
+      nombre: "Titanio (IV) oxido",
+      propiedades: [
+        "Carcinogenicidad"
+      ],
+      categorias: [
+        "Categoría 2 (H351)"
+      ],
+      tipo: "Compuesto inorgánico"
+    },
+    {
+      id: 40,
+      nombre: "Zinc acetato 2 hidrato 99,5-101%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 1 (H318)",
+        "Categoría 2 (H411)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 41,
+      nombre: "Zinc cloruro 97%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad específica del órgano blanco - (única exposición)",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 1B (H314)",
+        "Categoría 1 (H318)",
+        "Categoría 3 (H335)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Sal inorgánica"
+    }
+  ];
+
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'No', width: 70 },
-  { field: 'nombre', headerName: 'Reactivo', width: 130 },
-  { field: 'propiedades', headerName: 'Peligrosidad', width: 200 },
-  { field: 'categorias', headerName: 'Nivel de Peligrosidad', width: 180 },
+  { field: 'nombre', headerName: 'Reactivo', width: 300 },
+  { field: 'propiedades', headerName: 'Peligrosidad', width: 1000 },
+  { field: 'categorias', headerName: 'Nivel de Peligrosidad', width: 1000 },
   { field: 'tipo', headerName: 'Tipo de Sustancia', width: 200 },
 ];
 
 export default function DataTablePaginada() {
   return (
-    <div style={{ height: 400, width: '100%' }}>
+    <div style={{ height: 650, width: '100%' }}>
       <DataGrid
         rows={rows}
         columns={columns}

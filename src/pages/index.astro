@@ -864,7 +864,7 @@ const categoriasReactivos = [
         <p>
           La principal función de estos equipos es realizar una extracción localizada que permita captar los contaminantes y ofrecen una protección, cuyas protecciones son:
         </p>
-        <ElementsSecurity />
+        <ElementsSecurity client:visible />
       </section>
     </div>
     <div class="snap-center">
@@ -881,7 +881,6 @@ const categoriasReactivos = [
             En Colombia, la clasificación del nivel de peligrosidad según el SGA (sistema global armonizado) se encuentra regulada por el Decreto 1076 de 2015, el cual establece que todos los productos químicos deben ser clasificados según el SGA. Los productos químicos se clasifican en diferentes categorías de peligrosidad, que se basan en sus propiedades físicas, químicas y toxicológicas. En las categorías se incluyen peligros para la salud, peligros físicos y peligros para el medio ambiente. Cada categoría esta subdividida en diferentes clases y subclases, que indican el nivel de peligrosidad específico del producto químico
           </p>
         </header>
-        <main>
           <div class="text-center mt-10 flex w-full relative mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
               <div class="container flex flex-col items-center justify-center w-1/2 mx-auto absolute top-0 left-0">
                 <div class="max-w-xs px-4 py-5 mb-2 bg-white border rounded-md shadow sm:px-6 dark:bg-gray-800">
@@ -944,8 +943,6 @@ const categoriasReactivos = [
               <AccordionComponent client:visible />
             </div>
           </div>
-        </div>
-        </main>
       </section>
     </div>
     <div class="snap-center">
@@ -959,6 +956,9 @@ const categoriasReactivos = [
               >Clasificación reactivos líquidos peligrosos</span>
           </h1>
         </header>
+        <main>
+          <DataTablePaginada client:visible />
+        </main>
       </section>
     </div>
   </main>
