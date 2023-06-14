@@ -1,5 +1,3 @@
-'use client';
-
 import { GridColDef } from '@mui/x-data-grid';
 import { Tabs, Table } from 'flowbite-react';
 import DataTablePaginada from './DataTablePaginada';
@@ -129,48 +127,50 @@ export default function PillsTabsTable() {
                 Grupos químicos de carácter inestable
               </h3>
             </div>
-  <table className="table p-4 bg-white rounded-lg shadow">
-    <tbody>
-      {
-        compuestos.map((compuesto) => (
-          <tr className="text-gray-700">
-            <td className="border p-4 dark:border-dark-5">
-              {compuesto[0]}
-            </td>
-            <td className="border p-4 dark:border-dark-5">
-              {compuesto[1]}
-            </td>
-            <td className="border p-4 dark:border-dark-5">
-              {compuesto[2]}
-            </td>
-          </tr>
-        ))
-      }
-    </tbody>
-  </table>
+            <div className='overflow-x-auto whitespace-nowrap'>
+          <table className="table max-w-md md:p-4 p-2 bg-white rounded-lg shadow ">
+            <tbody>
+              {
+                compuestos.map((compuesto) => (
+                  <tr className="text-gray-700 text-xs md:text-base">
+                    <td className="border md:p-4 p-2 text-xs md:text-md dark:border-dark-5">
+                      {compuesto[0]}
+                    </td>
+                    <td className="border md:p-4 p-2 text-xs md:text-md dark:border-dark-5">
+                      {compuesto[1]}
+                    </td>
+                    <td className="border md:p-4 p-2 text-xs md:text-md dark:border-dark-5">
+                      {compuesto[2]}
+                    </td>
+                  </tr>
+                ))
+              }
+            </tbody>
+          </table>
+            </div>
       </Tabs.Item>
       <Tabs.Item title="Compuestos reactivos con agua" className='mx-auto'>
-      <div className="max-w-md px-4 py-5 mb-2 bg-white border rounded-md shadow sm:px-6 dark:bg-gray-800">
-              <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">
-                Compuesto que reaccionan con el agua
-              </h3>
-            </div>
-            <table className="table p-4 bg-white rounded-lg shadow">
-              <tbody>
-                {
-                  compuestosAgua.map((compuesto) => (
-                    <tr className="text-gray-700">
-                      <td className="border p-4 dark:border-dark-5">
-                        {compuesto[0]}
-                      </td>
-                      <td className="border p-4 dark:border-dark-5">
-                        {compuesto[1]}
-                      </td>
-                    </tr>
-                  ))
-                }
-              </tbody>
-            </table>
+        <div className="max-w-md px-4 py-5 mb-2 bg-white border rounded-md shadow sm:px-6 dark:bg-gray-800">
+          <h3 className="text-lg font-medium leading-6 text-gray-900 dark:text-white">
+            Compuesto que reaccionan con el agua
+          </h3>
+        </div>
+        <table className="table md:p-4 p-2  bg-white rounded-lg shadow">
+          <tbody>
+            {
+              compuestosAgua.map((compuesto) => (
+                <tr className="text-gray-700">
+                  <td className="border md:p-4 p-2 text-xs md:text-md  dark:border-dark-5">
+                    {compuesto[0]}
+                  </td>
+                  <td className="border md:p-4 p-2 text-xs md:text-md  dark:border-dark-5">
+                    {compuesto[1]}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
       </Tabs.Item>
       <Tabs.Item className='mx-auto' title="Compuestos reactivos con aire">
         <div className="max-w-md px-4 py-5 mb-2 bg-white border rounded-md shadow sm:px-6 dark:bg-gray-800">
@@ -178,15 +178,15 @@ export default function PillsTabsTable() {
                   Compuesto que reaccionan con el aire
                 </h3>
               </div>
-              <table className="table p-4 bg-white rounded-lg shadow">
+              <table className="table md:p-4 p-2  bg-white rounded-lg shadow">
                 <tbody>
                   {
                     compuestosAire.map((compuesto) => (
                       <tr className="text-gray-700">
-                        <td className="border p-4 dark:border-dark-5">
+                        <td className="border md:p-4 p-2 text-xs md:text-md  dark:border-dark-5">
                           {compuesto[0]}
                         </td>
-                        <td className="border p-4 dark:border-dark-5">
+                        <td className="border md:p-4 p-2 text-xs md:text-md  dark:border-dark-5">
                           {compuesto[1]}
                         </td>
                       </tr>
@@ -202,15 +202,15 @@ export default function PillsTabsTable() {
                   Incompatibilidades químicas 
                 </h3>
               </div>
-              <table className="table p-4 bg-white rounded-lg shadow">
+              <table className="table md:p-4 p-2  bg-white rounded-lg shadow">
                 <tbody>
                   {
                     incompatibilidades.map((compuesto) => (
                       <tr className="text-gray-700">
-                        <td className="border p-4 dark:border-dark-5">
+                        <td className="border md:p-4 p-2 text-xs md:text-md  dark:border-dark-5">
                           {compuesto[0]}
                         </td>
-                        <td className="border p-4 dark:border-dark-5">
+                        <td className="border md:p-4 p-2 text-xs md:text-md  dark:border-dark-5">
                           {compuesto[1]}
                         </td>
                       </tr>

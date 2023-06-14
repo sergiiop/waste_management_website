@@ -2046,9 +2046,13 @@ const itemsAcordion2 = [
         <div class="z-30 relative w-screen h-full flex flex-col">
           <header class="flex flex-grow justify-center items-end">
             <div class="p-6 bg-black opacity-80 rounded-lg">
-              <h2 class="text-center text-white text-6xl font-bold">
-                SISTEMA INTERNO PARA EL MANEJO <br /> DE <br /> RESIDUOS PELIGROSOS
-              </h2>
+              <h1
+          class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+        >
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"
+            >SISTEMA INTERNO PARA EL MANEJO <br /> DE <br /> RESIDUOS PELIGROSOS</span>
+        </h1>
             </div>
           </header>
           <footer
@@ -2076,7 +2080,7 @@ const itemsAcordion2 = [
     </div>
     <div class="snap-center">
       <section
-        class="w-screen min-h-screen overflow-hidden relative container-intro"
+        class="w-screen min-h-screen overflow-hidden relative container-intro mb-6"
       >
         <div class="introduccion">
           <div
@@ -2116,7 +2120,7 @@ const itemsAcordion2 = [
         </div>
         <div class="general">
           <div
-            class="mt-5 md:mt-8 h-5/6 w-11/12 rounded-xl overflow-hidden mx-auto"
+            class="mt-5 md:mt-8 pb-10 w-11/12 rounded-xl overflow-hidden mx-auto"
             style="box-shadow: 0px 0px 64px -22px #1C50E6;"
           >
             <header class="bg-[#1843BF] text-white p-5 text-center text-xl">
@@ -2134,7 +2138,7 @@ const itemsAcordion2 = [
         </div>
         <div class="especificos">
           <div
-            class="mt-5 md:mt-8 h-5/6 w-11/12 rounded-xl overflow-hidden mx-auto"
+            class="mt-5 md:mt-8 pb-10 w-11/12 rounded-xl overflow-hidden mx-auto"
             style="box-shadow: 0px 0px 64px -22px #1C50E6;"
           >
             <header class="bg-[#1843BF] text-white p-5 text-center text-xl">
@@ -2278,7 +2282,7 @@ const itemsAcordion2 = [
                   <div class="mt-6">
                     <div class="flex items-center">
                       <h4
-                        class="flex-shrink-0 pr-4 text-sm font-semibold leading-5 tracking-wider text-indigo-600 uppercase bg-white dark:bg-gray-800"
+                        class="flex-shrink-0 pr-4 md:text-sm font-semibold leading-5 tracking-wider text-indigo-600 uppercase bg-white dark:bg-gray-800 text-xs"
                       >
                         Ejemplos de dónde pueden encontrarse
                       </h4>
@@ -2322,7 +2326,7 @@ const itemsAcordion2 = [
                   <div class="mt-6">
                     <div class="flex items-center">
                       <h4
-                        class="flex-shrink-0 pr-4 text-sm font-semibold leading-5 tracking-wider text-indigo-600 uppercase bg-white dark:bg-gray-800"
+                        class="flex-shrink-0 pr-4 md:text-sm text-xs font-semibold leading-5 tracking-wider text-indigo-600 uppercase bg-white dark:bg-gray-800"
                       >
                         Ejemplos de consejos de prudencia
                       </h4>
@@ -2383,7 +2387,7 @@ const itemsAcordion2 = [
       </section>
     </div>
     <div class="snap-center">
-      <section class="mx-auto px-4 py-8 h-screen w-screen">
+      <section class="mx-auto px-4 py-8 min-h-screen w-screen">
         <header>
           <h1
             class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
@@ -2396,8 +2400,8 @@ const itemsAcordion2 = [
             En Colombia, la clasificación del nivel de peligrosidad según el SGA (sistema global armonizado) se encuentra regulada por el Decreto 1076 de 2015, el cual establece que todos los productos químicos deben ser clasificados según el SGA. Los productos químicos se clasifican en diferentes categorías de peligrosidad, que se basan en sus propiedades físicas, químicas y toxicológicas. En las categorías se incluyen peligros para la salud, peligros físicos y peligros para el medio ambiente. Cada categoría esta subdividida en diferentes clases y subclases, que indican el nivel de peligrosidad específico del producto químico
           </p>
         </header>
-          <div class="text-center mt-10 flex w-full relative mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
-              <div class="container flex flex-col items-center justify-center w-1/2 mx-auto absolute top-0 left-0">
+          <div class="text-center mt-10 lg:flex block w-full relative mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
+            <div class="container flex flex-wrap lg:flex-col items-center justify-center w-full lg:w-1/2 mx-auto lg:absolute lgtop-0 lgleft-0">
                 <div class="max-w-xs px-4 py-5 mb-2 bg-white border rounded-md shadow sm:px-6 dark:bg-gray-800">
                     <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">
                       Nivel de peligro SGA
@@ -2454,14 +2458,14 @@ const itemsAcordion2 = [
               </li>
                 </ul>
             </div>
-            <div class='w-1/2 absolute right-0 top-0'>
+            <div class='lg:w-1/2 w-full lg:absolute lg:right-0 lg:top-0'>
               <AccordionComponent items={ITEMSAcordion} client:visible />
             </div>
           </div>
       </section>
     </div>
     <div class="snap-center">
-      <section class="mx-auto px-4 py-8 h-screen w-screen">
+      <section class="mx-auto px-4 py-8 min-h-screen w-screen">
         <header>
           <h1
             class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
@@ -2477,7 +2481,7 @@ const itemsAcordion2 = [
       </section>
     </div>
     <div class="snap-center">
-      <section class="mx-auto px-4 py-8 h-screen w-screen">
+      <section class="mx-auto px-4 py-8 min-h-screen w-screen">
         <header>
           <h1
             class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
@@ -2512,13 +2516,13 @@ const itemsAcordion2 = [
         </p>
       </header>
       <main class='max-w-screen-xl mx-auto my-8 px-8'>
-        <table class="table p-4 bg-white rounded-lg shadow">
+        <table class="table md:p-4 p-1 bg-white rounded-lg shadow">
           <thead>
               <tr>
-                  <th class="border p-4 border-dark-5 whitespace-nowrap font-normal text-white bg-slate-900">
+                  <th class="border md:p-4 p-1 text-xs md:text-md border-dark-5 whitespace-nowrap font-normal text-white bg-slate-900">
                     Residuos
                   </th>
-                  <th class="border p-4 border-dark-5 whitespace-nowrap font-normal text-white bg-slate-900">
+                  <th class="border md:p-4 p-1 text-xs md:text-md border-dark-5 whitespace-nowrap font-normal text-white bg-slate-900">
                     Especificaciones
                   </th>
               </tr>
@@ -2527,10 +2531,10 @@ const itemsAcordion2 = [
             {
               residuos.map((residuo) => (
                 <tr class="text-gray-700">
-                    <td class="border p-4 dark:border-dark-5">
+                    <td class="border md:p-4 p-1 text-xs md:text-md dark:border-dark-5">
                       {residuo.tipo}
                     </td>
-                    <td class="border p-4 dark:border-dark-5 whitespace-normal">
+                    <td class="border md:p-4 p-1 text-xs md:text-md dark:border-dark-5 whitespace-normal">
                       {residuo.especificaciones}
                     </td>
                 </tr>
@@ -2548,8 +2552,8 @@ const itemsAcordion2 = [
   <h2 class="mb-12 text-3xl font-extrabold leading-9 text-gray-900 border-b-2 border-gray-100">
     ALMACENAMINETO
   </h2>
-  <ul class="flex flex-wrap items-start gap-8">
-      <li class="w-2/5">
+  <ul class="lg:flex lg:flex-wrap block items-start gap-8 ">
+      <li class="lg:w-2/5 w-full mt-4">
           <p class="text-lg font-medium leading-6 text-gray-900">
             Envasado 
           </p>
@@ -2559,7 +2563,7 @@ const itemsAcordion2 = [
               </p>
           </p>
       </li>
-      <li class="w-2/5">
+      <li class="lg:w-2/5 w-full mt-4">
           <p class="text-lg font-medium leading-6 text-gray-900">
             Etiquetado de sustancias peligrosas
           </p>
@@ -2569,7 +2573,7 @@ const itemsAcordion2 = [
               </p>
           </p>
       </li>
-      <li class="w-2/5">
+      <li class="lg:w-2/5 w-full mt-4">
           <p class="text-lg font-medium leading-6 text-gray-900">
             Almacenamineto general de residuos peligrosos
           </p>
@@ -2735,6 +2739,20 @@ const itemsAcordion2 = [
         "introduccion general"
         "introduccion especificos"
         "introduccion especificos";
+    }
+
+    /* media query container info */
+    @media (max-width: 768px) {
+      .container-intro {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr max-content max-content;
+        gap: 0px 30px;
+        grid-template-areas:
+          "introduccion"
+          "general"
+          "especificos";
+      }
     }
     .general {
       grid-area: general;

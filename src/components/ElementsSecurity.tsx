@@ -1,4 +1,3 @@
-'use client';
 import {
   ProgressBar,
   Card,
@@ -14,9 +13,9 @@ import {
 
 import { useState } from "react";
 
-import { UserGroupIcon, UserIcon } from "@heroicons/react/solid";
-import {FaShower, FaFireExtinguisher, FaMedkit, FaPersonBooth} from 'react-icons/fa'
-import {GiExtractionOrb} from 'react-icons/gi'
+import { UserGroupIcon, UserIcon, FireIcon, PlusIcon } from "@heroicons/react/solid";
+// import {FaShower,FaPersonBooth} from 'react-icons/fa'
+// import {GiExtractionOrb} from 'react-icons/gi'
 import Shower from "./Shower";
 import CardElement from "./CardElement";
 
@@ -123,11 +122,11 @@ export default function ElementsSecurity () {
     <Card>
       <TabGroup>
         <TabList className="mt-8">
-          <Tab icon={FaShower}>Duchas de Seguridad</Tab>
-          <Tab icon={FaFireExtinguisher}>Extintores</Tab>
-          <Tab icon={FaMedkit}>Botiquin</Tab>
-          <Tab icon={GiExtractionOrb}>Campanas de extraccion</Tab>
-          <Tab icon={FaPersonBooth}>Equipos de proteccion personal</Tab>
+          <Tab icon={PlusIcon}>Duchas de Seguridad</Tab>
+          <Tab icon={FireIcon}>Extintores</Tab>
+          <Tab icon={PlusIcon}>Botiquin</Tab>
+          <Tab icon={PlusIcon}>Campanas de extraccion</Tab>
+          <Tab icon={PlusIcon}>Equipos de proteccion personal</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>

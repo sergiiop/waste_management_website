@@ -1,5 +1,3 @@
-'use client';
-
 import { Accordion } from 'flowbite-react';
 
 export default ({ items }) => (
