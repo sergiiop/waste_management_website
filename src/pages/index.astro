@@ -20,6 +20,9 @@ import Table from "./../components/Table.tsx";
 import ElementsSecurity from "./../components/ElementsSecurity.tsx";
 import AccordionComponent from "./../components/AccordionComponent.tsx";
 import DataTablePaginada from "./../components/DataTablePaginada.tsx";
+import PillsTabsTable from "./../components/PillsTabTable.tsx";
+import TableRow from "./../components/TableRow.tsx";
+import { GridColDef } from "@mui/x-data-grid";
 
 type Norma = {
   description: string;
@@ -518,13 +521,1525 @@ const categoriasReactivos = [
     color: 'blue'
   },
 ]
+
+const rowsFirstDT = [
+  {
+    id: 1,
+    nombre: "1,2 Dicloretano 99,9%",
+    propiedades: [
+      "Toxicidad aguda oral",
+      "Toxicidad aguda por inhalación - Vapores",
+      "Corrosión o irritación cutáneas",
+      "Lesiones o irritación ocular graves",
+      "Carcinogenicidad",
+      "Toxicidad específica del órgano blanco - (única exposición)",
+    ],
+    categorias: [
+      "Categoría 4 (H302)",
+      "Categoría 3 (H331)",
+      "Categoría 2 (H315)",
+      "Categoría 2 (H319)",
+      "Categoría 1B (H350)",
+      "Categoría 3 (H335) (H336)",
+    ],
+    tipo: "Hidrocarburo clorado",
+  },
+  {
+    id: 2,
+    nombre: "1,4 dioxano 99,5%",
+    propiedades: [
+      "Líquido inflamable",
+      "Lesiones o irritación ocular graves",
+      "Carcinogenicidad",
+      "Toxicidad específica del órgano blanco - (única exposición)",
+    ],
+    categorias: [
+      "Categoría 2 (H225)",
+      "Categoría 2 (H319)",
+      "Categoría 2 (H351)",
+      "Categoría 3 (H335)",
+    ],
+    tipo: "Éter",
+  },
+  {
+    id: 3,
+    nombre: "1- Hexanol 98%",
+    propiedades: [
+      "Toxicidad aguda oral",
+      "Toxicidad aguda cutánea",
+      "Lesiones o irritación ocular graves",
+      "Líquido inflamable",
+    ],
+    categorias: [
+      "Categoría 4 (H302)",
+      "Categoría 4 (H312)",
+      "Categoría 2 (H319)",
+      "Categoría 3 (H226)",
+    ],
+    tipo: "Alcohol",
+  },
+  {
+    id: 4,
+    nombre: "Acetato de etilo 99%",
+    propiedades: [
+      "Líquidos inflamables",
+      "Lesiones o irritación ocular graves",
+      "Toxicidad específica del órgano blanco - (única exposición)",
+    ],
+    categorias: [
+      "Categoría 2 (H225)",
+      "Categoría 2 (H319)",
+      "Categoría 3 (H336)",
+    ],
+    tipo: "Ester acetona",
+  },
+  {
+    id: 5,
+    nombre: "Acetona 99,8%",
+    propiedades: [
+      "Líquidos inflamables",
+      "Lesiones o irritación ocular graves",
+      "Toxicidad específica del órgano blanco - (única exposición)",
+    ],
+    categorias: [
+      "Categoría 2 (H225)",
+      "Categoría 2 (H319)",
+      "Categoría 3 (H336)",
+    ],
+    tipo: "Cetona",
+  },
+  {
+    id: 6,
+    nombre: "Ácido acético 99,5%",
+    propiedades: [
+      "Líquidos inflamables",
+      "Corrosión o irritación cutáneas",
+      "Lesiones o irritación ocular graves",
+    ],
+    categorias: [
+      "Categoría 3 (H226)",
+      "Categoría 1A (H314)",
+      "Categoría 1 (H318)",
+    ],
+    tipo: "Ácidos",
+  },
+  {
+    id: 7,
+    nombre: "Ácido clorhídrico 36,5- 38%",
+    propiedades: [
+      "Corrosivos para los metales",
+      "Corrosión o irritación cutáneas",
+      "Lesiones oculares graves o irritación ocular",
+      "Toxicidad específica en determinados órganos",
+    ],
+    categorias: [
+      "Categoría 1 (H290)",
+      "Categoría 1B (H314)",
+      "Categoría 1 (H318)",
+      "Categoría 3 (H335)",
+    ],
+    tipo: "Ácidos",
+  },
+  {
+    id: 8,
+    nombre: "Ácido nítrico 65%",
+    propiedades: [
+      "Líquidos comburentes",
+      "Sustancias/mezclas corrosivas para los metales",
+      "Toxicidad aguda por inhalación - Vapores",
+      "Corrosión o irritación cutáneas",
+      "Lesiones o irritación ocular graves",
+    ],
+    categorias: [
+      "Categoría 3 (H272)",
+      "Categoría 1 (H290)",
+      "Categoría 3 (H331)",
+      "Categoría 1 (H314) A",
+      "Categoría 1 (H318)",
+    ],
+    tipo: "Ácidos",
+  },
+  {
+    id: 9,
+    nombre: "Acido orto fosfórico 85%",
+    propiedades: [
+      "Corrosión o irritación cutáneas",
+      "Lesiones o irritación ocular graves",
+    ],
+    categorias: [
+      "Categoría 1B (H314)",
+      "Categoría 1 (H318)",
+    ],
+    tipo: "Ácidos",
+  },
+  {
+    id: 10,
+    nombre: "Ácido sulfúrico 95-98%",
+    propiedades: [
+      "Corrosión o irritación cutáneas",
+      "Lesiones o irritación ocular graves",
+    ],
+    categorias: [
+      "Categoría 1A (H314)",
+      "Categoría 1 (H318)",
+    ],
+    tipo: "Ácidos",
+  },
+  {
+    id: 11,
+    nombre: "Alcohol isopropílico 99,5%",
+    propiedades: [
+      "Líquidos inflamables",
+      "Lesiones o irritación ocular graves",
+      "Toxicidad específica del órgano blanco",
+    ],
+    categorias: [
+      "Categoría 2 (H225)",
+      "Categoría 2 (H319)",
+      "Categoría 3 (H336)",
+    ],
+    tipo: "Alcohol",
+  },
+  {
+    id: 12,
+    nombre: "Amoniaco 25 - 30%",
+    propiedades: [
+      "Corrosión cutánea",
+      "Toxicidad especifica en determinados órganos exposición única",
+      "Toxicidad acuática aguda",
+    ],
+    categorias: [
+      "Categoría 1B (H314)",
+      "Categoría 3 (H335)",
+      "Categoría 1 (H400)",
+    ],
+    tipo: "Base",
+  },
+  {
+    id: 13,
+    nombre: "Anhidrido acético 99%",
+    propiedades: [
+      "Líquidos inflamables",
+      "Toxicidad aguda oral",
+      "Toxicidad aguda por inhalación - Vapores",
+      "Corrosión o irritación cutáneas",
+      "Lesiones o irritación ocular graves",
+    ],
+    categorias: [
+      "Categoría 3 (H226)",
+      "Categoría 4 (H302)",
+      "Categoría 2 (H330)",
+      "Categoría 1B (H314)",
+      "Categoría 1 (H318)",
+    ],
+    tipo: "Anhidrido ácido",
+  },
+  {
+    id: 14,
+    nombre: "Arsenito de sodio solución",
+    propiedades: [
+      "Toxicidad aguda oral",
+      "Toxicidad aguda cutánea",
+      "Toxicidad aguda por inhalación - Polvos y nieblas",
+      "Carcinogenicidad",
+      "Toxicidad acuática aguda",
+      "Toxicidad acuática crónica"
+    ],
+    categorias: [
+      "Categoría 2 (H300)",
+      "Categoría 2 (H310)",
+      "Categoría 3 (H331)",
+      "Categoría 1A (H350)",
+      "Categoría 1 (H400)",
+      "Categoría 1 (H410)"
+    ],
+    tipo: "Sal inorgánica"
+  },
+  {
+    id: 15,
+    nombre: "Benceno 99,8%",
+    propiedades: [
+      "Líquidos inflamables",
+      "Toxicidad por aspiración",
+      "Toxicidad aguda por inhalación - Vapores",
+      "Toxicidad para la reproducción",
+      "Toxicidad acuática crónica"
+    ],
+    categorias: [
+      "Categoría 3 (H226)",
+      "Categoría 1 (H304)",
+      "Categoría 3 (H331)",
+      "Categoría 2 (H361)",
+      "Categoría 2 (H411)"
+    ],
+    tipo: "Hidrocarburo"
+  },
+  {
+    id: 16,
+    nombre: "Ciclohexano 99,5%",
+    propiedades: [
+      "Líquidos inflamables",
+      "Toxicidad por aspiración",
+      "Corrosión o irritación cutáneas",
+      "Toxicidad específica del órgano blanco - (única exposición)",
+      "Toxicidad acuática aguda",
+      "Toxicidad acuática crónica"
+    ],
+    categorias: [
+      "Categoría 2 (H225)",
+      "Categoría 1 (H304)",
+      "Categoría 2 (H315)",
+      "Categoría 3 (H336)",
+      "Categoría 1 (H400)",
+      "Categoría 1 (H410)"
+    ],
+    tipo: "Hidrocarburo alifático cíclico"
+  },
+  {
+    id: 17,
+    nombre: "Cloroformo",
+    propiedades: [
+      "Toxicidad aguda oral",
+      "Toxicidad aguda por inhalación - Vapores",
+      "Corrosión o irritación cutáneas",
+      "Lesiones o irritación ocular graves",
+      "Carcinogenicidad",
+      "Toxicidad para la reproducción",
+      "Toxicidad específica del órgano blanco - (única exposición)",
+      "Toxicidad específica del órgano blanco - (exposición repetida)"
+    ],
+    categorias: [
+      "Categoría 4 (H302)",
+      "Categoría 3 (H331)",
+      "Categoría 2 (H315)",
+      "Categoría 2 (H319)",
+      "Categoría 2 (H351)",
+      "Categoría 2 (H361d)",
+      "Categoría 3 (H336)",
+      "Categoría 1 (H372)"
+    ],
+    tipo: "Hidrocarburo clorado"
+  },
+  {
+    id: 18,
+    nombre: "Cloruro de sebacoilo acido",
+    propiedades: [
+      "Sustancias/mezclas corrosivas para los metales",
+      "Toxicidad aguda oral",
+      "Toxicidad aguda cutánea",
+      "Corrosión o irritación cutáneas",
+      "Lesiones o irritación ocular graves"
+    ],
+    categorias: [
+      "Categoría 1 (H290)",
+      "Categoría 4 (H302)",
+      "Categoría 2 (H310)",
+      "Categoría 1B (H314)",
+      "Categoría 1 (H318)"
+    ],
+    tipo: "Ácidos"
+  },
+  {
+    id: 19,
+    nombre: "Diclorometano",
+    propiedades: [
+      "Corrosión o irritación cutáneas",
+      "Lesiones o irritación ocular graves",
+      "Carcinogenicidad",
+      "Toxicidad específica del órgano blanco - (única exposición)"
+    ],
+    categorias: [
+      "Categoría 2 (H315)",
+      "Categoría 2 (H319)",
+      "Categoría 2 (H351)",
+      "Categoría 3 (H336)"
+    ],
+    tipo: "Hidrocarburo clorado"
+  },
+  {
+    id: 20,
+    nombre: "Etanol",
+    propiedades: [
+      "Líquidos inflamables",
+      "Lesiones o irritación ocular graves"
+    ],
+    categorias: [
+      "Categoría 2 (H225)",
+      "Categoría 2 (H319)"
+    ],
+    tipo: "Alcoholes"
+  },
+  {
+    id: 21,
+    nombre: "Etanolamina 99%",
+    propiedades: [
+      "Toxicidad aguda",
+      "Corrosión cutáneas"
+    ],
+    categorias: [
+      "Categoría 4 (H302) (332) (312)",
+      "Categoría 1B H314"
+    ],
+    tipo: "Aminas"
+  },
+  {
+    id: 22,
+    nombre: "Éter etílico 99,7%",
+    propiedades: [
+      "Líquidos inflamables",
+      "Toxicidad aguda oral",
+      "Toxicidad específica del órgano blanco - (única exposición)"
+    ],
+    categorias: [
+      "Categoría 1 (H224)",
+      "Categoría 4 (H302)",
+      "Categoría 3 (H336)"
+    ],
+    tipo: "Éter"
+  },
+  {
+    id: 23,
+    nombre: "Hexamethylene disocyanate 98%",
+    propiedades: [
+      "Toxicidad aguda oral",
+      "Toxicidad aguda por inhalación - Vapores",
+      "Corrosión o irritación cutáneas",
+      "Lesiones o irritación ocular graves",
+      "Sensibilización respiratoria",
+      "Sensibilización cutánea"
+    ],
+    categorias: [
+      "Categoría 4 (H302)",
+      "Categoría 1 (H330)",
+      "Categoría 1C (H314)",
+      "Categoría 1 (H318)",
+      "Categoría 1 (H334)",
+      "Categoría 1 (H317)"
+    ],
+    tipo: "Isocianato"
+  },
+  {
+    id: 24,
+    nombre: "Hidrogeno Peróxido 30%",
+    propiedades: [
+      "Líquidos comburentes",
+      "Toxicidad aguda oral",
+      "Toxicidad aguda por inhalación - Polvos y nieblas",
+      "Lesiones o irritación ocular graves"
+    ],
+    categorias: [
+      "Categoría 2 (H272)",
+      "Categoría 4 (H302)",
+      "Categoría 4 (H332)",
+      "Categoría 1 (H318)"
+    ],
+    tipo: "Peróxido"
+  },
+  {
+    id: 25,
+    nombre: "Isopropoxido de titanio",
+    propiedades: [
+      "Líquidos inflamables",
+      "Lesiones o irritación ocular graves",
+      "Toxicidad específica del órgano blanco - (única exposición)"
+    ],
+    categorias: [
+      "Categoría 3 (H226)",
+      "Categoría 2 (H319)",
+      "Categoría 3 (H336)"
+    ],
+    tipo: "Alifático"
+  },
+  {
+    id: 26,
+    nombre: "Metanol 99,8%",
+    propiedades: [
+      "Líquidos inflamables",
+      "Toxicidad aguda oral",
+      "Toxicidad aguda cutánea",
+      "Toxicidad aguda por inhalación - Vapores",
+      "Toxicidad específica del órgano blanco - (única exposición)"
+    ],
+    categorias: [
+      "Categoría 2 (H225)",
+      "Categoría 3 (H301)",
+      "Categoría 3 (H311)",
+      "Categoría 3 (H331)",
+      "Categoría 1 (H370)"
+    ],
+    tipo: "Alcohol"
+  },
+  {
+    id: 27,
+    nombre: "N-Butanol 99,5%",
+    propiedades: [
+      "Líquidos inflamables",
+      "Toxicidad aguda (oral)",
+      "Corrosión o irritación cutáneas",
+      "Lesiones oculares graves o irritación ocular",
+      "Toxicidad específica (irritación de las vías respiratorias)",
+      "Toxicidad específica (efectos narcóticos, somnolencia)"
+    ],
+    categorias: [
+      "Categoría 3 (H226)",
+      "Categoría 4 (H302)",
+      "Categoría 2 (H315)",
+      "Categoría 1 (H318)",
+      "Categoría 3 (H335)",
+      "Categoría 3 (H336)"
+    ],
+    tipo: "Alcohol"
+  },
+  {
+    id: 28,
+    nombre: "N-hexano 95%",
+    propiedades: [
+      "Líquidos inflamables",
+      "Toxicidad por aspiración",
+      "Corrosión o irritación cutáneas",
+      "Toxicidad para la reproducción",
+      "Toxicidad específica del órgano blanco - (única exposición)",
+      "Toxicidad específica del órgano blanco - (exposición repetida)",
+      "Toxicidad acuática crónica"
+    ],
+    categorias: [
+      "Categoría 2 (H225)",
+      "Categoría 1 (H304)",
+      "Categoría 2 (H315)",
+      "Categoría 2 (H361)",
+      "Categoría 2 (H373)",
+      "Categoría 1 (H410)"
+    ],
+    tipo: "Hidrocarburo"
+  },
+  {
+    id: 29,
+    nombre: "Parafina liquida",
+    propiedades: [
+      "Lesiones o irritación ocular graves ",
+    ],
+    categorias: [
+      "Categoría 2 (H319)"
+    ],
+    tipo: "Hidrocarburo alifático"
+  },
+  {
+    id: 30,
+    nombre: "Tetrahidrofurano 99,9%",
+    propiedades: [
+      "Líquidos inflamables",
+      "Toxicidad aguda oral",
+      "Toxicidad aguda por inhalación - Vapores",
+      "Toxicidad específica del órgano blanco - (única exposición)"
+    ],
+    categorias: [
+      "Categoría 2 (H225)",
+      "Categoría 4 (H302)",
+      "Categoría 2 (H330)",
+      "Categoría 1 (H373)"
+    ],
+    tipo: "Éter"
+  }
+]
+
+const residuos = [
+  {
+    tipo: "Disolventes halógenos",
+    especificaciones: "Son líquidos orgánicos, muy tóxicos, irritantes y, en algún caso, cancerígenos, con unos contenidos superiores al 2% de algún halógeno."
+  },
+  {
+    tipo: "Disolventes no halogenados",
+    especificaciones: "Estas son líquidos orgánicos, tóxicos e irritantes con una concentración menor de 2% de algún halógeno. Ejemplo: alcoholes, éter, tolueno."
+  },
+  {
+    tipo: "Disoluciones Acuosas",
+    especificaciones: "Esta es una mezcla homogénea formada por un soluto y un solvente."
+  },
+  {
+    tipo: "Ácidos",
+    especificaciones: "Mezcla de compuestos de grupos distintos, sin que haya ninguno mayoritario ni especialmente tóxico y/o peligroso y con valores de pH ácidos o muy ácidos (entre 0 y 4)."
+  },
+  {
+    tipo: "Aceites",
+    especificaciones: "Este grupo pertenece a los aceites minerales obtenidos de operaciones de un equipo como su motor, o la trasmisión mecánica, y de la bomba de vacío."
+  },
+  {
+    tipo: "Acrilamida",
+    especificaciones: "La acrilamida es una sustancia química que se usa principalmente para hacer compuestos químicos llamados copolímero de poliacrilamida y de acrilamida. Los copolímeros de poliacrilamida y de acrilamida se usan en muchos procesos industriales, tales como la producción de papel, de tintes y plásticos, y en el tratamiento del agua potable y de aguas residuales, incluidas las aguas negras."
+  },
+  {
+    tipo: "Aerosol",
+    especificaciones: "Gases contenidos a presión en un recipiente. Ejemplo: gases refrigerantes, exentos halones, extintores."
+  },
+  {
+    tipo: "Baterías de plomo",
+    especificaciones: "En caso de fugas del líquido que contienen, acondicionarlos en bidones homologados, si el tamaño no lo permite, guardarlas en una caja de cartón bien cerradas y etiquetadas."
+  },
+  {
+    tipo: "Bases",
+    especificaciones: "Una base para laboratorio es cualquier sustancia que aporta iones OH- en una disolución acuosa, es decir, tiene un pH mayor a 7."
+  },
+  {
+    tipo: "Compuestos mercurizados",
+    especificaciones: "Sales y soluciones de mercurio, ejemplo los termómetros."
+  },
+  {
+    tipo: "Plaguicidas",
+    especificaciones: "Pesticidas, herbicidas y biocidas en general (organohalogenados, organofosforados, etc.)."
+  },
+  {
+    tipo: "Sales y soluciones de cromo",
+    especificaciones: "Mezcla crómica y compuesta por cromo."
+  },
+  {
+    tipo: "Sales y soluciones inorgánicas",
+    especificaciones: "Sales de sulfatos, nitratos, metales pesados."
+  },
+  {
+    tipo: "Sales y soluciones Cianuradas",
+    especificaciones: "Sustancias que contienen cianuros y derivados."
+  },
+  {
+    tipo: "Envases vacíos de vidrio",
+    especificaciones: "Envases vacíos de vidrio, plástico o metal y vidrio roto de laboratorio. Separarlos en diferentes contenedores los envases de distinto material."
+  },
+  {
+    tipo: "Tierras contaminadas",
+    especificaciones: "Tierras afectadas por hongos y metales."
+  },
+  {
+    tipo: "Bromuro de etidio",
+    especificaciones: "Bromuro de etidio solido o liquido (geles,guantes,papel, puntas, contaminadas)."
+  },
+  {
+    tipo: "Residuos biosanitarios",
+    especificaciones: "Potencialmente contaminados con sustancias biológicas al haber estado en contacto con pacientes o líquidos biológicos. Ejemplo: placas, Petri, materiales cortantes."
+  },
+  {
+    tipo: "Soluciones de revelado",
+    especificaciones: "Revelador y fijador de fotografías, líquidos de radiología."
+  },
+  {
+    tipo: "Materiales contaminados con productos químicos",
+    especificaciones: "Materiales sólidos contaminados con sustancias químicas, guantes, puntas, papeles, etc. No juntar los materiales que tuvieron contacto con el bromuro de etidio."
+  },
+  {
+    tipo: "Medicamentos vencidos",
+    especificaciones: "Medicamentos caducados y sus envases."
+  }
+];
+
+const reactivosSolidosPeligrosos =
+  [
+    {
+      id: 1,
+      nombre: "Acido 3,5-dinitrosalicílico 98%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Ácido"
+    },
+    {
+      id: 2,
+      nombre: "Acido Benzoico 99,5%",
+      propiedades: [
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad específica del órgano blanco - (exposición repetida)"
+      ],
+      categorias: [
+        "Categoría 2 (H315)",
+        "Categoría 1 (H318)",
+        "Categoría 1 (H372)"
+      ],
+      tipo: "Ácido"
+    },
+    {
+      id: 3,
+      nombre: "Ácido cítrico 99,5-102%",
+      propiedades: [
+        "Lesiones o irritación ocular graves",
+        "Toxicidad específica del órgano blanco - (única exposición)"
+      ],
+      categorias: [
+        "Categoría 2 (H319)",
+        "Categoría 3 (H335)"
+      ],
+      tipo: "Ácido"
+    },
+    {
+      id: 4,
+      nombre: "Acido Oxálico",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad específica del órgano blanco - (exposición repetida)"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H312)",
+        "Categoría 1 (H318)",
+        "Categoría 2 (H373)"
+      ],
+      tipo: "Ácido"
+    },
+    {
+      id: 5,
+      nombre: "Ammonium Thiocyanate 98%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad aguda por inhalación - Polvos y nieblas"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H312)",
+        "Categoría 1 (H318)",
+        "Categoría 4 (H332)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 6,
+      nombre: "Amonio cloruro 99,5%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 2 (H319)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 7,
+      nombre: "Amonio Oxalato Hidrato 99%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H312)",
+        "Categoría 2 (H319)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 8,
+      nombre: "Amonio Oxalato",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H312)",
+        "Categoría 2 (H319)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 9,
+      nombre: "Amonio tiocianato 99%",
+      propiedades: [
+        "Toxicidad aguda, Oral",
+        "Toxicidad aguda, Inhalación",
+        "Toxicidad aguda, Cutáneo",
+        "Lesiones oculares graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H332)",
+        "Categoría 4 (H312)",
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 10,
+      nombre: "Antrona 97%",
+      propiedades: [
+        "Irritaciones cutáneas",
+        "Irritación ocular",
+        "Irritación vías respiratorias"
+      ],
+      categorias: [
+        "Categoría 2 (H315)",
+        "Categoría 2 (H319)",
+        "Categoría 3 (H335)"
+      ],
+      tipo: "Compuesto orgánico"
+    },
+    {
+      id: 11,
+      nombre: "Calcio cloruro 2-hidrato 99-105%",
+      propiedades: [
+        "Irritación ocular"
+      ],
+      categorias: [
+        "Categoría 2 (H319)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 12,
+      nombre: "Cerio nitrato 99,5%",
+      propiedades: [
+        "Sólidos comburentes",
+        "Corrosivos para los metales",
+        "Toxicidad aguda oral",
+        "Corrosión cutáneas",
+        "Toxicidad acuático, crónica"
+      ],
+      categorias: [
+        "Categoría 2 (H272)",
+        "Categoría 1 (H290)",
+        "Categoría 4 (H302)",
+        "Categoría 1B (H314)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 13,
+      nombre: "Cloruro de Mercurio 99,5%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Mutagenicidad en células germinales",
+        "Toxicidad para la reproducción",
+        "Toxicidad específica del órgano blanco - (exposición repetida)",
+        "Toxicidad acuática aguda",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 2 (H300)",
+        "Categoría 1B (H314)",
+        "Categoría 1 (H318)",
+        "Categoría 2 (H341)",
+        "Categoría 2 (H361f)",
+        "Categoría 1 (H372)",
+        "Categoría 1 (H400)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 14,
+      nombre: "Cobalto II cloruro 6 hidrato 98%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda por inhalación",
+        "Sensibilización respiratoria",
+        "Sensibilización cutánea",
+        "Carcinogenicidad",
+        "Toxicidad para la reproducción",
+        "Toxicidad acuática crónica",
+        "Mutagenicidad en células germinales"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H332)",
+        "Categoría 1 (H334)",
+        "Categoría 1 (H317)",
+        "Categoría 2 (H341)",
+        "Categoría 1B (H360F)",
+        "Categoría 1 (H410)",
+        "Categoría 1B (H350i)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 15,
+      nombre: "Cromato de plomo",
+      propiedades: [
+        "Carcinogenicidad",
+        "Toxicidad para la reproducción",
+        "Toxicidad acuática crónica",
+        "Toxicidad específica del órgano blanco - (exposición repetida)"
+      ],
+      categorias: [
+        "Categoría 1B (H350)",
+        "Categoría 1A (H360Df)",
+        "Categoría 1 (H410)",
+        "Categoría 2 (H373)"
+      ],
+      tipo: "Sal"
+    },
+    {
+      id: 16,
+      nombre: "EDTA (ácido etilendiamina tetracetico disódico deshidrato) 99%",
+      propiedades: [
+        "Lesiones oculares graves"
+      ],
+      categorias: [
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Compuesto orgánico"
+    },
+    {
+      id: 17,
+      nombre: "Fenol 99%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Toxicidad aguda por inhalación",
+        "Corrosión o irritación cutáneas",
+        "Mutagenicidad en células germinales",
+        "Toxicidad específica del órgano blanco - (exposición repetida)"
+      ],
+      categorias: [
+        "Categoría 3 (H301)",
+        "Categoría 3 (H311)",
+        "Categoría 3 (H331)",
+        "Categoría 1B (H314)",
+        "Categoría 2 (H341)",
+        "Categoría 2 (H373)"
+      ],
+      tipo: "Compuesto orgánico"
+    },
+    {
+      id: 18,
+      nombre: "Fenolftaleína 99%",
+      propiedades: [
+        "Líquidos inflamables",
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Toxicidad aguda por vapores",
+        "Lesiones o irritación ocular graves",
+        "Carcinogenicidad",
+        "Mutagenicidad en células germinales",
+        "Toxicidad específica del órgano blanco - (única exposición)"
+      ],
+      categorias: [
+        "Categoría 2 (H225)",
+        "Categoría 4 (H302)",
+        "Categoría 4 (H312)",
+        "Categoría 4 (H332)",
+        "Categoría 2 (H319)",
+        "Categoría 2 (H341)",
+        "Categoría 1B (H350)",
+        "Categoría 2 (H371)"
+      ],
+      tipo: "Indicador pH"
+    },
+    {
+      id: 19,
+      nombre: "Hexametileno tetramina 99-100,5%",
+      propiedades: [
+        "Sólidos inflamables",
+        "Sensibilización cutánea"
+      ],
+      categorias: [
+        "Categoría 2 (H228)",
+        "Categoría 1 (H317)"
+      ],
+      tipo: "Compuesto orgánico"
+    },
+    {
+      id: 20,
+      nombre: "Hexametilenodiamina (1,6 diaminohexano)",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda cutánea",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad específica del órgano blanco - (única exposición)"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H312)",
+        "Categoría 1B (H314)",
+        "Categoría 1 (H318)",
+        "Categoría 3 (H335)"
+      ],
+      tipo: "Compuesto orgánico"
+    },
+    {
+      id: 21,
+      nombre: "Hidroquinona 99%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Lesiones o irritación ocular graves",
+        "Sensibilización cutánea",
+        "Carcinogenicidad",
+        "Mutagenicidad en células germinales"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 1 (H318)",
+        "Categoría 1 (H317)",
+        "Categoría 2 (H351)",
+        "Categoría 2 (H341)"
+      ],
+      tipo: "Compuesto orgánico"
+    },
+    {
+      id: 22,
+      nombre: "Hidróxido de potasio 85%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 1A (H314)",
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Base inorgánica"
+    },
+    {
+      id: 23,
+      nombre: "Hidróxido de sodio 98%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 1A (H314)",
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Base inorgánica"
+    },
+    {
+      id: 24,
+      nombre: "Hierro (ll) cloruro tetrahidrato",
+      propiedades: [
+        "Toxicidad aguda (oral)",
+        "Irritación o corrosión cutáneas",
+        "Lesiones oculares graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 2 (H315)",
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 25,
+      nombre: "Hierro lll cloruro hexahidrato 97%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 2 (H315)",
+        "Categoría 1 (H318)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 26,
+      nombre: "Magnesio 99%",
+      propiedades: [
+        "Sólidos inflamables",
+        "Calentamiento espontáneo",
+        "En contacto con el agua, desprenden gases inflamables"
+      ],
+      categorias: [
+        "Categoría 1 (H228)",
+        "Categoría 2 (H252)",
+        "Categoría 2 (H261)"
+      ],
+      tipo: "Metal"
+    },
+    {
+      id: 27,
+      nombre: "Naftaleno 98%",
+      propiedades: [
+        "Sólidos inflamables",
+        "Toxicidad aguda oral",
+        "Carcinogenicidad",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 2 (H228)",
+        "Categoría 4 (H302)",
+        "Categoría 2 (H351)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Hidrocarburo aromático"
+    },
+    {
+      id: 28,
+      nombre: "Negro de Eriocromo",
+      propiedades: [
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 2 (H319)"
+      ],
+      tipo: "Indicador pH"
+    },
+    {
+      id: 29,
+      nombre: "Óxido de zinc 99-100,5%",
+      propiedades: [
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Óxido inorgánico"
+    },
+    {
+      id: 30,
+      nombre: "Plata nitrato",
+      propiedades: [
+        "Sólidos comburentes",
+        "Corrosivas para los metales",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 2 (H272)",
+        "Categoría 1 (H290)",
+        "Categoría 1B (H314)",
+        "Categoría 1 (H318)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 31,
+      nombre: "Plomo ll acetato 3 hidrato 99%",
+      propiedades: [
+        "Lesiones o irritación ocular graves",
+        "Carcinogenicidad",
+        "Toxicidad para la reproducción",
+        "Toxicidad específica del órgano blanco - (exposición repetida)",
+        "Toxicidad acuática aguda",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 1 (H318)",
+        "Categoría 1B (H350)",
+        "Categoría 1A (H360)",
+        "Categoría 2 (H373)",
+        "Categoría 1 (H400)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 32,
+      nombre: "Plomo ll carbono",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Toxicidad aguda por inhalación",
+        "Carcinogenicidad",
+        "Toxicidad para la reproducción",
+        "Toxicidad acuática crónica",
+        "Toxicidad específica del órgano blanco - (exposición repetida)"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 4 (H332)",
+        "Categoría 2 (H351)",
+        "Categoría 1A (H360)",
+        "Categoría 1 (H410)",
+        "Categoría 1 (H372)"
+      ],
+      tipo: "Compuesto inorgánico"
+    },
+    {
+      id: 33,
+      nombre: "Potasio cloruro 99,5 %",
+      propiedades: [
+        "Toxicidad acuática aguda",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 1 (H400)",
+        "Categoría 2 (H411)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 34,
+      nombre: "Potasio cromato 99-102%",
+      propiedades: [
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Sensibilización cutánea",
+        "Mutagenicidad en células germinales",
+        "Carcinogenicidad",
+        "Toxicidad específica del órgano blanco - (única exposición)",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 2 (H315)",
+        "Categoría 2 (H319)",
+        "Categoría 1 (H317)",
+        "Categoría 1B (H340)",
+        "Categoría 1B (H350i)",
+        "Categoría 3 (H335)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 35,
+      nombre: "Potasio permanganato 99%",
+      propiedades: [
+        "Sólidos comburentes",
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad para la reproducción",
+        "Toxicidad acuática crónica",
+        "Toxicidad específica del órgano blanco - (exposición repetida)"
+      ],
+      categorias: [
+        "Categoría 2 (H272)",
+        "Categoría 4 (H302)",
+        "Categoría 1C (H314)",
+        "Categoría 1 (H318)",
+        "Categoría 2 (H361d)",
+        "Categoría 1 (H410)",
+        "Categoría 2 (H373)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 36,
+      nombre: "Sodio carbonato anhidro 99,9%",
+      propiedades: [
+        "Lesiones o irritación ocular graves"
+      ],
+      categorias: [
+        "Categoría 2 (H319)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 37,
+      nombre: "Sodio di sulfito (bisulfito de sodio) 97%",
+      propiedades: [
+        "Toxicidad aguda oral"
+      ],
+      categorias: [
+        "Categoría 4 (H302)"
+      ],
+      tipo: "Compuesto inorgánico"
+    },
+    {
+      id: 38,
+      nombre: "Sodium bismuth oxide 80%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad específica del órgano blanco - (única exposición)"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 2 (H315)",
+        "Categoría 2 (H319)",
+        "Categoría 3 (H335)"
+      ],
+      tipo: "Óxido inorgánico"
+    },
+    {
+      id: 39,
+      nombre: "Titanio (IV) oxido",
+      propiedades: [
+        "Carcinogenicidad"
+      ],
+      categorias: [
+        "Categoría 2 (H351)"
+      ],
+      tipo: "Compuesto inorgánico"
+    },
+    {
+      id: 40,
+      nombre: "Zinc acetato 2 hidrato 99,5-101%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 1 (H318)",
+        "Categoría 2 (H411)"
+      ],
+      tipo: "Sal inorgánica"
+    },
+    {
+      id: 41,
+      nombre: "Zinc cloruro 97%",
+      propiedades: [
+        "Toxicidad aguda oral",
+        "Corrosión o irritación cutáneas",
+        "Lesiones o irritación ocular graves",
+        "Toxicidad específica del órgano blanco - (única exposición)",
+        "Toxicidad acuática crónica"
+      ],
+      categorias: [
+        "Categoría 4 (H302)",
+        "Categoría 1B (H314)",
+        "Categoría 1 (H318)",
+        "Categoría 3 (H335)",
+        "Categoría 1 (H410)"
+      ],
+      tipo: "Sal inorgánica"
+    }
+  ];
+
+const columns: GridColDef[] = [
+  { field: 'id', headerName: 'No', width: 70 },
+  { field: 'nombre', headerName: 'Reactivo', width: 300 },
+  { field: 'propiedades', headerName: 'Peligrosidad', width: 1000 },
+  { field: 'categorias', headerName: 'Nivel de Peligrosidad', width: 1000 },
+  { field: 'tipo', headerName: 'Tipo de Sustancia', width: 200 },
+];
+
+const ITEMSAcordion = [
+  {
+    title: 'Peligros Fisicos',
+    points: [
+      {
+        descripion: 'Explosivos'
+      },
+      {
+        descripion: 'Gases inflamables'
+      },
+      {
+        descripion: 'Aerosoles inflamables'
+      },
+      {
+        descripion: 'Gases comburentes'
+      },
+      {
+        descripion: 'Gases a presion'
+      },
+      {
+        descripion: 'Liquidos inflamables'
+      },
+      {
+        descripion: 'Solidos inflamables'
+      },
+      {
+        descripion: 'Sustancias y mezclas que reaccionan espontaneamente'
+      },
+      {
+        descripion: 'Liquidos piroforicos'
+      },
+      {
+        descripion: 'Solidos piroforicos'
+      },
+      {
+        descripion: 'Sustancias o mezclas que experimentan calentamiento espontaneo'
+      },
+      {
+        descripion: 'Sustancias o mezclas que en contacto con el agua desprenden gases inflamables'
+      },
+      {
+        descripion: 'Liquidos oxidantes'
+      },
+      {
+        descripion: 'Peroxidos organicos'
+      },
+      {
+        descripion: 'Sustancias o mezclas corrosivas para los metales'
+      }
+    ]
+  },
+  {
+    title: 'Peligros a la salud',
+    points: [
+      {
+        descripion: 'Toxicidad aguda'
+      },
+      {
+        descripion: 'Corrosion/ irritacion cutanea'
+      },
+      {
+        descripion: 'Lesiones/ irritacion oculares'
+      },
+      {
+        descripion: 'Sensibilizacion respiratoria o cutanea'
+      },
+      {
+        descripion: 'Mutagenicidad en celulas germinales'
+      },
+      {
+        descripion: 'Carcinogenicidad'
+      },
+      {
+        descripion: 'Toxicidad para la reproduccion'
+      },
+      {
+        descripion: 'Toxicidad especifica para determinados organos'
+      },
+      {
+        descripion: 'Peligro aspiracion'
+      }
+    ]
+  },
+  {
+    title: 'Peligros para el medio ambiente',
+    points: [
+      {
+        descripion: 'Toxicidad acuatica aguda'
+      },
+      {
+        descripion: 'Toxicidad acuatica crónica'
+      },
+      {
+        descripion: 'Peligro a la capa de ozono'
+      }
+    ]
+  }
+]
+
+const itemsAcordion2 = [
+  {
+    title: 'Explosivos',
+    points: [
+    {
+      description: "Separar sustancias de distinta naturaleza."
+    },
+    {
+      description: "Evitar toda fuente de calor o ignición."
+    },
+    {
+      description: "Mantener pisos, techos y alrededores limpios, secos, ventilados y frescos."
+    },
+    {
+      description: "El sitio de almacenamiento debe permanecer cerrado con acceso solo para el trabajador(es)."
+    },
+    {
+      description: "Verificar habitualmente la conservación de las sustancias."
+    },
+    {
+      description: "No abrir cajas de explosivos con herramientas metálicas. Usar cuñas de madera y mazos de goma."
+    },
+    {
+      description: "No almacenar cantidades de explosivos que sobrepasen el 70% de la capacidad de las instalaciones."
+    }
+    ]
+  },
+  {
+    title: 'Gases comprimidos, inflamables, no inflamables y tóxicos',
+    points: [
+    {
+    description: "Almacenar en estantería."
+  },
+  {
+    description: "Cilindros llenos deben separarse de los vacíos con debida señalización."
+  },
+  {
+    description: "Almacenamiento vertical encadenados a pared o soporte que impida su volcamiento."
+  },
+  {
+    description: "Cilindros deben estar lejos de instalaciones eléctricas."
+  }
+    ]
+  },
+  {
+    title: 'Líquidos inflamables',
+    points: [
+    {
+    description: "Podrán almacenarse con sólidos inflamables, pero no cerca de ácidos. El lugar de almacenamiento debe ser frio, con buena ventilación y apropiado para limpieza por posibles derrames, así como contar con equipos contra incendios en buen estado."
+  },
+  {
+    description: "No almacenar en neveras convencionales."
+  },
+  {
+    description: "Extintores portátiles deben ser de espuma química seca o de dióxido de carbono."
+  },
+  {
+    description: "Almacenamiento en cantidades mínimas."
+  },
+  {
+    description: "Separación por categoría según el grado de combustión."
+  },
+  {
+    description: "Se debe contar con lo EPP adecuados para su manipulación."
+  },
+  {
+    description: "No utilizar agua para la limpieza en caso de derrames."
+  }
+    ]
+  },
+  {
+    title: 'Sólidos inflamables',
+    points: [
+      {
+        description: 'Separado del resto de sustancias peligrosas 2,4 m.'
+      },
+      {
+        description: 'No usar agua como sistema de control contra incendios.'
+      }
+    ]
+  },
+  {
+    title: 'Sustancias comburentes y peróxidos orgánicos',
+    points: [
+    {
+    description: "No utilizar recipientes de compuestos que formen peróxidos, después de 30 días de abierto. Los recipientes que no se hayan abierto, tendrán expiración de 12 meses."
+  },
+  {
+    description: "Adquirir éteres en pequeñas cantidades con utilización de tiempo breve."
+  },
+  {
+    description: "Incluir fecha de compra en los recipientes, así como fecha de utilización."
+  },
+  {
+    description: "Mantener lejos de fuentes de calor, luz o combustión."
+  },
+  {
+    description: "Almacenamiento en un lugar frío, seco, ventilado, alejado de la luz directa del sol y muy bien cerrados."
+  },
+  {
+    description: "Almacenar en envases de vidrio color ámbar."
+  },
+  {
+    description: "Los reactivos químicos deben mantenerse alejados de materiales orgánicos, disolventes inflamables, sustancias corrosivas y sustancias tóxicas."
+  },
+  {
+    description: "Impedir todas las formas de impacto cuando se trabaja con sustancias oxidantes."
+  },
+  {
+    description: "No mezclar con otras sustancias químicas durante los procesos de recogida de residuos."
+  },
+  {
+    description: "No almacenar con inflamables o líquidos combustibles."
+  },
+  {
+    description: "Para almacenamiento común mantener una distancia de 2,4 m de otros productos."
+  }
+    ]
+  }
+]
 ---
 
 <Layout title="Sistema interno para el manejo de residuos peligrosos">
   <!-- <LandingHeader /> -->
 
   <main
-    class="snap-y snap-mandatory relative w-full h-screen overflow-y-auto overflow-x-hidden scroll-smooth"
+    class="relative w-full h-screen"
   >
     <div class="snap-center">
       <section class="h-screen w-screen overflow-hidden relative">
@@ -561,7 +2076,7 @@ const categoriasReactivos = [
     </div>
     <div class="snap-center">
       <section
-        class="h-screen w-screen overflow-hidden relative container-intro"
+        class="w-screen min-h-screen overflow-hidden relative container-intro"
       >
         <div class="introduccion">
           <div
@@ -652,7 +2167,7 @@ const categoriasReactivos = [
       </section>
     </div>
     <div class="snap-center">
-      <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
+      <section class="mx-auto px-4 py-8 w-screen">
         <h1 class="text-3xl text-center text-[#1843BF] font-bold mb-4">
           Normas básicas de seguridad a seguir dentro del laboratorio
         </h1>
@@ -676,12 +2191,12 @@ const categoriasReactivos = [
       </section>
     </div>
     <div class="snap-center">
-      <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
+      <section class="mx-auto px-4 py-8  w-screen">
         <Table />
       </section>
     </div>
     <div class="snap-center">
-      <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
+      <section class="mx-auto px-4 py-8  w-screen">
         <h1
           class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
         >
@@ -704,7 +2219,7 @@ const categoriasReactivos = [
               class="relative max-w-screen-3xl px-4 mx-auto sm:px-6 lg:px-8"
             >
               <div
-                class="max-w-lg mx-auto overflow-hidden rounded-lg shadow-lg pricing-box lg:max-w-none lg:flex"
+                class="max-w-lg mx-auto rounded-lg shadow-lg pricing-box lg:max-w-none lg:flex"
               >
                 <div
                   class="px-6 py-8 text-center bg-gray-50 dark:bg-gray-700 lg:flex-shrink-0 lg:flex lg:flex-col lg:justify-center lg:p-12"
@@ -853,7 +2368,7 @@ const categoriasReactivos = [
       </section>
     </div>
     <div class="snap-center">
-      <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
+      <section class="mx-auto px-4 py-8 min-h-screen w-screen">
         <h1
           class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
         >
@@ -868,7 +2383,7 @@ const categoriasReactivos = [
       </section>
     </div>
     <div class="snap-center">
-      <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
+      <section class="mx-auto px-4 py-8 h-screen w-screen">
         <header>
           <h1
             class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
@@ -940,13 +2455,13 @@ const categoriasReactivos = [
                 </ul>
             </div>
             <div class='w-1/2 absolute right-0 top-0'>
-              <AccordionComponent client:visible />
+              <AccordionComponent items={ITEMSAcordion} client:visible />
             </div>
           </div>
       </section>
     </div>
     <div class="snap-center">
-      <section class="mx-auto px-4 py-8 h-screen w-screen overflow-hidden">
+      <section class="mx-auto px-4 py-8 h-screen w-screen">
         <header>
           <h1
             class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
@@ -957,10 +2472,139 @@ const categoriasReactivos = [
           </h1>
         </header>
         <main>
-          <DataTablePaginada client:visible />
+          <DataTablePaginada rows={rowsFirstDT} columns={columns} client:visible />
         </main>
       </section>
     </div>
+    <div class="snap-center">
+      <section class="mx-auto px-4 py-8 h-screen w-screen">
+        <header>
+          <h1
+            class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+          >
+            <span
+              class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"
+              >REACCIONES QUÍMICAS PELIGROSAS</span>
+          </h1>
+          <p>
+            Controlar las reacciones químicas es un arduo trabajo por los múltiples parámetros que involucran los reactivos, por lo cual es necesario tener un conocimiento previo de las reacciones, compuestos y los reactivos más comunes empleados en el laboratorio, gracias a las condiciones fisicoquímicas y el conocimiento del nivel de radioactividad de los grupos químicos se puede lograr segregar los elementos y compuestos que represente un mayor riesgo de instabilidad y reacción
+          </p>
+        </header>
+        <main class='max-w-screen-xl mx-auto my-8 px-8'>
+          <PillsTabsTable client:visible />
+        </main>
+      </section>
+    </div>
+    <div class="snap-center"></div>
+    <section class="mx-auto px-4 py-8 w-screen">
+      <header>
+        <h1
+          class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+        >
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"
+            >CLASIFICACIÓN DE RESIDUOS PELIGROSOS</span>
+        </h1>
+        <p>
+          Se le denomina residuo peligroso o mezcla peligrosa si esta sustancia afecta la integridad de un ser humano o al medio ambiente. 
+          En los laboratorios de investigación se trabaja con muchas sustancias peligrosas, por lo tanto, después de utilizarlo se vuelven un residuo, para esto se debe tener estos criterios para mantener el laboratorio en un estado de seguridad, por ejemplo, las características físico-químicas de la sustancia, peligrosidad, compatibilidad química, cantidad de residuo generado, medidas de almacenamiento y transporte, tratamiento final
+
+        </p>
+      </header>
+      <main class='max-w-screen-xl mx-auto my-8 px-8'>
+        <table class="table p-4 bg-white rounded-lg shadow">
+          <thead>
+              <tr>
+                  <th class="border p-4 border-dark-5 whitespace-nowrap font-normal text-white bg-slate-900">
+                    Residuos
+                  </th>
+                  <th class="border p-4 border-dark-5 whitespace-nowrap font-normal text-white bg-slate-900">
+                    Especificaciones
+                  </th>
+              </tr>
+          </thead>
+          <tbody>
+            {
+              residuos.map((residuo) => (
+                <tr class="text-gray-700">
+                    <td class="border p-4 dark:border-dark-5">
+                      {residuo.tipo}
+                    </td>
+                    <td class="border p-4 dark:border-dark-5 whitespace-normal">
+                      {residuo.especificaciones}
+                    </td>
+                </tr>
+              ))
+            }
+              
+          </tbody>
+      </table>
+      </main>
+    </section>
+  </div>
+  <div class="snap-center">
+    <section>
+<div class="max-w-screen-xl p-8 mx-auto">
+  <h2 class="mb-12 text-3xl font-extrabold leading-9 text-gray-900 border-b-2 border-gray-100">
+    ALMACENAMINETO
+  </h2>
+  <ul class="flex flex-wrap items-start gap-8">
+      <li class="w-2/5">
+          <p class="text-lg font-medium leading-6 text-gray-900">
+            Envasado 
+          </p>
+          <p class="mt-2">
+              <p class="text-base leading-6 text-gray-500">
+                El envasado de residuos químicos peligrosos es una tarea crucial que debe realizarse siguiendo unas medidas de seguridad específicas para evitar cualquier tipo de accidente o incidente. De acuerdo con la legislación vigente, el envasado y almacenamiento de residuos peligrosos debe hacerse de tal manera que se evite la generación de calor, explosiones, igniciones y la formación de sustancias nocivas, Al obtener un residuo después de haber realizado una actividad en el laboratorio, se tiene la obligación de separar de manera adecuada, sin mezclarlo o diluirlo con otras sustancias, algunas recomendaciones para este envasado son: 
+              </p>
+          </p>
+      </li>
+      <li class="w-2/5">
+          <p class="text-lg font-medium leading-6 text-gray-900">
+            Etiquetado de sustancias peligrosas
+          </p>
+          <p class="mt-2">
+              <p class="text-base leading-6 text-gray-500">
+                Todo envase de residuos peligrosos debe estar correctamente etiquetado (indicación del contenido) e identificado (indicación del productor). La identificación incluye los datos del centro productor, la referencia concreta de la unidad (laboratorio) el nombre de la persona responsable del residuo y las fechas de inicio y final de llenado del envase.
+              </p>
+          </p>
+      </li>
+      <li class="w-2/5">
+          <p class="text-lg font-medium leading-6 text-gray-900">
+            Almacenamineto general de residuos peligrosos
+          </p>
+          <ol class="list-decimal list-inside space-y-2 text-base leading-6 text-gray-500">
+            <li>
+              Tener un area especifica y señalizada de almacenamiento 
+            </li>
+            <li>
+              Verificar que los envases sean adecuados para cada tipo de residuos
+            </li>
+            <li>
+              Indicar el contenido de los envases 
+            </li>
+            <li>
+              Verificar que los envases esten cerrados de manera correcta 
+            </li>
+            <li>
+              En caso de algun derrame, informar al personal encargado 
+            </li>
+            <li>
+              Al transvasar los residuos es recomendable realizar esta actividad e una campana de extracción  
+            </li>
+            <li>
+              Retirar periodicamente para evitar que se acumulen grandes cantidades   
+            </li>
+          </ol>
+      </li>
+  </ul>
+  <div class='max-w-screen-md mt-8'>
+    <AccordionComponent items={ITEMSAcordion} client:visible />
+  </div>
+</div>
+</section>
+</div>
+
   </main>
 
   <style>

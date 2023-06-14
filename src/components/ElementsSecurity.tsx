@@ -123,11 +123,11 @@ export default function ElementsSecurity () {
     <Card>
       <TabGroup>
         <TabList className="mt-8">
-          <Tab icon={UserGroupIcon}>Duchas de Seguridad</Tab>
-          <Tab icon={UserIcon}>Extintores</Tab>
-          <Tab icon={UserIcon}>Botiquin</Tab>
-          <Tab icon={UserIcon}>Campanas de extraccion</Tab>
-          <Tab icon={UserIcon}>Equipos de proteccion personal</Tab>
+          <Tab icon={FaShower}>Duchas de Seguridad</Tab>
+          <Tab icon={FaFireExtinguisher}>Extintores</Tab>
+          <Tab icon={FaMedkit}>Botiquin</Tab>
+          <Tab icon={GiExtractionOrb}>Campanas de extraccion</Tab>
+          <Tab icon={FaPersonBooth}>Equipos de proteccion personal</Tab>
         </TabList>
         <TabPanels>
           <TabPanel>
