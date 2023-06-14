@@ -84,12 +84,12 @@ const Shower = () => {
                   <div className="relative mt-10 lg:-mx-4 relative-20 lg:mt-0 lg:col-start-1">
                       <div className="relative space-y-4">
                           <div className="flex items-end justify-center space-x-4 lg:justify-start">
-                            <img className="w-40 rounded-lg shadow-lg md:w-64" width="260" src="/assets/img/DUCHA-DE-SEGURIDAD-DE-EMERGENCIA-03.jpg" alt="2"/>
-                              <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src="/assets/img/Ducha-de-emergencia-sin-cabina.png" alt="1"/>
+                            <img className="w-40 rounded-lg shadow-lg md:w-64" width="260" src="assets/img/DUCHA-DE-SEGURIDAD-DE-EMERGENCIA-03.jpg" alt="2"/>
+                              <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src="assets/img/Ducha-de-emergencia-sin-cabina.png" alt="1"/>
                           </div>
                           <div className="flex items-start justify-center ml-12 space-x-4 lg:justify-start">
-                              <img className="w-24 rounded-lg shadow-lg md:w-40" width="170" src="/assets/img/letrero-duchas-emergencia.jpg" alt="3"/>
-                              <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src="/assets/img/DUCHA-DE-SEGURIDAD-DE-EMERGENCIA.jpg" alt="4"/>
+                              <img className="w-24 rounded-lg shadow-lg md:w-40" width="170" src="assets/img/letrero-duchas-emergencia.jpg" alt="3"/>
+                              <img className="w-32 rounded-lg shadow-lg md:w-56" width="200" src="assets/img/DUCHA-DE-SEGURIDAD-DE-EMERGENCIA.jpg" alt="4"/>
                           </div>
                       </div>
                   </div>
