@@ -22,26 +22,26 @@ type Data = {
 const data: Data[] = [
   {
     name: "Disolventes halogenados",
-    description: "Líquidos orgánicos que contienen más de 2% de halógenos. Eje: cloruro de metileno",
+    description: "Líquidos orgánicos que abarquen más de 2% de halógenos. Eje: cloruro de metileno",
     tagColor: "Naranja",
     color: "orange",
   },
   {
     name: "Disolventes no halogenados",
     description:
-      "Líquidos orgánicos inflamables que contengan menos de 2% de halógenos. Evitar mezclar disolventes que sean inmiscibles. Eje: alcoholes, aldehídos, amidas, cetonas, esteres, nitrilos, glicoles, hidrocarburos alifáticos y aromáticos",
+      "Líquidos inflamables orgánicos que abarquen menos de 2% de halógenos. Evitar mezclar disolventes que sean inmiscibles. Eje: aldehídos, amidas, cetonas, glicoles, esteres, nitrilos, alcoholes. aromáticos e hidrocarburos alifáticos ",
     color: "green",
     tagColor: "Verde",
   },
   {
     name: "Disoluciones acuosas",
-    description: "Soluciones acuosas básicas: NaOH, KOH soluciones acuosas de metales pesados Ni, Ag, Cd, Se soluciones acuosas inorgánicas son: sulfatos, fosfatos, cloruro soluciones orgánicas: formol, fenol",
+    description: "Soluciones acuosas básicas: NaOH, KOH soluciones acuosas de metales pesados Ni, Ag, Cd, Se soluciones	acuosas	inorgánicas	son: sulfatos, fosfatos,cloruro soluciones orgánicas: formol, fenol",
     color: "blue",
     tagColor: "Azul",
   },
   {
     name: "Ácidos",
-    description: "Líquidos con ácido inorgánicos como HCL, HF, HNO3, etc. Precaución con mezclar los ácidos entre sí ya que son muy reactivos",
+    description: "Líquidos con ácido inorgánicos como HCL, HF, HNO3 etc. Precaución con mezclar los ácidos entre si ya que son muy reactivos",
     color: "red",
     tagColor: "Rojo",
   },
@@ -75,7 +75,7 @@ export default () => (
   <Card className="bg-white md:mt-6 mt-2">
     <h1 className="text-3xl text-center text-[#1843BF] font-bold mb-4">CLASIFICACIÓN Y ETIQUETADO DE RESIDUOS PELIGROSOS</h1>
     <Text>
-      Los residuos generados en los laboratorios se clasifican en diversas categorías dependiendo de su peligrosidad y su naturaleza. A continuación, se puede observar la clasificación y respectiva etiqueta de los residuos más comunes generados en laboratorios químicos, a los cuales se les ha asignado una etiqueta con un color específico para cada uno de ellos, con el fin de poder diferenciarlos con mayor facilidad
+    Los residuos que se generan en los laboratorios se caracterizan en diversas categorías dependiendo de su peligrosidad y su naturaleza. A continuación, se puede observar la clasificación y respectiva etiqueta de los residuos más comunes generados en laboratorios químicos, a los cuales se les ha asignado una etiqueta con un color específico para cada uno de ellos, con el fin de poder diferenciarlos con mayor facilidad
     </Text>
     <Table className="mt-5">
       <TableHead>

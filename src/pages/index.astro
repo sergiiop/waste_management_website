@@ -33,13 +33,13 @@ type Norma = {
 const normas: Norma[] = [
   {
     description:
-      "No se podrá ingresar elementos diferentes a los necesarios para la realización de las prácticas establecidas.",
+      "No se podrá ingresar elementos diferentes a los necesarios para la realización de las practicas establecidas.",
     color: "red",
     icon: XCircleIcon,
   },
   {
     description:
-      "No se debe consumir bebidas o ningún tipo de alimento dentro del laboratorio.",
+      "No se debe consumir bebidas o ningún tipo de alimento dentro del laboratorio",
     color: "red",
     icon: XCircleIcon,
   },
@@ -68,6 +68,18 @@ const normas: Norma[] = [
   },
   {
     description:
+      "No disponer de los equipos para un uso diferente al de las practicas establecidas.",
+    color: "red",
+    icon: ExclamationIcon,
+  },
+  {
+    description:
+      "No utilizar los equipos sin la autorización de los docentes o encargados del laboratorio.",
+    color: "red",
+    icon: ExclamationIcon,
+  },
+  {
+    description:
       "Antes de hacer uso de cualquier sustancia, verificar las etiquetas y fichas de seguridad.",
     color: "fuchsia",
     icon: ExclamationCircleIcon,
@@ -77,6 +89,12 @@ const normas: Norma[] = [
       "Al momento de almacenar sustancias, los envases siempre deben ser rotulados.",
     color: "sky",
     icon: InformationCircleIcon,
+  },
+  {
+    description:
+      "Realizar el correcto almacenamiento de cada sustancia al finalizar cada práctica",
+    color: "fuchsia",
+    icon: ExclamationCircleIcon,
   },
   {
     description:
@@ -92,19 +110,31 @@ const normas: Norma[] = [
   },
   {
     description:
-      "En caso de emergencia, conocer la ubicación de los extintores, duchas de emergencia, lavamanos de seguridad y rutas de evacuación.",
+      "Siempre verificar que los objetos de vidrio no estén rotos.",
     color: "sky",
     icon: ExclamationCircleIcon,
   },
   {
     description:
-      "Informar cualquier incidente o accidente que ocurra en el laboratorio a los docentes o encargados.",
+      "Preparar con anticipación el stock de productos que se va a necesitar para cada práctica, es importante extraer solo lo necesario de cada recipiente y no devolver el producto a este, en caso de que haya un sobrante.",
+    color: "sky",
+    icon: ExclamationCircleIcon,
+  },
+  {
+    description:
+      "No dejar destapados los frascos ni inhalar su contenido. Algunas sustancias líquidas emiten vapores que, al inhalarlos, podrían ser tóxicos.",
+    color: "sky",
+    icon: ExclamationCircleIcon,
+  },
+  {
+    description:
+      "Al finalizar cada práctica, el área de trabajo debe quedar totalmente despejada y limpia.",
     color: "sky",
     icon: InformationCircleIcon,
   },
   {
     description:
-      "Mantener el área de trabajo ordenada y limpia, recoger y desechar correctamente los residuos generados.",
+      "Reconocer el protocolo se seguridad y todas las salidas de emergencia.",
     color: "fuchsia",
     icon: ExclamationCircleIcon,
   },
@@ -122,10 +152,10 @@ const pictogramasPeligrosos = [
         description: "Mutagenicidad",
       },
       {
-        description: "Toxicidad Reproductiva",
+        description: "Toxicidad de reproducción",
       },
       {
-        description: "Sensibilizador respiratorio",
+        description: "Sensibilidad respiratoria",
       },
       {
         description: "Toxicidad específica en órganos",
@@ -137,34 +167,23 @@ const pictogramasPeligrosos = [
     meaning: [
       {
         description:
-          "Puede ser mortal en caso de ingestión y penetración en las vías respiratorias",
+          "Puede ser letal si es ingerido y penetra en las vías respiratorias",
       },
       {
-        description: "Perjudica a determinados órganos",
+        description: "Daña ciertos tejidos blandos",
       },
       {
-        description: "Puede perjudicar a determinados órganos",
+        description: "Puede afectar la respuduccion humana o un feto",
       },
       {
-        description: "Puede perjudicar la fertilidad o al feto",
+        description: "Propenso a ser cáncerigeno",
       },
       {
-        description: "Se sospecha que daña la fertilidad o al feto",
+        description: "Puede causar malformaciones genéticas",
       },
       {
-        description: "Puede provocar cáncer",
+        description: "La inhalación puede causar síntomas de asma, alergicos o dificultades para respirar.",
       },
-      {
-        description: "Se sospecha que provoca cáncer",
-      },
-      {
-        description: "Puede provocar defectos genéticos",
-      },
-      {
-        description:
-          "Puede provocar síntomas de alergia o asma o dificultades respiratorias en caso de inhalación",
-      },
-      
     ],
     findExamples: [
       {
@@ -174,56 +193,44 @@ const pictogramasPeligrosos = [
     tipsExample: [
       {
         description:
-          "En caso de ingestión: llamar inmediatamente a un CENTRO de información toxicológica o a un médico",
+          "Si se presenta ingestión: Procuara atención médica inmediatamente.",
       },
       {
-        description: "NO provocar el vómito",
+        description: "No induzcas al vomito",
       },
       {
-        description: "Guardar bajo llave",
-      },
-      {
-        description:
-          "No respirar el polvo/el humo/el gas/la niebla/los vapores/el aerosol",
-      },
-      {
-        description: "Lavarse concienzudamente tras la manipulación",
-      },
-      {
-        description: "No comer, beber ni fumar durante su utilización",
-      },
-      {
-        description: "Consultar a un médico en caso de malestar",
+        description: "Evitar inhalar /el gas/la niebla/el polvo/los vapores/el aerosol.",
       },
       {
         description:
-          "En caso de exposición: llamar a un CENTRO de información toxicológica o a un médico",
+          "Enguagar bien después de manipularlo.",
       },
       {
-        description: "Solicitar instrucciones especiales antes del uso",
+        description: "No comer, beber ni fumar al momento de su uso.",
       },
       {
-        description:
-          "No manipular la sustancia antes de haber leído y comprendido todas las instrucciones de seguridad",
+        description: "Consulte a un médico si no se seinte bien.",
       },
       {
-        description: "Utilizar el equipo de protección individual obligatorio",
-      },
-      {
-        description:
-          "En caso de exposición manifiesta o presunta: consultar a un médico",
+        description: "Si ha sido expuesto: Llame a personal expero de envenenamiento o un médico.",
       },
       {
         description:
-          "Evitar respirar el polvo/el humo/el gas/la niebla/los vapores/el aerosol",
+          "Procediminetos especificos requeridas antes del uso",
+      },
+      {
+        description: "No manipule este material hasta que haber leído y entendido todas los lineamientos de seguridad.",
       },
       {
         description:
-          "En caso de ventilación insuficiente, llevar equipo de protección respiratoria",
+          "Utilice los elementos de protección personal obligatorio",
+      },
+      {
+        description: "En caso de una mal sistema de ventilacion, use elementos de protecccion respiratoria.",
       },
       {
         description:
-          "En caso de inhalación: si respira con dificultad, transportar a la víctima al exterior y mantenerla en reposo, en una posición en la que pueda respirar confortablemente",
+          "Si es inhalado: Si está respirando y prsenta complejidad al respirar, llevar a la víctima afuera.",
       },
     ],
   },
@@ -241,10 +248,10 @@ const pictogramasPeligrosos = [
         description: "Autocalentamiento",
       },
       {
-        description: "Emite gas inflamable",
+        description: "Desprende gases inflamables",
       },
       {
-        description: "Auto-Reacciones",
+        description: "Auto reaccionante",
       },
       {
         description: "Peróxidos orgánicos",
@@ -252,19 +259,16 @@ const pictogramasPeligrosos = [
     ],
     meaning: [
       {
-        description: "Gas extremadamente inflamable",
+        description: "Gas excesivamente inflamable",
       },
       {
         description: "Gas inflamable",
       },
       {
-        description: "Aerosol extremadamente inflamable",
+        description: "Aerosoles inflamable",
       },
       {
-        description: "Aerosol inflamable",
-      },
-      {
-        description: "Líquido y vapores muy inflamables",
+        description: "Líquido y vapores altamente inflamables",
       },
       {
         description: "Líquido y vapores inflamables",
@@ -281,20 +285,20 @@ const pictogramasPeligrosos = [
     tipsExample: [
       {
         description:
-          "No pulverizar sobre una llama abierta u otra fuente de ignición",
+          "No rocíe sobre llamas abiertas u otras iniciadores de combustion",
       },
       {
         description:
-          "Mantener alejado de fuentes de calor, chispas, llama abierta o superficies calientes – No fumar",
+          "Procurar mantener lejos fuentes calor/llamas abiertas/chispas/superficies al altas tempereaturas. – nunca fumar.",
       },
       {
-        description: "Mantener el recipiente cerrado herméticamente",
+        description: "Guardar en recipientes hermeticos.",
       },
       {
-        description: "Mantener en lugar fresco",
+        description: "Mantenga en un lugar ventilado y fresco.",
       },
       {
-        description: "Proteger de la luz del sol",
+        description: "No exponer al sol.",
       },
     ],
   },
@@ -302,23 +306,23 @@ const pictogramasPeligrosos = [
     title: "Signo de exclamación",
     image: "assets/img/pictograma-peligro-grave.jpg",
     items: [
-      { description: "Irritante (piel y ojos)" },
-      { description: "Sensibilizador de la piel" },
-      { description: "Toxicidad aguda (nociva)" },
-      { description: "Efectos narcóticos" },
-      { description: "Irritante del tracto respiratorio" },
-      { description: "Peligroso para la capa de ozono (No obligatorio)" }
+      { description: "Irritaciones cutáneas y en ojos" },
+      { description: "Sensibilidad cutánea" },
+      { description: "Toxicidad aguda letal" },
+      { description: "Narcóticos" },
+      { description: "Irritación de vías respiratorias" },
+      { description: "Nocivo para la capa de ozono " }
     ],
     meaning: [
-    { description: "Puede irritar las vías respiratorias" },
-    { description: "Puede provocar somnolencia o vértigo" },
-    { description: "Puede provocar una reacción alérgica en la piel" },
-    { description: "Provoca irritación ocular grave" },
-    { description: "Provoca irritación cutánea" },
-    { description: "Nocivo en caso de ingestión" },
-    { description: "Nocivo en contacto con la piel" },
-    { description: "Nocivo en caso de inhalación" },
-    { description: "Nociva para la salud pública y el medio ambiente por destruir el ozono estratosférico" }
+    { description: "Irritacion de vías respiratorias" },
+    { description: "Podible sesancion de vértigo y adromeciemineto" },
+    { description: "Puede provocar alérgias cutaneas" },
+    { description: "Irritación letal ocular" },
+    { description: "Irritaciónes en la piel." },
+    { description: "Perjudicial si es ingerido" },
+    { description: "Perjudicial al contacto cutaneo" },
+    { description: "Perjudicial si es inhalado" },
+    { description: "Perjudicial para el medio ambiente y la salud publica por dañar el ozono " }
     ],
     findExamples: [
     { description: "Detergentes para lavadoras" },
@@ -326,46 +330,46 @@ const pictogramasPeligrosos = [
     { description: "Líquidos refrigerantes" }
     ],
     tipsExample: [
-    { description: "Evitar respirar el polvo/el humo/el gas/la niebla/los vapores/el aerosol" },
-  { description: "Utilizar únicamente en exteriores o en un lugar bien ventilado" },
-  { description: "En caso de inhalación: transportar a la víctima al exterior y mantenerla en reposo en una posición confortable para respirar" },
-  { description: "En caso de ingestión: llamar a un CENTRO de información toxicológica o a un médico en caso de malestar" },
-  { description: "Llevar guantes/prendas/gafas/máscara de protección" },
-  { description: "En caso de contacto con la piel: lavar con agua y jabón abundantes" },
-  { description: "En caso de contacto con los ojos: aclarar cuidadosamente con agua durante varios minutos. Quitar las lentes de contacto, si lleva y resulta fácil. Seguir aclarando" },
-  { description: "No comer, beber ni fumar durante su utilización" }
+    { description: "Evite la inhalacion de /la niebla/el gas/la niebla/los vapores/el aerosol" },
+  { description: "Use solo a campo abierto o en áreas bien ventiladas" },
+  { description: "Dado el caso inhalación: Llevar a la víctima a campo a bierto y sostenerla en reposo en una posición cómoda para respirar" },
+  { description: "Si se presenta ingestión: Solicitar un médico si no se encuentra bien." },
+  { description: "Portar ropa/gafas/guantes/máscara de seguridad." },
+  { description: "Si se presenta contacto cuanteo: Enguagar con abundante agua y jabón" },
+  { description: "Si se presenta contacto ocular: Enjuagar cuidadosamente con agua durante prolongados minutos. quitarse los lentes de contacto, si los usa." },
+  { description: "No come, beber ni fumar al momento de su uso." }
     ],
   },
   {
     title: "Cilindro de Gas",
     image: "assets/img/pictograma-laboratorio-gas-presion.jpg",
     items: [
-      { description: "•	Gases bajo presión" }
+      { description: "Gases bajo presión" }
     ],
     meaning: [
-    { description: "Contiene gas a presión; peligro de explosión en caso de calentamiento" },
-  { description: "Contiene gas refrigerado; puede provocar quemaduras o lesiones criogénicas" }
+    { description: "Gas con presión: probabilidad de explosión por causa de calentamiento." },
+  { description: "Gas refrigerado: puede generar quemaduras o daños criogénicos." }
     ],
     findExamples: [
-    { description: "Botellas de gas" }
+    { description: "Cilindros a presion, areosoles, botellas." }
     ],
     tipsExample: [
-    { description: "Proteger de la luz del sol" },
-  { description: "Llevar guantes/gafas/máscara que aíslen del frío" },
-  { description: "Consultar a un médico inmediatamente" }
+    { description: "Evitar la exposición al sol" },
+  { description: "Use guantes/anteojos/máscara contra el frío" },
+  { description: "Consulte a un médico inmediatamente" }
     ],
   },
   {
     title: "Corrosión",
     image: "assets/img/pictograma-laboratorio-corrosivo.jpg",
     items: [
-      { description: "Corrosión / quemaduras en la piel" },
-      { description: "Daño ocular" },
-      { description: "Corrosivo a los metales" }
+      { description: "Corrosión / quemaduras cutaneas" },
+      { description: "Afectación ocular" },
+      { description: "Corrosión de metales" }
     ],
     meaning: [
-    { description: "Puede ser corrosivo para los metales" },
-  { description: "Provoca quemaduras graves en la piel y lesiones oculares graves" }
+    { description: "Corrosion para objetos metalicos" },
+  { description: "Ocaciona  traumas oculares y quemaduras cutaneas" }
     ],
     findExamples: [
     { description: "Desatascadores de tuberías" },
@@ -374,11 +378,10 @@ const pictogramasPeligrosos = [
   { description: "Amoníaco" }
     ],
     tipsExample: [
-    { description: "No respirar el polvo/el humo/el gas/la niebla/los vapores/el aerosol" },
-  { description: "Lavarse concienzudamente tras la manipulación" },
-  { description: "Llevar guantes/prendas/gafas/máscara de protección" },
-  { description: "Guardar bajo llave" },
-  { description: "Conservar únicamente en el recipiente original" }
+    { description: "No inhalar el polvo/el gas/la niebla/los vapores." },
+  { description: "Enguagar efectivamente después de su manipulacion." },
+  { description: "Portar ropa/guantes/gafas/máscara de seguridad." },
+  { description: "Almacenar solo en el envase original." }
 ]
 },
 {
@@ -391,32 +394,33 @@ const pictogramasPeligrosos = [
   ],
   meaning: [
     {
-      description: "Explosivo inestable"
+      description: "Explosivo voluble"
     },
     {
-      description: "Explosivo, peligro de explosión en masa"
+      description: "Riesgo de explosión masiva"
     },
     {
-      description: "Explosivo, grave peligro de proyección"
+      description: "Alto peligro de proyecctiles"
     },
     {
-      description: "Explosivo, peligro de incendio, de onda expansiva o de proyección"
+      description: "Riesgo de provocar fuego, de onda expansiva o de proyectarse"
     },
     {
-      description: "Peligro de explosión en masa en caso de incendio"
+      description: "Alta probabilidad de explosión masiva en caso de incendio."
     }
   ],
   findExamples: [
-    { description: "Fuegos artificiales" },
-    { description: "Municion" }
+    { description: "Fuegos pirotecnicos" },
+    { description: "Dinamitas" },
+    { description: "Polvora negra" }
   ],
   tipsExample: [
-    { description: "Solicitar instrucciones especiales antes del uso" },
-    { description: "No manipular la sustancia antes de haber leído y comprendido todas las instrucciones de seguridad" },
-    { description: "Mantener alejado de fuentes de calor, chispas, llama abierta o superficies calientes - No fumar" },
-    { description: "Llevar guantes/prendas/gafas/máscara de protección" },
-    { description: "Utilizar el equipo de protección individual obligatorio" },
-    { description: "Riesgo de explosión en caso de incendio" }
+    { description: "Solicite procediminetos especificas antes de su uso." },
+    { description: "No manipule este material hasta que hacer lectura y entender todas los lienamientos de seguridad." },
+    { description: "Procurar mantener lejos del calor/llamas abiertas/chispas/superficies al altas temperaturas. - nunca Fumar." },
+    { description: "portar guantes/ropa/gafas/máscara de seguridad." },
+    { description: "Utilice los elementos de protección personal obligatorio." },
+    { description: "Alta probabilidad de explosines durante un incendio." }
   ],
 },
   {
@@ -426,28 +430,29 @@ const pictogramasPeligrosos = [
       { description: "Oxidantes" }
     ],
     meaning: [
-    { description: "Puede provocar o agravar un incendio; comburente" },
-  { description: "Puede provocar un incendio o una explosión; muy comburente" },
+    { description: "Comburente: pueden iniciar o agudizar un incendio." },
+  { description: "Muy comburente: una explosión;" },
     ],
     findExamples: [
     { description: "Lejía" },
-  { description: "Oxígeno para usos médicos" },
+  { description: "Agua oxigenada" },
+  { description: "Sales de pergamanato " },
     ],
     tipsExample: [
-    { description: "Mantener alejado de fuentes de calor, chispas, llama abierta o superficies calientes - No fumar" },
-  { description: "Llevar guantes/prendas/gafas/máscara de protección" },
-  { description: "Aclarar inmediatamente con agua abundante las prendas y la piel contaminadas antes de quitarse la ropa" }
+    { description: "Procurar mantener lejos fuentes calor/llamas abiertas/chispas/superficies al altas tempereaturas" },
+    { description: "Nunca fumar" },
+  { description: "Portar guantes/ropa/gafas/máscara de seguridad." },
+  { description: "Enjuague la piel y ropas contaminadas con mucha de agua inmediatamente antes de despojarese de la ropa" }
     ],
   },
   {
   title: "Medio ambiente",
   image: "assets/img/pictograma-peligro-medio-ambiental.jpg",
   items: [
-    { description: "Toxicidad acuática" },
+    { description: "Toxicidad en medios acuáticos" },
   ],
   meaning: [
-  { description: "Muy tóxico para los organismos acuáticos, con efectos nocivos duraderos" },
-  { description: "Tóxico para los organismos acuáticos, con efectos nocivos duraderos" },
+  { description: "Tóxico para la vida acuátia, con cocncecuencias nocivas duraderas." }
   ],
   findExamples: [
   { description: "Plaguicidas" },
@@ -456,8 +461,8 @@ const pictogramasPeligrosos = [
   { description: "Trementina" },
   ],
   tipsExample: [
-  { description: "Evitar su liberación al medio ambiente" },
-  { description: "Recoger el vertido" }
+  { description: "No permitir su progapagacion al medio ambiente." },
+  { description: "Recolectar el vertimineto." }
   ],
 },
 {
@@ -467,12 +472,9 @@ const pictogramasPeligrosos = [
     { description: "Toxicidad aguda (fatal o tóxica)" },
   ],
   meaning: [
-  { description: "Mortal en caso de ingestión" },
-  { description: "Mortal en contacto con la piel" },
-  { description: "Mortal en caso de inhalación" },
-  { description: "Tóxico en caso de ingestión" },
-  { description: "Tóxico en contacto con la piel" },
-  { description: "Tóxico por inhalación" },
+  { description: "Letal y toxico por ingestión." },
+  { description: "Letal y toxicio al contacto cutaneao directo." },
+  { description: "Letal y toxico por ser inhalado" },
   ],
   findExamples: [
   { description: "Plaguicidas" },
@@ -480,21 +482,20 @@ const pictogramasPeligrosos = [
   { description: "Metanol" },
   ],
   tipsExample: [
-  { description: "Lavarse concienzudamente tras la manipulación" },
-  { description: "No comer, beber ni fumar durante su utilización" },
-  { description: "En caso de ingestión: llamar inmediatamente a un CENTRO de información toxicológica o a un médico" },
-  { description: "Enjuagarse la boca" },
-  { description: "Almacenar en un recipiente cerrado" },
-  { description: "Evitar el contacto con los ojos, la piel o la ropa" },
-  { description: "Llevar guantes/prendas/gafas/máscara de protección" },
-  { description: "En caso de contacto con la piel: lavar suavemente con agua y jabón abundantes" },
-  { description: "Quitarse inmediatamente las prendas contaminadas" },
-  { description: "Lavar las prendas contaminadas antes de volverlas a utilizar" },
-  { description: "No respirar el polvo/el humo/el gas/la niebla/los vapores/el aerosol" },
-  { description: "Utilizar únicamente en exteriores o en un lugar bien ventilado" },
-  { description: "Llevar equipo de protección respiratoria" },
-  { description: "En caso de inhalación: transportar a la víctima al exterior y mantenerla en reposo en una posición confortable para respirar" },
-  { description: "Guardar bajo llave" }
+  { description: "Enguagar eficientemente imdeiatamente de ser manipulado." },
+  { description: "Si es ingerido: Llame inmediatamente a un médico." },
+  { description: "No comer, beber y nunca fumar al momento de su uso." },
+  { description: "Enjugar la boca con abuandante agua" },
+  { description: "Almacenar de manera hermetica." },
+  { description: "Evite contacto, cuataneo, ojos o ropa" },
+  { description: "Use ropa/gafas/guantes/máscara de seguridad." },
+  { description: "Dado el caso del contacto con el cuerpo: Lavar sutilmente con mucha agua y jabón." },
+  { description: "Deshacerse de la ropa comprometida inmediatamente" },
+  { description: "Use equipo de protección respiratoria" },
+  { description: "Lavar la ropa antes de volver a usarla" },
+  { description: "No inhalar el polvo/la niebla/el gas/los vapores" },
+  { description: "Use solo en campo abierto o en áreas bien ventiladas" },
+  { description: "Dado el caso inhalación: salir al aire libre y mantenerse en reposo en una posición que facilite la respiracion" },
   ],
 },
 ];
@@ -2033,6 +2034,7 @@ const itemsAcordion2 = [
     ]
   }
 ]
+
 ---
 
 <Layout title="Sistema interno para el manejo de residuos peligrosos">
@@ -2045,15 +2047,23 @@ const itemsAcordion2 = [
       <section class="h-screen w-screen overflow-hidden relative">
         <div class="z-30 relative w-screen h-full flex flex-col">
           <header class="flex flex-grow justify-center items-end">
-            <div class="p-6 bg-black opacity-80 rounded-lg">
+            <div class="p-10 bg-black opacity-80 rounded-lg flex flex-col justify-center items-center gap-4">
               <h1
-          class="mb-4 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl"
+          class="mb-4 text-xl text-center font-extrabold text-gray-900 dark:text-white md:text-4xl lg:text-5xl"
         >
           <span
             class="text-transparent bg-clip-text bg-gradient-to-r to-emerald-600 from-sky-400"
-            >SISTEMA INTERNO PARA EL MANEJO <br /> DE <br /> RESIDUOS PELIGROSOS</span>
+            >DISEÑO DE UN SISTEMA INTERNO PARA EL MANEJO DE RESIDUOS PELIGROSOS PROCEDENTES DE LOS LABORATORIOS DE INGENIERIA QUIMICA DEL CAMPUS PIEDRA DE BOLIVAR.</span>
         </h1>
+        <div>
+          <button class="download-button" id='downloadBtn'>
+            <div class="docs"><svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="20" width="20" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line y2="13" x2="8" y1="13" x1="16"></line><line y2="17" x2="8" y1="17" x1="16"></line><polyline points="10 9 9 9 8 9"></polyline></svg>DOCUMENTO</div>
+            <div class="download">
+              <svg class="css-i6dzq1" stroke-linejoin="round" stroke-linecap="round" fill="none" stroke-width="2" stroke="currentColor" height="24" width="24" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line y2="3" x2="12" y1="15" x1="12"></line></svg>
             </div>
+          </button>
+            </div>
+          </div>
           </header>
           <footer
             class="flex flex-grow justify-end items-center flex-col mb-24"
@@ -2078,6 +2088,30 @@ const itemsAcordion2 = [
         </div>
       </section>
     </div>
+    <section class='py-16 p-6'>
+      
+      <div class="bg-transparent dark:bg-gray-800 overflow-hidden relative">
+        <div class="text-center lg:w-1/2 w-full py-12 px-4 sm:px-6 lg:py-16 lg:px-8 z-20">
+            <h2 class="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
+                <span class="block">
+                  UNIVERSIDAD DE CARTAGENA
+                </span>
+                <span class="block text-indigo-500">
+                  FACULTAD DE INGENIERÍA
+                </span>
+                <span class="block text-indigo-500">
+                  PROGRAMA DE INGENIERÍA QUÍMICA 
+                </span>
+            </h2>
+            <p class="text-xl mt-4 text-gray-400">
+              CARTAGENA DE INDIAS, D.T. Y C. <br />
+              2023              
+            </p>
+        </div>
+        <img src="assets/img/pngwing.com.png" class="lg:absolute lg:top-0 lg:right-0 block h-full lg:max-w-1/2 w-3/4 mx-auto"/>
+      </div>
+
+    </section>
     <div class="snap-center">
       <section
         class="w-screen min-h-screen overflow-hidden relative container-intro mb-6"
@@ -2092,25 +2126,10 @@ const itemsAcordion2 = [
             </header>
             <main class="p-5">
               <p>
-                El correcto manejo de residuos peligrosos es una prioridad
-                actualmente en cualquier lugar donde se generen, es un requisito
-                de cada institución, organización, empresa, industria, entre
-                otros contar con un desempeño solido en el control de los
-                impactos de actividades, productos y servicios sobre el medio
-                ambiente, de acuerdo con su política y objetivo ambiental. El
-                manejo adecuado de los productos químicos residuales es un punto
-                importante en la conservación de la naturaleza específicamente
-                en la protección del aire, el agua y el suelo, de igual manera
-                es crucial para preservar el bienestar físico de cada individuo. <br
-                /> Este sistema de manejo está destinado principalmente a guiar a
-                las partes responsables a preservar su integridad física, las de
-                los demás y la naturaleza que les rodea, a mitigar posibles accidentes
-                dentro las instalaciones de los laboratorios, identificar los riesgos
-                de un mal manejo de los residuos, tener claridad de los efectos de
-                cada reactivo y su nivel de peligrosidad, todo esto amparado bajo
-                el marco legal vigente del decreto 1076 2015, decreto 1496 de 2018
-                y la política ambiental de la universidad de Cartagena del del acuerdo
-                N°6 del 22 de febrero de 2018.
+                El correcto manejo de residuos peligrosos es una prioridad actualmente en cualquier lugar donde se generen, es un requisito de cada institución, organización, empresa, industria, entre otros contar con un desempeño solido en la máxima mitigación de los impactos generador en actividades, productos y servicios sobre el medio ambiente, de acuerdo con la política y objetivo ambiental. El manejo adecuado de los residuos químicos, resulta importante en cuanto a la prolongación de la vida natural y de igual manera es crucial para preservar el bienestar físico de cada individuo.
+                <br />
+                Este sistema de manejo está destinado principalmente a guiar a las partes responsables a preservar su integridad física, las de los demás y la naturaleza que les rodea, a mitigar posibles accidentes dentro las instalaciones de los laboratorios, identificar los riesgos de un mal manejo de los residuos, tener claridad de los efectos de cada reactivo y su nivel de peligrosidad, todo esto amparado bajo el marco legal vigente del decreto 1076 2015, decreto 1496 de 2018 y la política ambiental de la universidad de Cartagena del del acuerdo N°6 del 22 de febrero de 2018. 
+
               </p>
             </main>
             <div class="md:w-48 md:mx-auto md:block hidden">
@@ -2128,10 +2147,7 @@ const itemsAcordion2 = [
             </header>
             <footer class="p-5">
               <p>
-                Informar a cada individuo que haga uso de las instalaciones,
-                sobre el protocolo de manejo de residuos peligrosos dentro del
-                laboratorio de Ingeniería Química del Campus Piedra de Bolívar,
-                con el fin de evitar riesgos y accidentes.
+                Informar a cada individuo que haga uso de las instalaciones, sobre el protocolo de manejo de residuos peligrosos dentro del laboratorio de Ingeniería Química del Campus Piedra de Bolívar, con el fin de evitar riesgos y accidentes. 
               </p>
             </footer>
           </div>
@@ -2147,22 +2163,16 @@ const itemsAcordion2 = [
             <main class="p-5">
               <ol class="list-decimal list-inside space-y-2">
                 <li>
-                  Identificar y caracterizar las sustancias y residuos que se
-                  generan dentro del laboratorio, para una correcta manipulación
-                  al momento de desecharlos.
+                  Identificar y caracterizar las sustancias y residuos que se generan dentro del laboratorio, para una correcta manipulación al momento de desecharlos
                 </li>
                 <li>
-                  Comprender cada una de las etapas de la gestión de residuos:
-                  segregación, movimiento interno, almacenamiento y disposición
-                  final.
+                  Comprender en su totalidad las fases de la gestión de residuos: segregación, movimiento interno, almacenamiento y disposición final.
                 </li>
                 <li>
-                  Distinguir los espacios y elementos estipulados para el
-                  almacenamiento de desechos.
+                  Distinguir los espacios y elementos estipulados para el almacenamiento de desechos
                 </li>
                 <li>
-                  Reconocer los diferentes pasos a seguir en caso de emergencia,
-                  según su origen.
+                  Reconocer los diferentes pasos a seguir en caso de emergencia, según su origen.
                 </li>
               </ol>
             </main>
@@ -2176,9 +2186,7 @@ const itemsAcordion2 = [
           Normas básicas de seguridad a seguir dentro del laboratorio
         </h1>
         <p class="mb-8 text-center">
-          Todas las normas mencionadas a continuación son importantes y se deben
-          cumplir correctamente para evitar que ocurran accidentes dentro del
-          laboratorio.
+          Todas las normas mencionadas a continuación son importantes y se deben cumplir correctamente, para evitar que ocurran accidentes dentro del laboratorio.
         </p>
 
         <div
@@ -2209,11 +2217,7 @@ const itemsAcordion2 = [
             >PICTOGRAMAS DE PELIGROS</span>
         </h1>
         <p>
-          Los pictogramas de peligro químico son símbolos gráficos utilizados
-          para indicar los riesgos asociados al uso de sustancias químicas.
-          Estos pictogramas se utilizan en los envases de sustancias o mezclas
-          químicas con el fin de advertir a los usuarios sobre los peligros
-          físicos y los riesgos para la salud que pueden presentar
+          Los pictogramas de peligro químico son símbolos gráficos utilizados para indicar los peligros asociados a la manipulación de sustancias químicas. Estos pictogramas se utilizan en los envases de sustancias o mezclas químicas con el fin de advertir a los usuarios sobre los peligros físicos y los riesgos para la salud que pueden presentar
         </p>
         <swiper-container class='px-6' slides-per-view="1" speed="500" loop="true" css-mode="true" navigation='true' pagination='true'>
           {
@@ -2822,5 +2826,85 @@ const itemsAcordion2 = [
       color: black;
       transform: rotateY(180deg);
     }
+
+    .download-button {
+ position: relative;
+ border-width: 0;
+ color: white;
+ font-size: 15px;
+ font-weight: 600;
+ border-radius: 4px;
+ z-index: 1;
+}
+
+.download-button .docs {
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ gap: 10px;
+ min-height: 40px;
+ padding: 0 10px;
+ border-radius: 4px;
+ z-index: 1;
+ background-color: #242a35;
+ border: solid 1px #e8e8e82d;
+ transition: all .5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.download-button:hover {
+ box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.download {
+ position: absolute;
+ inset: 0;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ max-width: 90%;
+ margin: 0 auto;
+ z-index: -1;
+ border-radius: 4px;
+ transform: translateY(0%);
+ background-color: #01e056;
+ border: solid 1px #01e0572d;
+ transition: all .5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.download-button:hover .download {
+ transform: translateY(100%)
+}
+
+.download svg polyline,.download svg line {
+ animation: docs 1s infinite;
+}
+
+@keyframes docs {
+ 0% {
+  transform: translateY(0%);
+ }
+
+ 50% {
+  transform: translateY(-15%);
+ }
+
+ 100% {
+  transform: translateY(0%);
+ }
+}
   </style>
+
+  <script>
+    const downloadBtn = document.getElementById('downloadBtn');
+    downloadBtn.addEventListener('click', () => {
+      const pdfUrl = './SISTEMA_INTERNO_PARA_EL_MANEJO_DE_RESIDUOS.pdf';
+      
+      const link = document.createElement('a');
+      link.href = pdfUrl;
+      link.download = 'SISTEMA_INTERNO_PARA_EL_MANEJO_DE_RESIDUOS.pdf';
+      link.target = '_blank';
+      
+      link.click();
+    });
+  </script>
 </Layout>
